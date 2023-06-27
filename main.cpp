@@ -482,9 +482,6 @@ class Disk_Manager
                 
             }
             //archivo2<<header<<endl;
-            
-
-
             char c;
             int capacidad = 2;
             int j = 0;
@@ -876,20 +873,30 @@ class Frame
         int pageId;
         bool dirtyBit;
         int pinCount;
-        long long leastUsed;
-        int* position;
+        int lastUsed;
+        int *position;
         int *sectors;
-
         int finish_bucle=1;
     public:
         Frame(){}
+
+        int getPageId() const { return pageId; }
+        int getFrameId() const { return frameId; }
+        bool isDirty() const { return dirtyBit; }
+        void setDirty(bool value) { dirtyBit = value; }
+        void setId(int n){pageId = n;}
+        int getPinCount() const { return pinCount; }
+        void incrementPinCount() { pinCount++; }
+        void decrementPinCount() { pinCount--; }
+        int getLastUsed() const { return lastUsed; }
+        void updateLastUsed(int timestamp) { lastUsed = timestamp; }
         Frame(int nframe, int pageid, bool dirty, int pinCo, long long used)
         {
             frameId = nframe;
             pageId = pageid;
             dirtyBit = dirty;
             pinCount = pinCo;
-            leastUsed = used;
+            lastUsed = used;
             position = new int[2];
         }
         void setFrame_with_Page(int* positionRecord, string nameTable)
@@ -897,7 +904,7 @@ class Frame
             position[0]=positionRecord[0];
             position[1]=positionRecord[1];
             fstream frame("buffer/frame"+to_string(frameId)+".txt", ios::out);
-            fstream archivo("files/"+nameTable+".txt", ios::in);
+            ifstream archivo("files/"+nameTable+".txt", ios::binary |ios::in);
 
             // find the size of the first line of the file
             string aux;
@@ -918,7 +925,6 @@ class Frame
             archivo.read(A, end - start);
             A[end - start] = '\0';
             archivo.close();
-
 
             string header="";
             for (size_t i = 0; i < size_per_register_file; i++)
@@ -1011,8 +1017,7 @@ class Frame
 
         bool findRecord(int frameId, int recordID)
         {
-            
-            cout<<"HOMUOO: "<<recordID<<":->"<<position[0]<<":"<<position[1]<<endl;
+            //cout<<"HOMUOO: "<<recordID<<":->"<<position[0]<<":"<<position[1]<<endl;
             
             string value_to_find = to_string(recordID);
             int size_of_valueFind = 5;
@@ -1040,11 +1045,12 @@ class Frame
                 //find register to delete
                 string temp2(value);
                 temp2.erase(std::remove_if(temp2.begin(), temp2.end(), [](char c) { return std::isspace(c); }), temp2.end());
-
                 if(temp2==value_to_find)
                 {
-                    cout<<temp2<<" eCONR: "<<endl;
-                    delete_RecordBuffer(frameId, recordID, lines_counter);
+                    //cout<<temp2<<" eCONR: "<<endl;
+                    //delete_RecordBuffer(frameId, recordID, lines_counter);
+                    cout<< "Linea encontrada eCONR: " << lines_counter<<endl;
+                    cout<<temp2<<endl;
                     return true;
                 }
             }
@@ -1308,142 +1314,209 @@ class Frame
 };
 
 class BufferManager {
-private:
-    std::unordered_map<int, std::list<Frame>::iterator> frameMap;
-    std::list<Frame> bufferPool;
-    int bufferSize;
-    //Disk_Manager *DM;
-    bool empty;
-    int nextFrameId;
 public:
-    BufferManager(int size) : bufferSize(size), empty(true), nextFrameId(0){}
     
-    bool readRecord(int pageId, int record, int *data, string nameTable, string &strRecord, Disk_Manager* DM) {
-          
-        //cout<<"entra qui"<<endl;
-        cout<<"**********"<<endl;
-        cout<<"**********"<<endl;
-        cout<<"**********"<<endl;
-        if (frameMap.find(pageId) != frameMap.end()) {
-            // La página ya está en el búfer, se actualiza su posición en el minheap y se incrementa el pin count
-            auto frameIter = frameMap[pageId];
-            frameIter->leastUsed = getCurrentTimestamp();
-            frameIter->pinCount++;
-            
-            // reading
+    int bufferSize;
+    int timestamp=0;
+    vector<Frame *> buffer;
+    int it = 0;
+    // BufferManager(int size) : bufferSize(size), timestamp(0)
+    // {
+    //     buffer.reserve(bufferSize);
+    // }
 
-            cout<<"_____________________________________________________________________________________"<<endl;
-            cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+    ~BufferManager()
+    {
+        for (Frame *page : buffer)
+        {
+            delete page;
+        }
+    }
+
+    bool evictPage(int id, int record, int *data, string nameTable, Disk_Manager * DM)
+    {
+        Frame *frameIter = *std::min_element(buffer.begin(), buffer.end(), [](const Frame *a, const Frame *b)
+                                                    { return a->getLastUsed() < b->getLastUsed(); });
+
+        int temp = frameIter->getFrameId();
+        timestamp++;
+        frameIter->setId(id);
+        frameIter->setDirty(0);
+        //frameIter->updateLastUsed(timestamp);
+
+        frameIter->setFrame_with_Page(data,nameTable);
+        //frameIter->updateLastUsed(timestamp);
+        //buffer[temp] = ta;
+
+        //cout<<"RECORD: "<<id<<"-"<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
             cout<<endl;
-            std::cout << "Reading Page " << pageId << " from buffer." << std::endl;
+            //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
             int start = frameIter->position[0];
             int end = frameIter->position[1];
-            if(start >=record && record <= end)
-            {
-                int position_Frame = (record-start + 1);
-                strRecord = frameIter->get_RecordBuffer(position_Frame);
-                return true;
-            }
-
-        } else {
-            // La página no está en el búfer, se carga desde el almacenamiento secundario
-            cout<<frameMap.size()<<"::"<<bufferSize<<endl;
-            if (frameMap.size() == bufferSize) {
-                // El búfer está lleno, se debe hacer espacio
-                evictPageLRU(DM);
-            }
-            // Se crea un nuevo frame para la página y se agrega al búfer
-            Frame newFrame(getNextFrameId(), pageId, false, 1, getCurrentTimestamp());
-            newFrame.setFrame_with_Page(data,nameTable);
-            bufferPool.push_front(newFrame);
-            frameMap[pageId] = bufferPool.begin();
-            auto frameIter = frameMap[pageId];
-
-            cout<<"_____________________________________________________________________________________"<<endl;
-            cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            cout<<endl;
-            std::cout << "Reading Page " << pageId << " from storage." << std::endl;
-            int start = frameIter->position[0];
-            int ending = frameIter->position[1];
-            
-           // cout<<"\n"<<start<<":"<<ending<<"->"<<record<< endl<<endl;
-            if(record >=start && record <= ending)
+            if(frameIter->findRecord(temp, record))
             {
                 cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
                 int position_Frame = (record-start + 1);
-                strRecord = frameIter->get_RecordBuffer(position_Frame);
-                
-                cout<<"\n\nREGISTRO ENCONTRADO"<<endl;
-                return true;
+                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+                frameIter->dirtyBit=true;
+                frameIter->updateLastUsed(timestamp);
+                timestamp++;
+                                printPageStates();
 
+                return true;
+            }
+        //delete paa;
+        return 0;
+    }
+    
+    bool addPage(int id, int record, int *data, string nameTable, Disk_Manager * DM)
+    {
+        Frame *pageToEvict = nullptr;
+        Frame *frameIter = findPage(id);
+        if(frameIter != nullptr){
+            //cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+            cout<<endl;
+            //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+            int start = frameIter->position[0];
+            int end = frameIter->position[1];
+            if(frameIter->findRecord(frameIter->frameId, record))
+            {
+                frameIter->updateLastUsed(timestamp);
+                timestamp++;
+                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+                int position_Frame = (record-start + 1);
+                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+                frameIter->dirtyBit=true;
+                printPageStates();
+                return true;
+            }
+
+            return 0;
+        }
+        if(it+1 > bufferSize){
+            return evictPage(id,record,data,nameTable,DM);
+        }
+        cout<<it<<endl;
+            cout<<data[0]<<"***"<<data[1]<<endl;
+        timestamp++;
+        Frame *aux = new Frame(id,it,0,0,timestamp);
+        aux->setFrame_with_Page(data,nameTable);
+        buffer.push_back(aux);
+        it++;
+        //cout<<"RECORD: "<<record<<"->"<<aux->position[0]<<":"<<aux->position[1]<<endl;
+            cout<<endl;
+            //std::cout << "Writing Page " << aux->getFrameId() << " to buffer." << std::endl;
+            int start = aux->position[0];
+            int end = aux->position[1];
+
+            if(aux->findRecord(aux->frameId, record))
+            {
+                aux->updateLastUsed(timestamp);
+                timestamp++;
+                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+                int position_Frame = (record-start + 1);
+                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+                aux->dirtyBit=true;
+                return true;
+            }
+        return 0;
+    }
+    Frame *findPage(int pageId)
+    {
+        for (Frame *page : buffer)
+        {
+            if (page->getPageId() == pageId)
+            {
+                return page;
             }
         }
-        return false;
+        return nullptr;
+    }
+    void printPageStates()
+    {
+        cout << "Estado de las páginas en el buffer pool:" << endl;
+        for (Frame *page : buffer)
+        {
+            cout << "ID de la página: " << page->getPageId() << endl;
+            cout << "Dirty Bit: " << (page->isDirty() ? "true" : "false") << endl;
+            cout << "Pin Count: " << page->getPinCount() << endl;
+            cout << "Frame ID: " << distance(buffer.begin(), find(buffer.begin(), buffer.end(), page)) << endl;
+            cout << "Último uso: " << page->getLastUsed() << endl;
+            cout << endl;
+        }
     }
 
-   
-
+    Disk_Manager *DM;
+    bool empty;
+    int nextFrameId;
+public:
+    BufferManager(int size) : bufferSize(size), empty(true), nextFrameId(0){
+        buffer.reserve(bufferSize);
+    }
     
     bool writePage_Delete(int pageId, int record, int *data, string nameTable, Disk_Manager * DM) {
         cout<<"**********"<<endl;
         cout<<"**********"<<endl;
         cout<<"**********"<<endl;
-        if (frameMap.find(pageId) != frameMap.end()) {
-            auto frameIter = frameMap[pageId];
-            //frameIter->dirtyBit = true;
-            frameIter->leastUsed = getCurrentTimestamp();
-            frameIter->pinCount++;
+        return 0;
+    }
+        
+    //     if (frameMap.find(pageId) != frameMap.end()) {
+    //         auto frameIter = frameMap[pageId];
+    //         //frameIter->dirtyBit = true;
+    //         frameIter->leastUsed = getCurrentTimestamp();
+    //         frameIter->pinCount++;
             
-            cout<<"_____________________________________________________________________________________"<<endl;
-            cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            cout<<endl;
-            std::cout << "Writing Page " << pageId << " to buffer." << std::endl;
-            int start = frameIter->position[0];
-            int end = frameIter->position[1];
-             if(frameIter->findRecord(frameIter->frameId, record))
-            {
-                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-                int position_Frame = (record-start + 1);
-                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-                frameIter->dirtyBit=true;
-                return true;
+    //         cout<<"_____________________________________________________________________________________"<<endl;
+    //         cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+    //         cout<<endl;
+    //         std::cout << "Writing Page " << pageId << " to buffer." << std::endl;
+    //         int start = frameIter->position[0];
+    //         int end = frameIter->position[1];
+    //          if(frameIter->findRecord(frameIter->frameId, record))
+    //         {
+    //             cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+    //             int position_Frame = (record-start + 1);
+    //             //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+    //             frameIter->dirtyBit=true;
+    //             return true;
 
-            }
+    //         }
            
             
-        } else {
-            if (frameMap.size() == bufferSize) {
-                evictPageLRU(DM);
-            }
-            Frame newFrame(getNextFrameId(), pageId, false, 1, getCurrentTimestamp());
-            newFrame.setFrame_with_Page(data,nameTable);
-            bufferPool.push_front(newFrame);
-            frameMap[pageId] = bufferPool.begin();
-            auto frameIter = frameMap[pageId];
+    //     } else {
+    //         if (frameMap.size() == bufferSize) {
+    //             evictPageLRU(DM);
+    //         }
+    //         Frame newFrame(getNextFrameId(), pageId, false, 1, getCurrentTimestamp());
+    //         newFrame.setFrame_with_Page(data,nameTable);
+    //         bufferPool.push_front(newFrame);
+    //         frameMap[pageId] = bufferPool.begin();
+    //         auto frameIter = frameMap[pageId];
 
-            cout<<"_____________________________________________________________________________________"<<endl;
-            cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            cout<<endl;
-            std::cout << "Writing Page " << pageId << " to STORE." << std::endl;
-            int start = frameIter->position[0];
-            int ending = frameIter->position[1];
+    //         cout<<"_____________________________________________________________________________________"<<endl;
+    //         cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+    //         cout<<endl;
+    //         std::cout << "Writing Page " << pageId << " to STORE." << std::endl;
+    //         int start = frameIter->position[0];
+    //         int ending = frameIter->position[1];
             
-           // cout<<start<<" : "<<ending<<endl;
-            cout<<"\n"<<start<<":"<<ending<<"->"<<record<< endl<<endl;
-            if(frameIter->findRecord(frameIter->frameId, record))
-            {
-                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-                int position_Frame = (record-start + 1);
-                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-                frameIter->dirtyBit=true;
-                return true;
+    //        // cout<<start<<" : "<<ending<<endl;
+    //         cout<<"\n"<<start<<":"<<ending<<"->"<<record<< endl<<endl;
+    //         if(frameIter->findRecord(frameIter->frameId, record))
+    //         {
+    //             cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+    //             int position_Frame = (record-start + 1);
+    //             //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+    //             frameIter->dirtyBit=true;
+    //             return true;
 
-            }
+    //         }
             
 
-        }
-        return false;
-    }
+    //     }
+    //     return false;
+    // }
 
 
     // bool writePage_Insert(int pageId, int record, int *data, string nameTable) {
@@ -1490,33 +1563,33 @@ public:
     // }
 
 
-    void pinPage(int pageId) {
-        if (frameMap.find(pageId) != frameMap.end()) {
-            auto frameIter = frameMap[pageId];
-            frameIter->pinCount++;
-            std::cout << "Pinning Page " << pageId << "." << std::endl;
-        } else {
-            std::cout << "Page " << pageId << " not found in buffer." << std::endl;
-        }
-    }
+    // void pinPage(int pageId) {
+    //     if (frameMap.find(pageId) != frameMap.end()) {
+    //         auto frameIter = frameMap[pageId];
+    //         frameIter->pinCount++;
+    //         std::cout << "Pinning Page " << pageId << "." << std::endl;
+    //     } else {
+    //         std::cout << "Page " << pageId << " not found in buffer." << std::endl;
+    //     }
+    // }
 
-    void unpinPage(int pageId) {
-        if (frameMap.find(pageId) != frameMap.end()) {
-            auto frameIter = frameMap[pageId];
-            if (frameIter->pinCount > 0) {
-                frameIter->pinCount--;
-            }
-            std::cout << "Unpinning Page " << pageId << "." << std::endl;
-        } else {
-            std::cout << "Page " << pageId << " not found in buffer." << std::endl;
-        }
-    }
+    // void unpinPage(int pageId) {
+    //     if (frameMap.find(pageId) != frameMap.end()) {
+    //         auto frameIter = frameMap[pageId];
+    //         if (frameIter->pinCount > 0) {
+    //             frameIter->pinCount--;
+    //         }
+    //         std::cout << "Unpinning Page " << pageId << "." << std::endl;
+    //     } else {
+    //         std::cout << "Page " << pageId << " not found in buffer." << std::endl;
+    //     }
+    // }
     bool IsEmptyBuffer()
     {
-        return (bufferPool.size() < bufferSize)? true: false;
+        return (buffer.size() < bufferSize) ? true: false;
     }
     friend class DATABASE;
-private:
+    private:
     long long getCurrentTimestamp() {
         return std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::system_clock::now().time_since_epoch()
@@ -1529,14 +1602,14 @@ private:
             nextFrameId = 1;
         return nextFrameId;
     }
-
+/*
     void evictPageLRU(Disk_Manager* DM) {
         
         auto lruFrameIter = std::min_element(
-            bufferPool.begin(), bufferPool.end(),
+            buffer.begin(), buffer.end(),
             [](const Frame& a, const Frame& b) {
                 if (a.pinCount == 0 && b.pinCount == 0) {
-                    return a.leastUsed < b.leastUsed;
+                    return a.getLastUsed < b.getLastUsed();
                 } else if (a.pinCount == 0) {
                     return true;
                 } else if (b.pinCount == 0) {
@@ -1545,6 +1618,8 @@ private:
                 return false;
             }
         );
+
+        
 
         Frame lruFrame = *lruFrameIter;
         cout<<"_____________________________________________________________________________________"<<endl;
@@ -1568,6 +1643,7 @@ private:
         
 
     }
+    */
 };
 
 
@@ -1578,61 +1654,34 @@ class DATABASE
         BufferManager *BM;
 
     public:
+        void sql_request_find(){
+            
+        }
         DATABASE(Disk_Manager *dm, BufferManager* bm)
         {
             DM = dm;
             BM = bm;
         }
+        
         void sql_Request(int recordNum)
         {
             string record;
             list<Frame>::iterator it;
-            if(BM->IsEmptyBuffer())
-            {
+            
                 for (int i = 0; i < DM->cantidad_bloques; i++)
                 {
-                    if(BM->readRecord(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), record, DM))
+                    if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
                     {                        
                         break;
                     }
-                    BM->unpinPage(i);
+                    //BM->unpinPage(i);
                     
                 }
-            }else{
-                cout<<"pipasidfapsidfpaifpadsifadpsifoadsifásifásifdásidfásfas´dfiasdfia´sidfasífasdfasfasdf"<<endl;
-                int size = BM->bufferSize;
-                bool terminarBucles = false;
-                for (int i = 0; i < DM->cantidad_bloques && !terminarBucles; i++)
-                {
-                    for (it = BM->bufferPool.begin(); it != BM->bufferPool.end(); ++it)
-                    {
-                        // if (*it=)
-                        // {
-                        //     /* code */
-                        // }
-                        cout<<"eNTRAIF: "<<endl;
-                        cout<<"eNTRAIF2: "<<(it->frameId)<<endl;
-                        if((*it).pageId !=i )
-                        {
-                                cout<<"ada32::"<<i<<endl;
-                            if(BM->readRecord(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), record, DM))
-                            {
-                                cout<<"adaTRUE"<<endl;
-
-                                terminarBucles = true;
-                                break;
-                            }
-                                cout<<"ada"<<endl;
-                                BM->unpinPage(i);
-                            
-                        }
-                    }   
-                }
-            }
-
+           
+            
             cout<<"DATABASE: "<<record<<endl;
         }
-
+/*
         void sql_Request_Delete(int recordNum)
         {
             string record;
@@ -1711,6 +1760,7 @@ class DATABASE
 
             cout<<"Registro Insertado!"<<endl;
         }
+        */
 };
 
 /*
@@ -1830,7 +1880,7 @@ int main()
 
     Disk disco(1, 5, 5, 3460);  //5 register per sector
     Disk_Manager directorios(5, &disco);
-    BufferManager buffer(3);
+    BufferManager buffer(4);
     //cout<<nameTable<<endl;
     directorios.loadDataScheme("scheme",nameTable.c_str());
     directorios.generatePages();
@@ -1839,8 +1889,15 @@ int main()
 
     // make a request: queiro registro 20
     DATABASE db(&directorios,&buffer);
-    //db.sql_Request(424);
-    db.sql_Request_Delete(203);
+    db.sql_Request(423);
+    db.sql_Request(561);
+    db.sql_Request(13);
+    db.sql_Request(20);
+    db.sql_Request(432);
+    db.sql_Request(700);
+    db.sql_Request(215);
+
+    //db.sql_Request_Delete(203);
     // db.sql_Request_Delete(213);
     // db.sql_Request(313);
     // db.sql_Request(413);
