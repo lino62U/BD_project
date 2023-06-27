@@ -1,0 +1,8 @@
+estudiante#id#int#nombre#str#apellido#str#edad#int#facultad#str#
+profesor#id#int#nombre#str#apellido#str#salario#int#facultad#str#
+escuela#id#int#nombre#str#facultad#str#
+celular#id#int#marca#str#modelo#str#tamanio#float#
+titanic#Passengerld#int#Survived#int#Pclass#int#Name#str#Sex#str#Age#float#SibSp#int#Parch#int#Ticket#str#Fare#float#Cabin#str#Embarked#str#
+animal#id#int#nombre#str#raza#str#color#str#
+instructor#id#str#name#str#dept_name#str#salary#double#
+titanic#Passengerld#int5#Survived#int5#Pclass#int5#Name#str90#Sex#str7#Age#int10#SibSp#int5#Parch#int5#Ticket#str20#Fare#float20#Cabin#str20#Embarked#str5#
