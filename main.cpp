@@ -507,7 +507,7 @@ class Disk_Manager
                                 strcat(palabra," ");
                             }
                         
-                            //archivo2<<std::string(palabra);
+                            // archivo2<<std::string(palabra);
                             aux++;
                             word="";
                             delete [] palabra;
@@ -523,7 +523,7 @@ class Disk_Manager
                         }
                         h++;
                     }
-                    //archivo2<<endl;
+                    // archivo2<<endl;
                     capacidad = 2;
                     j = 0;
                     delete[] arreglo;
