@@ -481,7 +481,7 @@ class Disk_Manager
                 }
                 
             }
-            archivo2<<header<<endl;
+            //archivo2<<header<<endl;
             
 
 
@@ -507,7 +507,7 @@ class Disk_Manager
                                 strcat(palabra," ");
                             }
                         
-                            archivo2<<std::string(palabra);
+                            //archivo2<<std::string(palabra);
                             aux++;
                             word="";
                             delete [] palabra;
@@ -523,7 +523,7 @@ class Disk_Manager
                         }
                         h++;
                     }
-                    archivo2<<endl;
+                    //archivo2<<endl;
                     capacidad = 2;
                     j = 0;
                     delete[] arreglo;
@@ -1840,7 +1840,7 @@ int main()
     // make a request: queiro registro 20
     DATABASE db(&directorios,&buffer);
     //db.sql_Request(424);
-    //db.sql_Request_Delete(203);
+    db.sql_Request_Delete(203);
     // db.sql_Request_Delete(213);
     // db.sql_Request(313);
     // db.sql_Request(413);
