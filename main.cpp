@@ -1044,18 +1044,66 @@ class Frame
 
                 //find register to delete
                 string temp2(value);
+                string temp3= temp2;
                 temp2.erase(std::remove_if(temp2.begin(), temp2.end(), [](char c) { return std::isspace(c); }), temp2.end());
                 if(temp2==value_to_find)
                 {
                     //cout<<temp2<<" eCONR: "<<endl;
                     //delete_RecordBuffer(frameId, recordID, lines_counter);
-                    cout<< "Linea encontrada eCONR: " << lines_counter<<endl;
+                    cout<< "Linea encontrada: " << lines_counter<<endl;
+                    string lineaPrint;
+                    getline(archivo,lineaPrint);
+
+                    cout<<temp3+lineaPrint<<endl;
+                    //cout<<temp2<<endl;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool findRecord_toDelete(int frameId, int recordID)
+        {
+            //cout<<"HOMUOO: "<<recordID<<":->"<<position[0]<<":"<<position[1]<<endl;
+            
+            string value_to_find = to_string(recordID);
+            int size_of_valueFind = 5;
+            int start_of_valueFind = 0;
+            fstream archivo("buffer/frame"+ to_string(frameId) +".txt");
+            archivo.seekg(0, ios::beg);
+            string temp1;
+            getline(archivo, temp1);
+            int size_ofLinesBytes = archivo.tellg();
+            
+            //cout<<"tamnio linea: "<<size_ofLinesBytes<<endl;
+            archivo.seekg(0, ios::beg);
+            int lines_counter=0;
+            char *value = new char[size_of_valueFind+1];
+            while (true)
+            {
+                if(archivo.eof()) break;
+                lines_counter++;
+                archivo.seekg(start_of_valueFind,ios::beg);
+                archivo.read(value,size_of_valueFind);
+                value[size_of_valueFind]='\0';
+               // cout<<"->"<<value<<":"<<lines_counter<<endl;
+                start_of_valueFind+=size_ofLinesBytes;
+
+                //find register to delete
+                string temp2(value);
+                temp2.erase(std::remove_if(temp2.begin(), temp2.end(), [](char c) { return std::isspace(c); }), temp2.end());
+                if(temp2==value_to_find)
+                {
+                    //cout<<temp2<<" eCONR: "<<endl;
+                    delete_RecordBuffer(frameId, recordID, lines_counter);
+                    //cout<< "Linea Eliminada: " << lines_counter<<endl;
                     cout<<temp2<<endl;
                     return true;
                 }
             }
             return false;
         }
+
         void delete_RecordBuffer(int frameId, int recordID, int lines_counter)
         {
             fstream archivo("buffer/frame"+ to_string(frameId) +".txt");
@@ -1233,14 +1281,14 @@ class Frame
             size_t posicionInicio = 0;
             size_t longitudLinea = 0;
             string linea;
-            cout<<"______________________________________________________________________________________________________________________________________________________________________"<<endl;
-            cout<<texto_in<<endl;
-            cout<<"______________________________________________________________________________________________________________________________________________________________________"<<endl;
-            cout<<"\t\tName: "<<nameFile<<endl;
-            cout<<"\t\tCantidad lineas: "<<cantidalineas<<endl;
-            cout<<"\t\tTmanio:: "<<size_file_register<<endl;
-            cout<<"\t\tLinea a modificar: "<<lineaModificar<<endl;
-            cout<<"\t\tHeader: "<<header<<endl;
+            // cout<<"______________________________________________________________________________________________________________________________________________________________________"<<endl;
+            // cout<<texto_in<<endl;
+            // cout<<"______________________________________________________________________________________________________________________________________________________________________"<<endl;
+            // cout<<"\t\tName: "<<nameFile<<endl;
+            // cout<<"\t\tCantidad lineas: "<<cantidalineas<<endl;
+            // cout<<"\t\tTmanio:: "<<size_file_register<<endl;
+            // cout<<"\t\tLinea a modificar: "<<lineaModificar<<endl;
+            // cout<<"\t\tHeader: "<<header<<endl;
             
             // Busca la ultima linea vacia para poner el puntero (header del frame)
             int temp = 0;
@@ -1320,11 +1368,9 @@ public:
     int timestamp=0;
     vector<Frame *> buffer;
     int it = 0;
-    // BufferManager(int size) : bufferSize(size), timestamp(0)
-    // {
-    //     buffer.reserve(bufferSize);
-    // }
-
+    Disk_Manager *DM;
+    bool empty;
+    int nextFrameId;
     ~BufferManager()
     {
         for (Frame *page : buffer)
@@ -1338,6 +1384,15 @@ public:
         Frame *frameIter = *std::min_element(buffer.begin(), buffer.end(), [](const Frame *a, const Frame *b)
                                                     { return a->getLastUsed() < b->getLastUsed(); });
 
+        if(frameIter->dirtyBit)
+        {
+            // cout<<"SAVE IN DISK"<<endl;
+
+            int *positions_of_frameFiles = frameIter->position;
+            frameIter->save_Disk(DM->disk->getNameTable(), frameIter->frameId);
+            // cout<<"REEMPLAZODO"<<endl;
+        }
+        
         int temp = frameIter->getFrameId();
         timestamp++;
         frameIter->setId(id);
@@ -1349,22 +1404,22 @@ public:
         //buffer[temp] = ta;
 
         //cout<<"RECORD: "<<id<<"-"<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            cout<<endl;
-            //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
-            int start = frameIter->position[0];
-            int end = frameIter->position[1];
-            if(frameIter->findRecord(temp, record))
-            {
-                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-                int position_Frame = (record-start + 1);
-                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-                frameIter->dirtyBit=true;
-                frameIter->updateLastUsed(timestamp);
-                timestamp++;
-                                printPageStates();
+        // cout<<endl;
+        //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+        int start = frameIter->position[0];
+        int end = frameIter->position[1];
+        if(frameIter->findRecord(temp, record))
+        {
+            // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+            int position_Frame = (record-start + 1);
+            //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+            //frameIter->dirtyBit=true;
+            frameIter->updateLastUsed(timestamp);
+            timestamp++;
+            printPageStates();
 
-                return true;
-            }
+            return true;
+        }
         //delete paa;
         return 0;
     }
@@ -1375,7 +1430,7 @@ public:
         Frame *frameIter = findPage(id);
         if(frameIter != nullptr){
             //cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            cout<<endl;
+            //cout<<endl;
             //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
             int start = frameIter->position[0];
             int end = frameIter->position[1];
@@ -1383,10 +1438,10 @@ public:
             {
                 frameIter->updateLastUsed(timestamp);
                 timestamp++;
-                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+                //cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
                 int position_Frame = (record-start + 1);
                 //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-                frameIter->dirtyBit=true;
+                //frameIter->dirtyBit=true;
                 printPageStates();
                 return true;
             }
@@ -1396,31 +1451,137 @@ public:
         if(it+1 > bufferSize){
             return evictPage(id,record,data,nameTable,DM);
         }
-        cout<<it<<endl;
-            cout<<data[0]<<"***"<<data[1]<<endl;
+        // cout<<it<<endl;
+        //     cout<<data[0]<<"***"<<data[1]<<endl;
         timestamp++;
         Frame *aux = new Frame(id,it,0,0,timestamp);
         aux->setFrame_with_Page(data,nameTable);
         buffer.push_back(aux);
         it++;
         //cout<<"RECORD: "<<record<<"->"<<aux->position[0]<<":"<<aux->position[1]<<endl;
-            cout<<endl;
-            //std::cout << "Writing Page " << aux->getFrameId() << " to buffer." << std::endl;
-            int start = aux->position[0];
-            int end = aux->position[1];
+        // cout<<endl;
+        //std::cout << "Writing Page " << aux->getFrameId() << " to buffer." << std::endl;
+        int start = aux->position[0];
+        int end = aux->position[1];
 
-            if(aux->findRecord(aux->frameId, record))
-            {
-                aux->updateLastUsed(timestamp);
-                timestamp++;
-                cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-                int position_Frame = (record-start + 1);
-                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-                aux->dirtyBit=true;
-                return true;
-            }
+        if(aux->findRecord(aux->frameId, record))
+        {
+            aux->updateLastUsed(timestamp);
+            timestamp++;
+            // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+            int position_Frame = (record-start + 1);
+            //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+            //aux->dirtyBit=true;
+            return true;
+        }
         return 0;
     }
+
+
+    bool addPage_toDelete(int id, int record, int *data, string nameTable, Disk_Manager * DM)
+    {
+        Frame *pageToEvict = nullptr;
+        Frame *frameIter = findPage(id);
+
+        // Validate if exist the page in the buffer
+        if(frameIter != nullptr){
+            //cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+            // cout<<endl;
+            //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+            int start = frameIter->position[0];
+            int end = frameIter->position[1];
+            if(frameIter->findRecord_toDelete(frameIter->frameId, record))
+            {
+                frameIter->updateLastUsed(timestamp);
+                timestamp++;
+                // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+                int position_Frame = (record-start + 1);
+                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+                frameIter->dirtyBit=true;
+                printPageStates();
+                return true;
+            }
+
+            return 0;
+        }
+
+        // Case buffer is full
+        if(it+1 > bufferSize){
+            return evictPage_toDelete(id,record,data,nameTable,DM);
+        }
+
+        // Case buffer is empty
+        // cout<<it<<endl;
+        //     cout<<data[0]<<"***"<<data[1]<<endl;
+        timestamp++;
+        Frame *aux = new Frame(id,it,0,0,timestamp);
+        aux->setFrame_with_Page(data,nameTable);
+        buffer.push_back(aux);
+        it++;
+        //cout<<"RECORD: "<<record<<"->"<<aux->position[0]<<":"<<aux->position[1]<<endl;
+        // cout<<endl;
+        //std::cout << "Writing Page " << aux->getFrameId() << " to buffer." << std::endl;
+        int start = aux->position[0];
+        int end = aux->position[1];
+
+        if(aux->findRecord_toDelete(aux->frameId, record))
+        {
+            aux->updateLastUsed(timestamp);
+            timestamp++;
+            // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+            int position_Frame = (record-start + 1);
+            //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+            aux->dirtyBit=true;
+            return true;
+        }
+        return 0;
+    }
+
+    bool evictPage_toDelete(int id, int record, int *data, string nameTable, Disk_Manager * DM)
+    {
+        Frame *frameIter = *std::min_element(buffer.begin(), buffer.end(), [](const Frame *a, const Frame *b)
+                                                    { return a->getLastUsed() < b->getLastUsed(); });
+
+        if(frameIter->dirtyBit)
+        {
+            // cout<<"SAVE IN DISK"<<endl;
+
+            int *positions_of_frameFiles = frameIter->position;
+            frameIter->save_Disk(DM->disk->getNameTable(), frameIter->frameId);
+            // cout<<"REEMPLAZODO"<<endl;
+        }
+        
+        int temp = frameIter->getFrameId();
+        timestamp++;
+        frameIter->setId(id);
+        frameIter->setDirty(0);
+        //frameIter->updateLastUsed(timestamp);
+
+        frameIter->setFrame_with_Page(data,nameTable);
+        //frameIter->updateLastUsed(timestamp);
+        //buffer[temp] = ta;
+
+        //cout<<"RECORD: "<<id<<"-"<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+        cout<<endl;
+        //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+        int start = frameIter->position[0];
+        int end = frameIter->position[1];
+        if(frameIter->findRecord_toDelete(temp, record))
+        {
+            // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+            int position_Frame = (record-start + 1);
+            //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+            frameIter->dirtyBit=true;
+            frameIter->updateLastUsed(timestamp);
+            timestamp++;
+            printPageStates();
+
+            return true;
+        }
+        //delete paa;
+        return 0;
+    }
+
     Frame *findPage(int pageId)
     {
         for (Frame *page : buffer)
@@ -1446,78 +1607,17 @@ public:
         }
     }
 
-    Disk_Manager *DM;
-    bool empty;
-    int nextFrameId;
-public:
     BufferManager(int size) : bufferSize(size), empty(true), nextFrameId(0){
         buffer.reserve(bufferSize);
     }
-    
-    bool writePage_Delete(int pageId, int record, int *data, string nameTable, Disk_Manager * DM) {
-        cout<<"**********"<<endl;
-        cout<<"**********"<<endl;
-        cout<<"**********"<<endl;
-        return 0;
-    }
+
+    // void SizeofBuffer()
+    // {
         
-    //     if (frameMap.find(pageId) != frameMap.end()) {
-    //         auto frameIter = frameMap[pageId];
-    //         //frameIter->dirtyBit = true;
-    //         frameIter->leastUsed = getCurrentTimestamp();
-    //         frameIter->pinCount++;
-            
-    //         cout<<"_____________________________________________________________________________________"<<endl;
-    //         cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-    //         cout<<endl;
-    //         std::cout << "Writing Page " << pageId << " to buffer." << std::endl;
-    //         int start = frameIter->position[0];
-    //         int end = frameIter->position[1];
-    //          if(frameIter->findRecord(frameIter->frameId, record))
-    //         {
-    //             cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-    //             int position_Frame = (record-start + 1);
-    //             //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-    //             frameIter->dirtyBit=true;
-    //             return true;
-
-    //         }
-           
-            
-    //     } else {
-    //         if (frameMap.size() == bufferSize) {
-    //             evictPageLRU(DM);
-    //         }
-    //         Frame newFrame(getNextFrameId(), pageId, false, 1, getCurrentTimestamp());
-    //         newFrame.setFrame_with_Page(data,nameTable);
-    //         bufferPool.push_front(newFrame);
-    //         frameMap[pageId] = bufferPool.begin();
-    //         auto frameIter = frameMap[pageId];
-
-    //         cout<<"_____________________________________________________________________________________"<<endl;
-    //         cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-    //         cout<<endl;
-    //         std::cout << "Writing Page " << pageId << " to STORE." << std::endl;
-    //         int start = frameIter->position[0];
-    //         int ending = frameIter->position[1];
-            
-    //        // cout<<start<<" : "<<ending<<endl;
-    //         cout<<"\n"<<start<<":"<<ending<<"->"<<record<< endl<<endl;
-    //         if(frameIter->findRecord(frameIter->frameId, record))
-    //         {
-    //             cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-    //             int position_Frame = (record-start + 1);
-    //             //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-    //             frameIter->dirtyBit=true;
-    //             return true;
-
-    //         }
-            
-
-    //     }
-    //     return false;
+    //     buffer
     // }
-
+    
+    
 
     // bool writePage_Insert(int pageId, int record, int *data, string nameTable) {
     //     if (frameMap.find(pageId) != frameMap.end()) {
@@ -1563,87 +1663,14 @@ public:
     // }
 
 
-    // void pinPage(int pageId) {
-    //     if (frameMap.find(pageId) != frameMap.end()) {
-    //         auto frameIter = frameMap[pageId];
-    //         frameIter->pinCount++;
-    //         std::cout << "Pinning Page " << pageId << "." << std::endl;
-    //     } else {
-    //         std::cout << "Page " << pageId << " not found in buffer." << std::endl;
-    //     }
-    // }
-
-    // void unpinPage(int pageId) {
-    //     if (frameMap.find(pageId) != frameMap.end()) {
-    //         auto frameIter = frameMap[pageId];
-    //         if (frameIter->pinCount > 0) {
-    //             frameIter->pinCount--;
-    //         }
-    //         std::cout << "Unpinning Page " << pageId << "." << std::endl;
-    //     } else {
-    //         std::cout << "Page " << pageId << " not found in buffer." << std::endl;
-    //     }
-    // }
+   
     bool IsEmptyBuffer()
     {
         return (buffer.size() < bufferSize) ? true: false;
     }
     friend class DATABASE;
-    private:
-    long long getCurrentTimestamp() {
-        return std::chrono::duration_cast<std::chrono::milliseconds>(
-            std::chrono::system_clock::now().time_since_epoch()
-        ).count();
-    }
-
-    int getNextFrameId() {
-        nextFrameId++;
-        if(nextFrameId>bufferSize)
-            nextFrameId = 1;
-        return nextFrameId;
-    }
-/*
-    void evictPageLRU(Disk_Manager* DM) {
-        
-        auto lruFrameIter = std::min_element(
-            buffer.begin(), buffer.end(),
-            [](const Frame& a, const Frame& b) {
-                if (a.pinCount == 0 && b.pinCount == 0) {
-                    return a.getLastUsed < b.getLastUsed();
-                } else if (a.pinCount == 0) {
-                    return true;
-                } else if (b.pinCount == 0) {
-                    return false;
-                }
-                return false;
-            }
-        );
-
-        
-
-        Frame lruFrame = *lruFrameIter;
-        cout<<"_____________________________________________________________________________________"<<endl;
-        cout<<"RECORD: "<<lruFrame.frameId +1 <<"->"<<lruFrameIter->position[0]<<":"<<lruFrameIter->position[1]<<"()"<<lruFrameIter->dirtyBit<<endl;
-        cout<<endl;
-        std::cout << "\n\nEvicting Page " << lruFrame.pageId << " from buffer." << std::endl;
-        if(lruFrameIter->dirtyBit)
-        {
-            cout<<"SAVE IN DISK"<<endl;
-
-            int *positions_of_frameFiles = lruFrameIter->position;
-            lruFrameIter->save_Disk(DM->disk->getNameTable(), lruFrameIter->frameId);
-            cout<<"REEMPLAZODO"<<endl;
-        }
-        
-        bufferPool.erase(lruFrameIter);
-        frameMap.erase(lruFrame.pageId);
-        
-        
-       // cout<<bufferPool.size()<<endl;
-        
-
-    }
-    */
+    
+    
 };
 
 
@@ -1654,9 +1681,7 @@ class DATABASE
         BufferManager *BM;
 
     public:
-        void sql_request_find(){
-            
-        }
+        
         DATABASE(Disk_Manager *dm, BufferManager* bm)
         {
             DM = dm;
@@ -1666,64 +1691,41 @@ class DATABASE
         void sql_Request(int recordNum)
         {
             string record;
-            list<Frame>::iterator it;
-            
-                for (int i = 0; i < DM->cantidad_bloques; i++)
-                {
-                    if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
-                    {                        
-                        break;
-                    }
-                    //BM->unpinPage(i);
-                    
-                }
            
             
-            cout<<"DATABASE: "<<record<<endl;
+            for (int i = 0; i < DM->cantidad_bloques; i++)
+            {
+                if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
+                {                        
+                    break;
+                }
+                //BM->unpinPage(i);
+                
+            }           
+           
         }
-/*
+
         void sql_Request_Delete(int recordNum)
         {
             string record;
-            list<Frame>::iterator it;
-            if(BM->IsEmptyBuffer())
+            
+            
+            for (int i = 0; i < DM->cantidad_bloques; i++)
             {
-                for (int i = 0; i < DM->cantidad_bloques; i++)
-                {
-                    
-                    if( BM->writePage_Delete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
-                    {  
-                        BM->unpinPage(i);
-                        break;
-                    }
-                    
+                if(BM->addPage_toDelete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
+                {                        
+                    break;
                 }
-            }else{
-                cout<<"\nEntraadad"<<endl;
-                int size = BM->bufferSize;
-                bool terminarBucles = false;
-                for (int i = 0; i < DM->cantidad_bloques && !terminarBucles; i++)
-                {
-                    for (it = BM->bufferPool.begin(); it != BM->bufferPool.end() && !terminarBucles; ++it)
-                    {
-                        if((*it).pageId !=i )
-                        {
-                            if( BM->writePage_Delete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(),  DM))
-                            {
-
-                                BM->unpinPage(i);
-                                terminarBucles = true;
-                            }
-                            
-                        }
-                    }   
-                }
+                //BM->unpinPage(i);
+                
             }
-
-            cout<<"Registro eliminado!"<<endl;
-
+           
+           cout<<"Registro eliminado!"<<endl;
+            
+      
         }
-
+/*
+        
         void sql_Request_Insert(int recordNum)
         {
             string record;
@@ -1788,7 +1790,7 @@ void opcion_2(Disk_Manager *ptrDiskManager, Disk *disk)
     string nameTable = disk->getNameTable();
     int n;
     cout<<"\tNumero de registro: ";cin>>n; 
-    cout<<"dd: "<<n<<" "<<nameTable<<endl;
+    //cout<<"dd: "<<n<<" "<<nameTable<<endl;
     ptrDiskManager->print_OneRegister(n,nameTable);
 }
 
@@ -1839,7 +1841,29 @@ void opcion_4( Disk_Manager *directorios)
 
 }
 
-void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios)
+
+// Searching in buffer
+void opcion_5(DATABASE * ptrDB)
+{
+    menu();
+    //string nameTable = ptrDB->;
+    int n;
+    cout<<"\tID de registro: ";cin>>n; 
+    //cout<<"dd: "<<n<<" "<<nameTable<<endl;
+    ptrDB->sql_Request(n);
+}
+
+// Delete from buffer
+void opcion_6(DATABASE * ptrDB)
+{
+    menu();
+    //string nameTable = ptrDB->;
+    int n;
+    cout<<"\tID de registro a Eliminar: ";cin>>n; 
+    //cout<<"dd: "<<n<<" "<<nameTable<<endl;
+    ptrDB->sql_Request_Delete(n);
+}
+void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
 {
     int opc;
     
@@ -1848,17 +1872,21 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios)
         cout<<"WELCOME TO MEGAST\n"<<endl;
         cout<<"Opciones que desea realizar"<<endl;
         cout<<"\t1. Obtener informacion del disco"<<endl;
-        cout<<"\t2. Imprimir un registro"<<endl;
+        cout<<"\t2. Imprimir un registro desde el Disco"<<endl;
         cout<<"\t3. Imprimir datos de un SECTOR"<<endl;
         cout<<"\t4. Opciones de Directorio"<<endl;
-        cout<<"\t5. Salir"<<endl;
-        cout<<"\topc (1-5)?: ";cin>>opc;
+        cout<<"\t5. Buscar en el Buffer Registro"<<endl;
+        cout<<"\t6. Eliminar desde Buffer Registro"<<endl;
+        cout<<"\t7. Salir"<<endl;
+        cout<<"\topc (1-6)?: ";cin>>opc;
         
         if(opc==1) opcion_1(ptrDisco);
         else if(opc==2) opcion_2(directorios, ptrDisco);
         else if(opc==3) opcion_3(directorios);
         else if(opc==4) opcion_4(directorios);
-        else if(opc==5) return;
+        else if(opc==5) opcion_5(ptrDB);
+        else if(opc==6) opcion_6(ptrDB);
+        else if(opc==7) return;
         menu();
     }
     
@@ -1866,98 +1894,111 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios)
 
 
 
-int main()
-{
-    
-//     //692 -> 4r  173 registro
-//     // se almacena 20 registros por sector
-//     // 45 sectores necesarios pa todo
-//     // pistas : 2 5 5 -> 3460
-//     // 5 sectores por bloque (9)
-
-    
-    string nameTable = "titanic";
-
-    Disk disco(1, 5, 5, 3460);  //5 register per sector
-    Disk_Manager directorios(5, &disco);
-    BufferManager buffer(4);
-    //cout<<nameTable<<endl;
-    directorios.loadDataScheme("scheme",nameTable.c_str());
-    directorios.generatePages();
-    cout<<"\tDatos subidos con exito al disco"<<endl;
-
-
-    // make a request: queiro registro 20
-    DATABASE db(&directorios,&buffer);
-    db.sql_Request(423);
-    db.sql_Request(561);
-    db.sql_Request(13);
-    db.sql_Request(20);
-    db.sql_Request(432);
-    db.sql_Request(700);
-    db.sql_Request(215);
-
-    //db.sql_Request_Delete(203);
-    // db.sql_Request_Delete(213);
-    // db.sql_Request(313);
-    // db.sql_Request(413);
-    // db.sql_Request(713);
-    // db.sql_Request(113);
-   
-
-   
-
-}
-
 // int main()
 // {
-//     int plato;
-//     int pista;
-//     int sector;
-//     int memoria;
-//     string nameTable;
-//     //692 -> 4r  173 registro
-//     // se almacena 20 registros por sector
-//     // 45 sectores necesarios pa todo
-//     // pistas : 2 5 5 -> 3460
-//     // 5 sectores por bloque (9)
-
-
-//     menu();
     
-//     //string nameTable = "titanic";
-//     // Disco disco(4, 10, 200, 692);
-//     // disco.loadDataScheme("scheme",nameTable.c_str());
-//     // disco.getOneRegister(891,"titanic2");
-//     // disco.getDisk_info();
-//     // disco.getSector(0,0,0,1);
-//     // opcion_4(&disco);
-//     int num_blocks;
-//     int num_sec_per_blocks;
-//     cout<<"\tDisk setting"<<endl;
-//     cout<<"\tPlato: ";cin>>plato;
-//     cout<<"\tPista: ";cin>>pista;
-//     cout<<"\tSector: ";cin>>sector;
-//     cout<<"\tMemoria: ";cin>>memoria;
-//     cout<<"Making a directory..."<<endl;
-//     //cout<<"\tNumero de bloques: ";cin>>num_blocks;
-//     cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
-//     cout<<"\nInserta nombre del archivo: ";
-//     cin.ignore();
-//     getline(cin,nameTable);
-//     cout<<"Making new file with format"<<endl;
-//     cout<<"Wait... "<<endl;
+// //     //692 -> 4r  173 registro
+// //     // se almacena 20 registros por sector
+// //     // 45 sectores necesarios pa todo
+// //     // pistas : 2 5 5 -> 3460
+// //     // 5 sectores por bloque (9)
 
-//     Disk disco(plato, pista, sector, memoria);  //5 register per sector
-//     Disk_Manager directorios(num_sec_per_blocks, &disco);
+    
+//     string nameTable = "titanic";
+
+//     Disk disco(1, 5, 5, 3460);  //5 register per sector
+//     Disk_Manager directorios(5, &disco);
+//     BufferManager buffer(4);
 //     //cout<<nameTable<<endl;
 //     directorios.loadDataScheme("scheme",nameTable.c_str());
 //     directorios.generatePages();
 //     cout<<"\tDatos subidos con exito al disco"<<endl;
-//     menu();
 
-//     menu_opciones(&disco,&directorios );
+
+//     // make a request: queiro registro 20
+//     DATABASE db(&directorios,&buffer);
+//     db.sql_Request(23);
+//     // db.sql_Request(561);
+//     // db.sql_Request(13);
+//     // db.sql_Request(20);
+//     // db.sql_Request(432);
+//     // db.sql_Request(700);
+//     // db.sql_Request(215);
+
+//     db.sql_Request_Delete(203);
+//     // db.sql_Request_Delete(213);
+//     // // db.sql_Request_Delete(713);
+//     // db.sql_Request(561);
+//     // db.sql_Request(13);
+//     // db.sql_Request(720);
+//     // db.sql_Request(32);
+//     // db.sql_Request(132);
+//     // db.sql_Request(332);
+//     // db.sql_Request(632);
+//     // db.sql_Request(152);
+//     // db.sql_Request(432);
+//     // db.sql_Request(313);
+//     // db.sql_Request(413);
+//     // db.sql_Request(713);
+//     // db.sql_Request(113);
+   
+
+   
+
+// }
+
+int main()
+{
+    int plato;
+    int pista;
+    int sector;
+    int memoria;
+    string nameTable;
+    //692 -> 4r  173 registro
+    // se almacena 20 registros por sector
+    // 45 sectores necesarios pa todo
+    // pistas : 2 5 5 -> 3460
+    // 5 sectores por bloque (9)
+
+
+    menu();
+    
+    //string nameTable = "titanic";
+    // Disco disco(4, 10, 200, 692);
+    // disco.loadDataScheme("scheme",nameTable.c_str());
+    // disco.getOneRegister(891,"titanic2");
+    // disco.getDisk_info();
+    // disco.getSector(0,0,0,1);
+    // opcion_4(&disco);
+    int num_blocks;
+    int num_sec_per_blocks;
+    int num_frames;
+    cout<<"\tDisk setting"<<endl;
+    cout<<"\tPlato: ";cin>>plato;
+    cout<<"\tPista: ";cin>>pista;
+    cout<<"\tSector: ";cin>>sector;
+    cout<<"\tMemoria: ";cin>>memoria;
+    cout<<"Making a directory..."<<endl;
+    //cout<<"\tNumero de bloques: ";cin>>num_blocks;
+    cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
+    cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
+    cout<<"\nInserta nombre del archivo: ";
+    cin.ignore();
+    getline(cin,nameTable);
+    cout<<"Making new file with format"<<endl;
+    cout<<"Wait... "<<endl;
+
+    Disk disco(plato, pista, sector, memoria);  //5 register per sector
+    Disk_Manager directorios(num_sec_per_blocks, &disco);
+    //cout<<nameTable<<endl;
+    directorios.loadDataScheme("scheme",nameTable.c_str());
+    directorios.generatePages();
+    cout<<"\tDatos subidos con exito al disco"<<endl;
+    menu();
+    BufferManager buffer(num_frames);
+    DATABASE db(&directorios,&buffer);
+    menu_opciones(&disco,&directorios,&db);
 
     
-//     return 0;
-// }
+    return 0;
+}
