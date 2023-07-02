@@ -169,6 +169,7 @@ class Disk
             freeposition = new int[4];           
         }
         ~Disk(){}
+        Disk(){}
 
         void cabezal_escritura(int pPlato, int pSuperficie, int pPista, int gap_Sector, int register_size,int *positions, string origin)
         {
@@ -232,7 +233,7 @@ class Disk
                pl++;
             }
         }
-        void loadDataDisk(string nameArchivo, int register_size)
+        void loadDataDisk(string nameArchivo, int register_size, bool &fullDisk)
         {
             // variables to navigate into disk
             // p -> plato
@@ -270,6 +271,7 @@ class Disk
                 if(pl> numero_plato)
                 {
                     cout<<"\nMEMORIA DE DISCO LLENA!!!!!!!!!!!!!!!"<<endl;
+                    fullDisk = true;
                     break;
                 }else
                 {
@@ -287,11 +289,12 @@ class Disk
 
                      if(pl> numero_plato)
                     {
-                        cout<<"\nMEMORIA DE DISCO LLENA!!!!!!!!!!!!!!!"<<endl;
+                        fullDisk = true;
+                        cout<<"\n\nMEMORIA DE DISCO LLENA!!!!!!!!!!!!!!!\n\n"<<endl;
                         break;
                     }else
                     {
-                    cabezal_escritura(pl, spr, pst, sc, register_size,positions_data, nameArchivo);
+                     cabezal_escritura(pl, spr, pst, sc, register_size,positions_data, nameArchivo);
 
                     }
                     sc++;
@@ -430,12 +433,16 @@ class Block
             
             for(auto i:numSectores){
               
-                i->printRecord();
-                cout<<endl;
-                cout<<endl;
-                int aux = i->getCapacity() - i->getAvailableSpace();
-                j++;
-                capacity+=aux;
+                if(i)
+                {
+                    i->printRecord();
+                    cout<<endl;
+                    cout<<endl;
+                    int aux = i->getCapacity() - i->getAvailableSpace();
+                    j++;
+                    capacity+=aux;
+
+                }
             }
 
             cout<<"\n\n\t*************************************"<<endl;
@@ -465,16 +472,20 @@ class Disk_Manager
         int memory_disk;
         Disk *disk;
         vector<Block *> nPages;
+        int num_Block_Used;
     public:
+        Disk_Manager(){}
         Disk_Manager(int num_secs, Disk *_disk)
         {
             disk = _disk;
             cantidad_bloques = ceil(disk->getNumberSector()/num_secs);
+            num_Block_Used= cantidad_bloques;
             sectores_por_bloques = num_secs;
             nPages.resize(cantidad_bloques);
             memory_disk=0;
             //generatePages();
         }
+        ~Disk_Manager(){}
         void values_KeyWords( int &register_bytes, string type, string amount)
         {
             if(type=="int")
@@ -565,7 +576,7 @@ class Disk_Manager
             cout<<"\n\t!Archivo "<<file_end<< ".txt creado con exito..."<<endl;
             
         }
-        void loadDataScheme(string nameScheme, string nameTable)
+        void loadDataScheme(string nameScheme, string nameTable, bool &fullDisk)
         {
             ifstream scheme("files/"+nameScheme+".txt" ,fstream::in);
             
@@ -644,7 +655,7 @@ class Disk_Manager
 
             // load data to disk
             
-            disk->loadDataDisk(disk->name_Table, register_size);
+            disk->loadDataDisk(disk->name_Table, register_size, fullDisk);
 
         }
 
@@ -660,17 +671,23 @@ class Disk_Manager
             int sectors = 0;
             for (int i = 0; i < cantidad_bloques; i++)
             {
+                bool band=false;
                 cout<<"\tBloque "<<i+1<<endl;
                 for (int j = 0; j < sectores_por_bloques; j++)
                 {
                     disk->contadores(auxPl, auxSpr, auxPst, pSector);
-                    createPage(i, auxPl, auxSpr, auxPst, pSector);
+                    createPage(i, auxPl, auxSpr, auxPst, pSector, band);
                     pSector++;
+                }
+                if(band==false)
+                {
+                    num_Block_Used--;
+                    nPages[i] = nullptr;
                 }
             }
      
         }
-        void createPage (int pos,int pPlato, int pSuperficie, int pPista, int pSector)
+        void createPage (int pos,int pPlato, int pSuperficie, int pPista, int pSector, bool &band)
         {
             
             if (!nPages[pos])
@@ -680,8 +697,8 @@ class Disk_Manager
             
             if (!disk->nPlatters[pPlato] || !disk->nPlatters[pPlato]->nSurfaces[pSuperficie] || !disk->nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista])
              {
-                nPages[pos] = nullptr;  
-                cout<<"No existe datos en ese sector"<<endl;
+                //nPages[pos] = nullptr;  
+                cout<<"No existe datos en ese sector!"<<endl;
                 return;
              }
             
@@ -689,11 +706,12 @@ class Disk_Manager
             {
                 nPages[pos]->making_Block(pPlato,pSuperficie,pPista,pSector);
                 memory_disk += nPages[pos]->getSizeBlock();
+                band= true;
             }
             else
             {
-                nPages[pos] = nullptr;    
-                cout<<"No existe datos en ese sector"<<endl;
+                //nPages[pos] = nullptr;    
+                cout<<"No existe datos en ese sector!"<<endl;
             }
            
         }
@@ -844,9 +862,16 @@ class Disk_Manager
 
         void print_Block(int n)
         {
-            if(n>cantidad_bloques || nPages[n-1]==nullptr)
+            if(n>cantidad_bloques)
             {
-                cout<<"No existe ese bloque o no hay datos en ese bloque"<<endl;
+                cout<<"No existe ese bloque"<<endl;
+                cout<<"************************************************************************************\n"<<endl;
+                return;
+            }
+
+            if(nPages[n-1]==nullptr)
+            {
+                cout<<"No hay datos en ese bloque"<<endl;
                 cout<<"************************************************************************************\n"<<endl;
                 return;
             }
@@ -877,6 +902,7 @@ class Disk_Manager
             cout<<"\n**************************************************************************************\n"<<endl;
             cout<<"\t\tInformacion del Directorio"<<endl;
             cout<<"\tCantidad de bloques: "<<cantidad_bloques<<endl;
+            cout<<"\tCantidad de bloques Usados: "<<num_Block_Used<<endl;
             cout<<"\tCantidad de sectores: "<<cantidad_bloques*sectores_por_bloques<<endl;
             cout<<"\tCapacidad total: "<<memory_disk<<endl;
             cout<<"\n**************************************************************************************\n"<<endl;
@@ -1999,31 +2025,47 @@ int main()
     int num_blocks;
     int num_sec_per_blocks;
     int num_frames;
-    cout<<"\tDisk setting"<<endl;
-    cout<<"\tPlato: ";cin>>plato;
-    cout<<"\tPista: ";cin>>pista;
-    cout<<"\tSector: ";cin>>sector;
-    cout<<"\tMemoria: ";cin>>memoria;
-    cout<<"Making a directory..."<<endl;
-    //cout<<"\tNumero de bloques: ";cin>>num_blocks;
-    cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
-    cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
-    cout<<"\nInserta nombre del archivo: ";
-    cin.ignore();
-    getline(cin,nameTable);
-    cout<<"Making new file with format"<<endl;
-    cout<<"Wait... "<<endl;
+    bool fullDisk= false;
 
-    Disk disco(plato, pista, sector, memoria);  //5 register per sector
-    Disk_Manager directorios(num_sec_per_blocks, &disco);
-    //cout<<nameTable<<endl;
-    directorios.loadDataScheme("scheme",nameTable.c_str());
-    directorios.generatePages();
-    cout<<"\tDatos subidos con exito al disco"<<endl;
-    menu();
-    BufferManager buffer(num_frames);
-    DATABASE db(&directorios,&buffer);
-    menu_opciones(&disco,&directorios,&db);
+   
+   
+        cout<<"\tDisk setting"<<endl;
+        cout<<"\tPlato: ";cin>>plato;
+        cout<<"\tPista: ";cin>>pista;
+        cout<<"\tSector: ";cin>>sector;
+        cout<<"\tMemoria: ";cin>>memoria;
+        cout<<"Making a directory..."<<endl;
+        //cout<<"\tNumero de bloques: ";cin>>num_blocks;
+        cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
+        cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
+        cout<<"\nInserta nombre del archivo: ";
+        cin.ignore();
+        getline(cin,nameTable);
+        cout<<"Making new file with format"<<endl;
+        cout<<"Wait... "<<endl;
+
+        Disk disco(plato, pista, sector, memoria);  //5 register per sector
+        Disk_Manager directorios(num_sec_per_blocks, &disco);
+        //cout<<nameTable<<endl;
+        directorios.loadDataScheme("scheme",nameTable.c_str(), fullDisk); 
+
+        if(fullDisk==1)
+        {
+            cout<<"Vueleve a insertar los datos"<<endl;
+            system("./main.exe");
+            return 0;
+        }
+        directorios.generatePages();
+        cout<<"\t\n\nDatos subidos con exito al disco"<<endl;
+        menu();
+        BufferManager buffer(num_frames);
+        DATABASE db(&directorios,&buffer);
+        menu_opciones(&disco,&directorios,&db);
+        
+    
+
+    
+   
 
     
     return 0;
