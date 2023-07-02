@@ -173,6 +173,13 @@ class Disk
         void cabezal_escritura(int pPlato, int pSuperficie, int pPista, int gap_Sector, int register_size,int *positions, string origin)
         {
         
+            
+            if(pPlato>numero_plato || pSuperficie >numero_superficies_por_plato || pPista > numero_pistas_por_superficie || gap_Sector> numero_sectores_por_pista )
+
+            {
+                cout<<"Memoria de disco llena "<<endl;
+                return;
+            }
             if(!nPlatters[pPlato]){ nPlatters[pPlato] = new Platter ();}
         
             if(!nPlatters[pPlato]->nSurfaces[pSuperficie])
@@ -191,6 +198,7 @@ class Disk
             nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[gap_Sector]->setSector( positions, origin);
     
         }
+
         void setFreePosition(int &pl,int &spr,int &pst,int &sc)
         {
             freeposition[0] = pl;
@@ -218,11 +226,11 @@ class Disk
                 spr=0;
             }
             
-            // if(pl==numero_plato)
-            // {
-            //     pst++;
-            //     sc==0;
-            // }
+            if(pl==numero_plato)
+            {
+               
+               pl++;
+            }
         }
         void loadDataDisk(string nameArchivo, int register_size)
         {
@@ -251,7 +259,7 @@ class Disk
 
 
             //check how many register could save in each sector
-            int n = floor(memoria_por_sector/register_size);
+            int n = int(memoria_por_sector/register_size);
             // load record to sector in order
             int start = 1;                              // represent first record, this increment 
             for (int i = n; i <= number_lines; i+=n)
@@ -259,7 +267,15 @@ class Disk
                 *(positions_data) = start;
                 *(positions_data +1) = i;
 
-                cabezal_escritura(pl, spr, pst, sc, register_size,positions_data, nameArchivo);
+                if(pl> numero_plato)
+                {
+                    cout<<"\nMEMORIA DE DISCO LLENA!!!!!!!!!!!!!!!"<<endl;
+                    break;
+                }else
+                {
+                   cabezal_escritura(pl, spr, pst, sc, register_size,positions_data, nameArchivo);
+
+                }
                 sc++;
                 contadores(pl,spr,pst,sc);
                 start = i+1;
@@ -268,7 +284,16 @@ class Disk
                 {
                     *(positions_data) = start;
                     *(positions_data +1) = number_lines;
+
+                     if(pl> numero_plato)
+                    {
+                        cout<<"\nMEMORIA DE DISCO LLENA!!!!!!!!!!!!!!!"<<endl;
+                        break;
+                    }else
+                    {
                     cabezal_escritura(pl, spr, pst, sc, register_size,positions_data, nameArchivo);
+
+                    }
                     sc++;
                     contadores(pl,spr,pst,sc);
                 }
@@ -1863,6 +1888,7 @@ void opcion_6(DATABASE * ptrDB)
     //cout<<"dd: "<<n<<" "<<nameTable<<endl;
     ptrDB->sql_Request_Delete(n);
 }
+
 void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
 {
     int opc;
@@ -1957,7 +1983,7 @@ int main()
     //692 -> 4r  173 registro
     // se almacena 20 registros por sector
     // 45 sectores necesarios pa todo
-    // pistas : 2 5 5 -> 3460
+    // pistas : 1 5 5 -> 3460
     // 5 sectores por bloque (9)
 
 
