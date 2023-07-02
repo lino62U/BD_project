@@ -19,6 +19,7 @@ class Sector
         int space_available;                // how many space is there respect the memory
         int size_per_register;
         int number_record;
+        bool empty;
     public:
         Sector(int _memory, int _register_size)
         {
@@ -27,9 +28,10 @@ class Sector
             recordPositions = new int [2];
             space_available = _memory;
             size_per_register = _register_size;
+            empty=true;
         }
         ~Sector(){delete [] recordPositions;}
-        void setSector(int *positions, string _origin)
+        void setSector(int *positions, string _origin, bool satate)
         {
             origin = _origin;
             
@@ -42,15 +44,23 @@ class Sector
  
             // setting space available 
            
-            space_available = space_available - number_record*size_per_register;
-           
+            empty=satate;
+            if(empty)
+            {
+                space_available = space_available - number_record*size_per_register;
+            }
+
+            
         }
 
         void printRecord()
         {
             string aux;
             int size_per_register_file;
-            fstream archivo("files/"+ origin +".txt",ios::in | ios::binary);
+            fstream archivo("files/"+ origin +".txt",ios::in | ios::binary| ios::ate);
+            
+            int fileSize = archivo.tellg();
+            
 
             // find the size of the first line of the file
             
@@ -66,7 +76,14 @@ class Sector
             int start =  (recordPositions[0] -1) * size_per_register_file + (recordPositions[0] - 1);
             int end = recordPositions[1] * size_per_register_file + (recordPositions[1]-1);
             
+            if(start > fileSize)
+            {
+                cout<<"No hay datos en este sector"<<endl;
+                return;
+            }
+            
             // Get data in variable
+
             archivo.seekg(start,ios::beg);
             char *A = new char[end - start +1 ] ;
             archivo.read(A, end - start);
@@ -75,9 +92,11 @@ class Sector
 
             delete [] A;
         }
+        
         int getAvailableSpace(){return space_available;}
         int getCapacity(){return memory_of_sector;}
         int getSizeRecord(){return size_per_register;}
+        bool getState () {return empty;}
         int* getRecordPositions(){return recordPositions;}
         friend class Disk_Manager;
         friend class Disk;
@@ -174,8 +193,15 @@ class Disk
         }
         ~Disk(){}
         Disk(){}
-        void inicilizar_Disco(int register_size)
+        void inicilizar_Disco(int register_size, string nameTable)
         {
+            
+            int *positions_data = new int [2];
+            
+            int n = (memoria_por_sector/register_size);
+
+            int q=n;
+            int start = 1; 
             for (size_t i = 0; i < numero_plato; i++)
             {
                 if(!nPlatters[i])
@@ -196,8 +222,23 @@ class Disk
                                     
                                     for (size_t l = 0; l < numero_sectores_por_pista; l++)
                                     {
+                                        
+                                        //check how many register could save in each sector
+                                       
+                                        // load record to sector in order
+                                                                     // represent first record, this increment 
+                                                    
+                                        *(positions_data) = start;
+                                        *(positions_data +1) = q;
+
                                         if(!nPlatters[i]->nSurfaces[j]->nTrack[k]->nSectors[l])
+                                        {
                                             nPlatters[i]->nSurfaces[j]->nTrack[k]->nSectors[l] = new Sector(memoria_por_sector, register_size);
+                                            nPlatters[i]->nSurfaces[j]->nTrack[k]->nSectors[l]->setSector(positions_data,nameTable, false);
+
+                                        }
+                                        start = q+1;
+                                        q+=n;
                                     }
                                 }
                                 
@@ -217,22 +258,22 @@ class Disk
                 cout<<"Memoria de disco llena "<<endl;
                 return;
             }
-            if(!nPlatters[pPlato]){ nPlatters[pPlato] = new Platter ();}
+            // if(!nPlatters[pPlato]){ nPlatters[pPlato] = new Platter ();}
         
-            if(!nPlatters[pPlato]->nSurfaces[pSuperficie])
-            {
-                nPlatters[pPlato]->nSurfaces[pSuperficie]  = new Surface(numero_pistas_por_superficie);
-                //nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack.resize(numero_pistas_por_superficie);
-            }
+            // if(!nPlatters[pPlato]->nSurfaces[pSuperficie])
+            // {
+            //     nPlatters[pPlato]->nSurfaces[pSuperficie]  = new Surface(numero_pistas_por_superficie);
+            //     //nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack.resize(numero_pistas_por_superficie);
+            // }
             
-            if (!nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista])
-            {
-                nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista] = new Track(numero_sectores_por_pista);
-                //nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors.resize(numero_sectores_por_pista);
-            }
+            // if (!nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista])
+            // {
+            //     nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista] = new Track(numero_sectores_por_pista);
+            //     //nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors.resize(numero_sectores_por_pista);
+            // }
 
-            nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[gap_Sector] = new Sector(memoria_por_sector, register_size);
-            nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[gap_Sector]->setSector( positions, origin);
+            // nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[gap_Sector] = new Sector(memoria_por_sector, register_size);
+            nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[gap_Sector]->setSector( positions, origin, true);
     
         }
 
@@ -691,7 +732,7 @@ class Disk_Manager
             scheme.close();
 
             // load data to disk
-            disk->inicilizar_Disco(register_size);
+            disk->inicilizar_Disco(register_size,disk->name_Table);
             disk->loadDataDisk(disk->name_Table, register_size, fullDisk);
 
         }
@@ -743,7 +784,8 @@ class Disk_Manager
             {
                 nPages[pos]->making_Block(pPlato,pSuperficie,pPista,pSector);
                 memory_disk += nPages[pos]->getSizeBlock();
-                band= true;
+                if(disk->nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[pSector]->getState())
+                    band= true;
             }
             else
             {
@@ -2150,146 +2192,142 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
 
 
 
-int main()
-{
-    
-//     //692 -> 4r  173 registro
-//     // se almacena 20 registros por sector
-//     // 45 sectores necesarios pa todo
-//     // pistas : 2 5 5 -> 3460
-//     // 5 sectores por bloque (9)
-
-    
-    string nameTable = "titanic";
-
-    Disk disco(1, 5, 5, 3460);  //5 register per sector
-    Disk_Manager directorios(5, &disco);
-    BufferManager buffer(4);
-    //cout<<nameTable<<endl;
-    bool fifi = false;
-    directorios.loadDataScheme("scheme",nameTable.c_str(), fifi);
-    directorios.generatePages();
-    cout<<"\tDatos subidos con exito al disco"<<endl;
-
-
-    // make a request: queiro registro 20
-    DATABASE db(&directorios,&buffer);
-    db.sql_Request(23);
-    db.sql_Request_Delete(203);
-    db.sql_Request_Delete(213);
-    db.sql_Request_Delete(713);
-    db.sql_Request(561);
-    db.sql_Request(13);
-    db.sql_Request(20);
-    db.sql_Request(432);
-    db.sql_Request(700);
-    db.sql_Request(215);
-    db.sql_Request_Delete(310);
-    db.sql_Request(561);
-    db.sql_Request(13);
-    db.sql_Request(20);
-    db.sql_Request(432);
-    db.sql_Request(700);
-    db.sql_Request(215);
-    db.sql_Request(520);
-    db.sql_Request(320);
-    string rrr = "666->                                                                                                                                                                                                   ";
-    string rrr2 = "667->                                                                                                                                                                                                   ";
-    string rrr3 = "668->                                                                                                                                                                                                   ";
-    string rrr4 = "669->                                                                                                                                                                                                   ";
-    string rrr5 = "661->                                                                                                                                                                                                   ";
-
-    // db.sql_Request_Insert(rrr);
-    // db.sql_Request_Insert(rrr2);
-    // db.sql_Request_Insert(rrr3);
-    // db.sql_Request_Insert(rrr4);
-    // db.sql_Request_Insert(rrr5);
-
-
-   
-    db.sql_getFrrelist();
-
-    // db.sql_Request(561);
-    // db.sql_Request(13);
-    // db.sql_Request(720);
-    // db.sql_Request(32);
-    // db.sql_Request(132);
-    // db.sql_Request(332);
-    // db.sql_Request(632);
-    // db.sql_Request(152);
-    // db.sql_Request(432);
-    // db.sql_Request(313);
-    // db.sql_Request(413);
-    // db.sql_Request(713);
-    // db.sql_Request(113);
-   
-
-   
-
-}
-
 // int main()
 // {
-//     int plato;
-//     int pista;
-//     int sector;
-//     int memoria;
-//     string nameTable;
-//     //692 -> 4r  173 registro
-//     // se almacena 20 registros por sector
-//     // 45 sectores necesarios pa todo
-//     // pistas : 1 5 5 -> 3460
-//     // 5 sectores por bloque (9)
-
-
-//     menu();
     
-//     //string nameTable = "titanic";
-//     // Disco disco(4, 10, 200, 692);
-//     // disco.loadDataScheme("scheme",nameTable.c_str());
-//     // disco.getOneRegister(891,"titanic2");
-//     // disco.getDisk_info();
-//     // disco.getSector(0,0,0,1);
-//     // opcion_4(&disco);
-//     int num_blocks;
-//     int num_sec_per_blocks;
-//     int num_frames;
-//     bool fullDisk= false;
+// //     //692 -> 4r  173 registro
+// //     // se almacena 20 registros por sector
+// //     // 45 sectores necesarios pa todo
+// //     // pistas : 2 5 5 -> 3460
+// //     // 5 sectores por bloque (9)
+
+    
+//     string nameTable = "titanic";
+
+//     Disk disco(1, 5, 5, 3460);  //5 register per sector
+//     Disk_Manager directorios(5, &disco);
+//     BufferManager buffer(4);
+//     //cout<<nameTable<<endl;
+//     bool fifi = false;
+//     directorios.loadDataScheme("scheme",nameTable.c_str(), fifi);
+//     directorios.generatePages();
+//     cout<<"\tDatos subidos con exito al disco"<<endl;
+
+
+//     // make a request: queiro registro 20
+//     DATABASE db(&directorios,&buffer);
+//     db.sql_Request(23);
+//     db.sql_Request_Delete(203);
+//     db.sql_Request_Delete(213);
+//     db.sql_Request_Delete(713);
+//     db.sql_Request(561);
+//     db.sql_Request(13);
+//     db.sql_Request(20);
+//     db.sql_Request(432);
+//     db.sql_Request(700);
+//     db.sql_Request(215);
+//     db.sql_Request_Delete(310);
+//     db.sql_Request(561);
+//     db.sql_Request(13);
+//     db.sql_Request(20);
+//     db.sql_Request(432);
+//     db.sql_Request(700);
+//     db.sql_Request(215);
+//     db.sql_Request(520);
+//     db.sql_Request(320);
+//     string rrr = "666->                                                                                                                                                                                                   ";
+//     string rrr2 = "667->                                                                                                                                                                                                   ";
+//     string rrr3 = "668->                                                                                                                                                                                                   ";
+//     string rrr4 = "669->                                                                                                                                                                                                   ";
+//     string rrr5 = "661->                                                                                                                                                                                                   ";
+
+//     // db.sql_Request_Insert(rrr);
+//     // db.sql_Request_Insert(rrr2);
+//     // db.sql_Request_Insert(rrr3);
+//     // db.sql_Request_Insert(rrr4);
+//     // db.sql_Request_Insert(rrr5);
+
+
+   
+//     db.sql_getFrrelist();
+
+//     // db.sql_Request(561);
+//     // db.sql_Request(13);
+//     // db.sql_Request(720);
+//     // db.sql_Request(32);
+//     // db.sql_Request(132);
+//     // db.sql_Request(332);
+//     // db.sql_Request(632);
+//     // db.sql_Request(152);
+//     // db.sql_Request(432);
+//     // db.sql_Request(313);
+//     // db.sql_Request(413);
+//     // db.sql_Request(713);
+//     // db.sql_Request(113);
+// }
+
+int main()
+{
+    int plato;
+    int pista;
+    int sector;
+    int memoria;
+    string nameTable;
+    //692 -> 4r  173 registro
+    // se almacena 20 registros por sector
+    // 45 sectores necesarios pa todo
+    // pistas : 1 5 5 -> 3460
+    // 5 sectores por bloque (9)
+
+
+    menu();
+    
+    //string nameTable = "titanic";
+    // Disco disco(4, 10, 200, 692);
+    // disco.loadDataScheme("scheme",nameTable.c_str());
+    // disco.getOneRegister(891,"titanic2");
+    // disco.getDisk_info();
+    // disco.getSector(0,0,0,1);
+    // opcion_4(&disco);
+    int num_blocks;
+    int num_sec_per_blocks;
+    int num_frames;
+    bool fullDisk= false;
 
    
    
-//         cout<<"\tDisk setting"<<endl;
-//         cout<<"\tPlato: ";cin>>plato;
-//         cout<<"\tPista: ";cin>>pista;
-//         cout<<"\tSector: ";cin>>sector;
-//         cout<<"\tMemoria: ";cin>>memoria;
-//         cout<<"Making a directory..."<<endl;
-//         //cout<<"\tNumero de bloques: ";cin>>num_blocks;
-//         cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
-//         cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
-//         cout<<"\nInserta nombre del archivo: ";
-//         cin.ignore();
-//         getline(cin,nameTable);
-//         cout<<"Making new file with format"<<endl;
-//         cout<<"Wait... "<<endl;
+        cout<<"\tDisk setting"<<endl;
+        cout<<"\tPlato: ";cin>>plato;
+        cout<<"\tPista: ";cin>>pista;
+        cout<<"\tSector: ";cin>>sector;
+        cout<<"\tMemoria: ";cin>>memoria;
+        cout<<"Making a directory..."<<endl;
+        //cout<<"\tNumero de bloques: ";cin>>num_blocks;
+        cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
+        cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
+        cout<<"\nInserta nombre del archivo: ";
+        cin.ignore();
+        getline(cin,nameTable);
+        cout<<"Making new file with format"<<endl;
+        cout<<"Wait... "<<endl;
 
-//         Disk disco(plato, pista, sector, memoria);  //5 register per sector
-//         Disk_Manager directorios(num_sec_per_blocks, &disco);
-//         //cout<<nameTable<<endl;
-//         directorios.loadDataScheme("scheme",nameTable.c_str(), fullDisk); 
+        Disk disco(plato, pista, sector, memoria);  //5 register per sector
+        Disk_Manager directorios(num_sec_per_blocks, &disco);
+        //cout<<nameTable<<endl;
+        directorios.loadDataScheme("scheme",nameTable.c_str(), fullDisk); 
 
-//         if(fullDisk==1)
-//         {
-//             cout<<"Vueleve a insertar los datos"<<endl;
-//             system("./main.exe");
-//             return 0;
-//         }
-//         directorios.generatePages();
-//         cout<<"\t\n\nDatos subidos con exito al disco"<<endl;
-//         menu();
-//         BufferManager buffer(num_frames);
-//         DATABASE db(&directorios,&buffer);
-//         menu_opciones(&disco,&directorios,&db);
+        if(fullDisk==1)
+        {
+            cout<<"Vueleve a insertar los datos"<<endl;
+            system("./main.exe");
+            return 0;
+        }
+        directorios.generatePages();
+        cout<<"\t\n\nDatos subidos con exito al disco"<<endl;
+        menu();
+        BufferManager buffer(num_frames);
+        DATABASE db(&directorios,&buffer);
+        menu_opciones(&disco,&directorios,&db);
         
     
 
@@ -2297,5 +2335,5 @@ int main()
    
 
     
-//     return 0;
-// }
+    return 0;
+}
