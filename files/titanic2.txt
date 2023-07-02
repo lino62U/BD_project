@@ -1,4 +1,4 @@
-                                                                                                                                                                                                        
+204                                                                                                                                                                                                     
 1    0    3    "Braund, Mr. Owen Harris"                                                                 male      22        1    0    A/5 21171           7.25                                    S    
 2    1    1    "Cumings, Mrs. John Bradley (Florence Briggs Thayer)"                                     female    38        1    0    PC 17599            71.2833             C85                 C    
 3    1    3    "Heikkinen, Miss. Laina"                                                                  female    26        0    0    STON/O2. 3101282    7.925                                   S    
@@ -201,7 +201,7 @@
 200  0    2    "Yrois, Miss. Henriette (""Mrs Harbeck"")"                                                female    24        0    0    248747              13                                      S    
 201  0    3    "Vande Walle, Mr. Nestor Cyriel"                                                          male      28        0    0    345770              9.5                                     S    
 202  0    3    "Sage, Mr. Frederick"                                                                     male                8    2    CA. 2343            69.55                                   S    
-203  0    3    "Johanson, Mr. Jakob Alfred"                                                              male      34        0    0    3101264             6.4958                                  S    
+214                                                                                                                                                                                                     
 204  0    3    "Youseff, Mr. Gerious"                                                                    male      45.5      0    0    2628                7.225                                   C    
 205  1    3    "Cohen, Mr. Gurshon ""Gus"""                                                              male      18        0    0    A/5 3540            8.05                                    S    
 206  0    3    "Strom, Miss. Telma Matilda"                                                              female    2         0    1    347054              10.4625             G6                  S    
@@ -211,7 +211,7 @@
 210  1    1    "Blank, Mr. Henry"                                                                        male      40        0    0    112277              31                  A31                 C    
 211  0    3    "Ali, Mr. Ahmed"                                                                          male      24        0    0    SOTON/O.Q. 3101311  7.05                                    S    
 212  1    2    "Cameron, Miss. Clear Annie"                                                              female    35        0    0    F.C.C. 13528        21                                      S    
-213  0    3    "Perkin, Mr. John Henry"                                                                  male      22        0    0    A/5 21174           7.25                                    S    
+714                                                                                                                                                                                                     
 214  0    2    "Givard, Mr. Hans Kristensen"                                                             male      30        0    0    250646              13                                      S    
 215  0    3    "Kiernan, Mr. Philip"                                                                     male                1    0    367229              7.75                                    Q    
 216  1    1    "Newell, Miss. Madeleine"                                                                 female    31        1    0    35273               113.275             D36                 C    
@@ -308,7 +308,7 @@
 307  1    1    "Fleming, Miss. Margaret"                                                                 female              0    0    17421               110.8833                                C    
 308  1    1    "Penasco y Castellana, Mrs. Victor de Satode (Maria Josefa Perez de Soto y Vallejo)"      female    17        1    0    PC 17758            108.9               C65                 C    
 309  0    2    "Abelson, Mr. Samuel"                                                                     male      30        1    0    P/PP 3381           24                                      C    
-310  1    1    "Francatelli, Miss. Laura Mabel"                                                          female    30        0    0    PC 17485            56.9292             E36                 C    
+                                                                                                                                                                                                        
 311  1    1    "Hays, Miss. Margaret Bechstein"                                                          female    24        0    0    11767               83.1583             C54                 C    
 312  1    1    "Ryerson, Miss. Emily Borie"                                                              female    18        2    2    PC 17608            262.375             B57 B59 B63 B66     C    
 313  0    2    "Lahtinen, Mrs. William (Anna Sylfven)"                                                   female    26        1    1    250651              26                                      S    
@@ -711,7 +711,7 @@
 710  1    3    "Moubarek, Master. Halim Gonios (""William George"")"                                     male                1    1    2661                15.2458                                 C    
 711  1    1    "Mayne, Mlle. Berthe Antonine (""Mrs de Villiers"")"                                      female    24        0    0    PC 17482            49.5042             C90                 C    
 712  0    1    "Klaber, Mr. Herman"                                                                      male                0    0    113028              26.55               C124                S    
-713  1    1    "Taylor, Mr. Elmer Zebley"                                                                male      48        1    0    19996               52                  C126                S    
+311                                                                                                                                                                                                     
 714  0    3    "Larsson, Mr. August Viktor"                                                              male      29        0    0    7545                9.4833                                  S    
 715  0    2    "Greenberg, Mr. Samuel"                                                                   male      52        0    0    250647              13                                      S    
 716  0    3    "Soholt, Mr. Peter Andreas Lauritz Andersen"                                              male      19        0    0    348124              7.65                F G73               S    

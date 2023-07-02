@@ -166,11 +166,47 @@ class Disk
             numero_sectores_por_pista = nSectors;
             memoria_por_sector = nBytes;
             nPlatters.resize(numero_plato); 
-            freeposition = new int[4];           
+            freeposition = new int[4];     
+
+            //inicializar datos 
+
+            
         }
         ~Disk(){}
         Disk(){}
+        void inicilizar_Disco(int register_size)
+        {
+            for (size_t i = 0; i < numero_plato; i++)
+            {
+                if(!nPlatters[i])
+                {
+                    nPlatters[i] = new Platter ();
 
+                    for (size_t j = 0; j < numero_superficies_por_plato; j++)
+                    {
+                        if(!nPlatters[i]->nSurfaces[j])
+                        {
+                            nPlatters[i]->nSurfaces[j]  = new Surface(numero_pistas_por_superficie);
+                            
+                            for (size_t k = 0; k < numero_pistas_por_superficie; k++)
+                            {
+                                if(!nPlatters[i]->nSurfaces[j]->nTrack[k])
+                                {
+                                    nPlatters[i]->nSurfaces[j]->nTrack[k] = new Track(numero_sectores_por_pista);
+                                    
+                                    for (size_t l = 0; l < numero_sectores_por_pista; l++)
+                                    {
+                                        if(!nPlatters[i]->nSurfaces[j]->nTrack[k]->nSectors[l])
+                                            nPlatters[i]->nSurfaces[j]->nTrack[k]->nSectors[l] = new Sector(memoria_por_sector, register_size);
+                                    }
+                                }
+                                
+                            }
+                        }        
+                    }
+                } 
+            }
+        }
         void cabezal_escritura(int pPlato, int pSuperficie, int pPista, int gap_Sector, int register_size,int *positions, string origin)
         {
         
@@ -260,7 +296,7 @@ class Disk
 
 
             //check how many register could save in each sector
-            int n = int(memoria_por_sector/register_size);
+            int n = (memoria_por_sector/register_size);
             // load record to sector in order
             int start = 1;                              // represent first record, this increment 
             for (int i = n; i <= number_lines; i+=n)
@@ -301,6 +337,7 @@ class Disk
                     contadores(pl,spr,pst,sc);
                 }
             } 
+            contadores(pl,spr,pst,sc);
             setFreePosition(pl,spr,pst,sc);
         
             delete [] position_ofcontinuation;
@@ -654,7 +691,7 @@ class Disk_Manager
             scheme.close();
 
             // load data to disk
-            
+            disk->inicilizar_Disco(register_size);
             disk->loadDataDisk(disk->name_Table, register_size, fullDisk);
 
         }
@@ -1028,9 +1065,9 @@ class Frame
         
 
         // codigo para modificaciones
-        void reemplazar(int frameId, int num_reg, string nueva_linea)
+        void reemplazar(int frameid, int num_reg, string nueva_linea)
         {
-            fstream archivo("buffer/frame"+ to_string(frameId) +".txt", ios::in | ios::out | ios::binary); // Abre el archivo en modo lectura y escritura
+            fstream archivo("buffer/frame"+to_string(frameid)  +".txt", ios::in | ios::out | ios::binary); // Abre el archivo en modo lectura y escritura
 
             size_t lineaModificar = num_reg; // Índice de la línea a modificar (empezando desde 0)
             size_t posicionInicio = 0;
@@ -1064,6 +1101,7 @@ class Frame
             archivo.close(); // Cierra el archivo
         }
 
+       
 
 
         bool findRecord(int frameId, int recordID)
@@ -1269,20 +1307,28 @@ class Frame
 
             fstream archivo("files/"+file_name+".txt", ios::in | ios::out | ios::binary); // Abre el archivo en modo lectura y escritura
 
-            size_t lineaModificar = num_reg; // Índice de la línea a modificar (empezando desde 0)
+            int lineaModificar = num_reg; // Índice de la línea a modificar (empezando desde 0)
             size_t posicionInicio = 0;
             size_t longitudLinea = 0;
             string linea;
 
             // Busca la posición de inicio y la longitud de la línea a modificar
+            int tempppp =0;
+
             for (size_t i = 0; i <= lineaModificar; ++i)
             {
                 posicionInicio = archivo.tellg(); // Obtiene la posición actual en el archivo
                 if (!getline(archivo, linea))
                 {
-                    cout << "La línea especificada no existe." << endl;
+                    cout << "La línea especificada no existe." <<lineaModificar << endl;
+                    tempppp++;
                 }
                 longitudLinea = linea.length() + 1; // +1 para contar el carácter de nueva línea ('\n')
+                
+                if(tempppp ==5)
+                    break;
+
+                
             }
             // Modifica la línea deseada
             string nuevaLinea = nueva_linea;
@@ -1292,6 +1338,8 @@ class Frame
             }
             // nuevaLinea += '\n';
             archivo.seekp(posicionInicio);
+
+            cout<<"POSICON INICIO ANTES DEL WRITE: "<<endl;
             archivo.write(nuevaLinea.c_str(), nuevaLinea.length()); // Escribe la nueva línea en el archivo
 
             archivo.close(); // Cierra el archivo
@@ -1325,6 +1373,8 @@ class Frame
             archivo.close();
 
 
+            // inicia el cambio en el disk
+
             fstream archivo2("files/"+ nameFile +".txt", ios::in | ios::out | ios::binary); // Abre el archivo en modo lectura y escritura
 
             
@@ -1353,6 +1403,8 @@ class Frame
                 inicio = stoi(lineaTemp);
             }
             size_t pos_inicio;
+
+            cout<<"Iniiisss: "<<inicio<<endl;
             while (temp)
             {
                 string aux;
@@ -1362,7 +1414,8 @@ class Frame
                     pos_inicio = archivo2.tellg();
                     getline(archivo2, aux);
                 }
-                getline(archivo2, aux);
+                //getline(archivo2, aux);
+                cout<<"LIST: "<<inicio<<endl;
                 aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
                 if (aux.size() > 0)
                 {
@@ -1371,6 +1424,7 @@ class Frame
                 else
                 {
                     temp = 0;
+                    inicio = inicio -1;
                 }
             }
 
@@ -1382,9 +1436,14 @@ class Frame
                 }
             }
             header+='\n';
-            cout<<"\tInico: "<<inicio<<endl;
+            cout<<"\tInico Antes del reemplazar: "<<inicio<<endl;
+            cout<<"\tHEADER ANTES DEL: "<<header<<endl;
             //archivo2.write(header.c_str(),header.length());
             reemplazar_DiksFile(nameFile,inicio,header);
+            
+            
+            
+            
             
             // Busca la posición de inicio y la longitud de la línea a modificar
             archivo2.clear();
@@ -1407,6 +1466,82 @@ class Frame
             archivo2.write(texto_in.c_str(), texto_in.length()); // Escribe la nueva línea en el archivo
 
             archivo2.close(); // Cierra el archivo
+        }
+        
+        void reemplazarInsert(string nameFile, int num_reg, string nueva_linea)
+        {
+            fstream archivo("files/"+ nameFile +".txt", ios::in | ios::out | ios::binary); // Abre el archivo en modo lectura y escritura
+
+             //stream archivo(file_name, ios::in | ios::out | ios::binary); // Abre el archivo en modo lectura y escritura
+
+            size_t lineaModificar = num_reg; // Índice de la línea a modificar (empezando desde 0)
+            size_t posicionInicio = 0;
+            size_t longitudLinea = 0;
+            string linea;
+
+            // Busca la posición de inicio y la longitud de la línea a modificar
+            int band =1;
+            for (size_t i = 0; i <= lineaModificar; ++i)
+            {
+                posicionInicio = archivo.tellg(); // Obtiene la posición actual en el archivo
+                if (!getline(archivo, linea))
+                {
+                    cout << "La línea especificada no existe." << endl;
+                    band++;
+                }
+                longitudLinea = linea.length() + 1; // +1 para contar el carácter de nueva línea ('\n')
+                if(band==3) break;
+            }
+            // Modifica la línea deseada
+            string nuevaLinea = nueva_linea;
+            for (int j = nuevaLinea.length(); j < longitudLinea - 2; j++)
+            {
+                nuevaLinea += ' ';
+            }
+            // nuevaLinea += '\n';
+            archivo.seekp(posicionInicio);
+            archivo.write(nuevaLinea.c_str(), nuevaLinea.length()); // Escribe la nueva línea en el archivo
+
+            archivo.close(); // Cierra el archivo
+        }
+
+        void insertRecord(string nameFile, string data)
+        {
+            int temp =0;
+            string linea;
+            fstream archivo("files/"+nameFile+".txt");
+            getline(archivo, linea);
+            
+            cout<<"\n\n\n\n\n: LINEAADDADADAF"<<linea<<endl;
+            linea.erase(remove(linea.begin(), linea.end(), ' '), linea.end());
+            int inicio =0;
+            if(linea.size() > 0)
+            {
+                   temp=1;
+                   inicio=stoi(linea);
+            }else
+            {
+                ofstream archivo2("files/"+nameFile+".txt", ios::app);
+                archivo2<<data<<endl;
+                return;
+            }
+            cout<<"HEADER DEL FILE: "<<inicio<<":"<<endl;
+            archivo.seekg(0, ios::beg);
+            string aux;
+            for (int i = 0; i < inicio; i++)
+            {
+                getline(archivo, aux);
+
+            }
+            //getline(archivo, aux);
+
+            aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
+
+            cout<<"nuevo header DEL FILE: "<<aux<<endl;
+            reemplazarInsert(nameFile, inicio-1, data);
+            reemplazarInsert(nameFile, 0, aux);
+            
+
         }
         friend class BufferManager;
         friend class DATABASE;
@@ -1467,7 +1602,7 @@ public:
             //frameIter->dirtyBit=true;
             frameIter->updateLastUsed(timestamp);
             timestamp++;
-            printPageStates();
+            //printPageStates();
 
             return true;
         }
@@ -1493,7 +1628,7 @@ public:
                 int position_Frame = (record-start + 1);
                 //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
                 //frameIter->dirtyBit=true;
-                printPageStates();
+                //printPageStates();
                 return true;
             }
 
@@ -1549,7 +1684,7 @@ public:
                 int position_Frame = (record-start + 1);
                 //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
                 frameIter->dirtyBit=true;
-                printPageStates();
+                //printPageStates();
                 return true;
             }
 
@@ -1625,10 +1760,96 @@ public:
             frameIter->dirtyBit=true;
             frameIter->updateLastUsed(timestamp);
             timestamp++;
-            printPageStates();
+            //printPageStates();
 
             return true;
         }
+        //delete paa;
+        return 0;
+    }
+
+
+     bool addPage_toINSERT(int id,  string nuevoRecord, int record, int *data, string nameTable, Disk_Manager * DM)
+    {
+        Frame *pageToEvict = nullptr;
+        Frame *frameIter = findPage(id);
+
+        // Validate if exist the page in the buffer
+        if(frameIter != nullptr){
+            //cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+            // cout<<endl;
+            //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+            int start = frameIter->position[0];
+            int end = frameIter->position[1];
+            if(start==record)
+            {
+                frameIter->insertRecord(nameTable,nuevoRecord);
+            }
+
+            return 0;
+        }
+
+        // Case buffer is full
+        if(it+1 > bufferSize){
+            return evictPage_toINSERT(id, nuevoRecord, record,data,nameTable,DM);
+        }
+
+        // Case buffer is empty
+        // cout<<it<<endl;
+        //     cout<<data[0]<<"***"<<data[1]<<endl;
+        timestamp++;
+        Frame *aux = new Frame(id,it,0,0,timestamp);
+        aux->setFrame_with_Page(data,nameTable);
+        buffer.push_back(aux);
+        it++;
+        //cout<<"RECORD: "<<record<<"->"<<aux->position[0]<<":"<<aux->position[1]<<endl;
+        // cout<<endl;
+        //std::cout << "Writing Page " << aux->getFrameId() << " to buffer." << std::endl;
+        int start = aux->position[0];
+        int end = aux->position[1];
+
+        if(start==record)
+        {
+            aux->insertRecord(nameTable,nuevoRecord);
+        }
+
+        return 0;
+    }
+
+    bool evictPage_toINSERT(int id, string nuevoRecord, int record, int *data, string nameTable, Disk_Manager * DM)
+    {
+        Frame *frameIter = *std::min_element(buffer.begin(), buffer.end(), [](const Frame *a, const Frame *b)
+                                                    { return a->getLastUsed() < b->getLastUsed(); });
+
+        if(frameIter->dirtyBit)
+        {
+            // cout<<"SAVE IN DISK"<<endl;
+
+            int *positions_of_frameFiles = frameIter->position;
+            frameIter->save_Disk(DM->disk->getNameTable(), frameIter->frameId);
+            // cout<<"REEMPLAZODO"<<endl;
+        }
+        
+        int temp = frameIter->getFrameId();
+        timestamp++;
+        frameIter->setId(id);
+        frameIter->setDirty(0);
+        //frameIter->updateLastUsed(timestamp);
+
+        frameIter->setFrame_with_Page(data,nameTable);
+        //frameIter->updateLastUsed(timestamp);
+        //buffer[temp] = ta;
+
+        //cout<<"RECORD: "<<id<<"-"<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
+        cout<<endl;
+        //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+        int start = frameIter->position[0];
+        int end = frameIter->position[1];
+        if(start==record)
+        {
+            frameIter->insertRecord(nameTable,nuevoRecord);
+        }
+
         //delete paa;
         return 0;
     }
@@ -1661,63 +1882,69 @@ public:
     BufferManager(int size) : bufferSize(size), empty(true), nextFrameId(0){
         buffer.reserve(bufferSize);
     }
-
-    // void SizeofBuffer()
-    // {
-        
-    //     buffer
-    // }
-    
-    
-
-    // bool writePage_Insert(int pageId, int record, int *data, string nameTable) {
-    //     if (frameMap.find(pageId) != frameMap.end()) {
-    //         auto frameIter = frameMap[pageId];
-    //         frameIter->dirtyBit = true;
-    //         frameIter->leastUsed = getCurrentTimestamp();
-    //         frameIter->pinCount++;
-    //        
-    //         std::cout << "Writing Page " << pageId << " to buffer." << std::endl;
-    //         int start = frameIter->position[0];
-    //         int end = frameIter->position[1];
-    //         if(start >=record && record <= end)
-    //         {
-    //
-    //             frameIter->delete_RecordBuffer(frameIter->frameId, record);
-    //             return true;
-    //         }
-    //        
-    //     } else {
-    //         if (frameMap.size() == bufferSize) {
-    //             evictPageLRU();
-    //         }
-    //         Frame newFrame(getNextFrameId(), pageId, false, 1, getCurrentTimestamp());
-    //         newFrame.setFrame_with_Page(data,nameTable);
-    //         bufferPool.push_front(newFrame);
-    //         frameMap[pageId] = bufferPool.begin();
-    //         auto frameIter = frameMap[pageId];
-//
-    //         std::cout << "Writing Page " << pageId << " to buffer." << std::endl;
-    //         int start = frameIter->position[0];
-    //         int ending = frameIter->position[1];
-    //      
-    //         cout<<"\n"<<start<<":"<<ending<<"->"<<record<< endl<<endl;
-    //         if(record >=start && record <= ending)
-    //         {
-    //             cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-    //             frameIter->delete_RecordBuffer(frameIter->frameId, record);
-    //             return true;
-    //
-    //         }
-    //     }
-    //     return false;
-    // }
-
-
    
     bool IsEmptyBuffer()
     {
         return (buffer.size() < bufferSize) ? true: false;
+    }
+    
+    
+    string getFreeList(string nameFile)
+    {
+        fstream archivo("files/"+ nameFile +".txt");
+        int temp = 0;
+        
+        // Getting the header of file and delete spaces
+        archivo.seekg(0,ios::beg);
+        string linea;
+        getline(archivo, linea);
+        int register_size = archivo.tellg();
+
+        
+        linea.erase(remove(linea.begin(), linea.end(), ' '), linea.end());
+        int inicio = 0;     // start of pointer of delete file
+
+        // Validate if the header is empty(exist a delete register)
+        if (linea.size() > 0)
+        {
+            temp = 1;
+            inicio = stoi(linea);
+        }
+        else
+        {
+            return "Llista vacia";
+
+        }
+
+        // cout<<"iNICIO FIRST: "<<inicio<<endl;
+
+        string freeListas =to_string(inicio) +", ";
+        inicio--;
+        inicio=inicio*register_size;
+        cout<<"ini: "<<inicio/register_size<<endl;
+        while (temp)                                // existe a delete record
+        {
+            //cout<<"ENTRA A MI BUCLE:::"<<endl;
+            string aux;
+            archivo.seekg(inicio, ios::beg);
+           
+            getline(archivo,aux);
+             aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
+            // cout<<"IMPRIMIR AUX: "<<aux<<endl;
+            if (aux.size() > 0)
+            {
+                freeListas+= (aux +", ");
+                //archivo.seekg(i)
+                inicio = (stoi(aux) -1)*register_size;                
+            }
+            else
+            {
+                
+                temp = 0;
+            }
+        }
+        return freeListas;
+        
     }
     friend class DATABASE;
     
@@ -1775,45 +2002,22 @@ class DATABASE
             
       
         }
-/*
-        
-        void sql_Request_Insert(int recordNum)
-        {
-            string record;
-            list<Frame>::iterator it;
-            if(BM->empty)
-            {
-                for (int i = 0; i < DM->cantidad_bloques; i++)
-                {
-                    
-                    if( BM->writePage_Delete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
-                    {  
-                        break;
-                    }
-                    BM->unpinPage(i);
-                    
-                }
-            }else{
-                int size = BM->bufferSize;
-                bool terminarBucles = false;
-                for (int i = 0; i < DM->cantidad_bloques && !terminarBucles; i++)
-                {
-                    for (it = BM->bufferPool.begin(); it != BM->bufferPool.end() && !terminarBucles; ++it)
-                    {
-                        if((*it).pageId !=i )
-                        {
-                            if( BM->writePage_Delete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
-                                terminarBucles = true;
-                            
-                            BM->unpinPage(i);
-                        }
-                    }   
-                }
-            }
 
-            cout<<"Registro Insertado!"<<endl;
+        void sql_Request_Insert(string record)
+        {
+            if(BM->addPage_toINSERT(0, record, 1, DM->nPages[0]->ptrPosition, DM->disk->getNameTable(), DM))
+            {    
+                cout<<"Registro Insertado!"<<endl;
+            }
+                //BM->unpinPage(i);
+                
+           
+           
         }
-        */
+        void sql_getFrrelist()
+        {
+            cout<<BM->getFreeList(DM->disk->getNameTable())<<endl;
+        }
 };
 
 /*
@@ -1971,16 +2175,40 @@ int main()
     // make a request: queiro registro 20
     DATABASE db(&directorios,&buffer);
     db.sql_Request(23);
+    db.sql_Request_Delete(203);
+    db.sql_Request_Delete(213);
+    db.sql_Request_Delete(713);
     db.sql_Request(561);
     db.sql_Request(13);
     db.sql_Request(20);
     db.sql_Request(432);
     db.sql_Request(700);
     db.sql_Request(215);
+    db.sql_Request_Delete(310);
+    db.sql_Request(561);
+    db.sql_Request(13);
+    db.sql_Request(20);
+    db.sql_Request(432);
+    db.sql_Request(700);
+    db.sql_Request(215);
+    db.sql_Request(520);
+    db.sql_Request(320);
+    string rrr = "666->                                                                                                                                                                                                   ";
+    string rrr2 = "667->                                                                                                                                                                                                   ";
+    string rrr3 = "668->                                                                                                                                                                                                   ";
+    string rrr4 = "669->                                                                                                                                                                                                   ";
+    string rrr5 = "661->                                                                                                                                                                                                   ";
 
-    db.sql_Request_Delete(203);
-    db.sql_Request_Delete(213);
-    db.sql_Request_Delete(713);
+    // db.sql_Request_Insert(rrr);
+    // db.sql_Request_Insert(rrr2);
+    // db.sql_Request_Insert(rrr3);
+    // db.sql_Request_Insert(rrr4);
+    // db.sql_Request_Insert(rrr5);
+
+
+   
+    db.sql_getFrrelist();
+
     // db.sql_Request(561);
     // db.sql_Request(13);
     // db.sql_Request(720);
