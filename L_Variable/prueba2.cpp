@@ -97,7 +97,10 @@ void generateFileVarible(string table_name, string column_types){
             //ss2>>token2;
             if(token2.size()>0)
                 bitmap += "0";
-            else bitmap += "1";
+            else {
+                bitmap += "1";
+                res -= 8;
+            }
         }
         stringstream ss3(linea);    
         string totalStr = "";
@@ -111,7 +114,7 @@ void generateFileVarible(string table_name, string column_types){
                     for(int h=aa.size();h<8;h++) aa+= " ";
                     archivo2<<aa;
                 }
-
+                
             }
             else if(types[i+1] == "float"){
                 if(token2.size() > 0){
@@ -119,6 +122,7 @@ void generateFileVarible(string table_name, string column_types){
                     for(int h=aa.size();h<8;h++) aa+= " ";
                     archivo2<<aa;
                 }
+                
             }
             else if(types[i+1] == "double"){
                 if(token2.size() > 0){
@@ -126,6 +130,7 @@ void generateFileVarible(string table_name, string column_types){
                     for(int h=aa.size();h<8;h++) aa+= " ";
                     archivo2<<aa;
                 }
+                
             }
             else if(types[i+1] == "str"){
                 if(token2.size() > 0){
@@ -136,6 +141,7 @@ void generateFileVarible(string table_name, string column_types){
                     archivo2<<ww;
                     res += token2.size();
                 }
+
             }
         }
         archivo2<<totalStr<<endl;
@@ -149,6 +155,7 @@ int getSizeRecord(string table_name, string column_types,int record){
     for(int i=0;i<record;i++){
         getline(archivo,linea);
     }
+    cout<<"LLLL: "<<linea<<endl;
     vector<string> types;
     stringstream ss(column_types); // Crea un objeto stringstream con el string
     string token;
@@ -186,11 +193,64 @@ int getSizeRecord(string table_name, string column_types,int record){
 
 int main()
 {
+    
     string table_name = "titanic";
     string esquemabd = cargar_esquema(table_name);
     string column_names = "", column_types = "";
     getInfoEsquema(esquemabd, column_names, column_types);
-    generateFileVarible(table_name,column_types);
-    getSizeRecord(table_name,column_types,2);
+    //generateFileVarible(table_name,column_types);
+    //getSizeRecord(table_name,column_types,1);
+
+    // getSizeRecord(table_name,column_types,6);
+    // getSizeRecord(table_name,column_types,7);
+    // getSizeRecord(table_name,column_types,8);
+    // getSizeRecord(table_name,column_types,9);
+    // getSizeRecord(table_name,column_types,10);
+        
+    ifstream archivo(table_name + "10.txt");
+    string linea;
+    getline(archivo,linea);
+    getline(archivo,linea);
+
+    vector<string> types;
+    stringstream ss(column_types); // Crea un objeto stringstream con el string
+    string token;
+
+    while (getline(ss, token, '-')) { // Utiliza getline para dividir el string en tokens separados por '-'
+        types.push_back(token); // Agrega cada token al typestor
+    }
+    string bitmap = linea.substr(0,types.size()-1);
+    string result = "";
+    cout<<"Bitmap: "<<bitmap<<endl;
+    int pos = bitmap.size();
+    for(int i =0;i<bitmap.size();i++){
+        if(bitmap[i] == '0'){
+            if(types[i+1] == "int" || types[i+1] == "float"){
+                result += linea.substr(pos,4) + "#";
+                pos += 8;
+            }
+            else if( types[i+1] == "double") {
+                result += linea.substr(pos,8) +"#";
+                pos += 8;
+            }
+            else if(types[1+i] == "str"){
+                string temp = linea.substr(pos,8);
+                string temp2;
+                string temp3;
+                stringstream ss(temp);
+                getline(ss, temp2, ',');
+                getline(ss, temp3, ',');
+                cout<<"t2: "<<temp2<<endl;
+                cout<<"t3: "<<temp3<<endl;
+                result += linea.substr(stoi(temp2),stoi(temp3)) + "#";
+                pos += 8;
+            }
+        }
+        
+    }
+    
+    //result = result.substr(0,result.size()-2);
+    result.erase(std::remove_if(result.begin(), result.end(), [](char c) { return c == '\r'; }), result.end());
+    cout<<result<<endl;
     return 0;
 }
