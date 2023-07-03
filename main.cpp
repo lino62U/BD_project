@@ -78,58 +78,73 @@ class Sector
             
         }
 
-        void printRecord(bool band)
+        void printRecord(bool band, string column_types)
         {
             string aux;
             int size_per_register_file;
 
-            cout<<"oriifenn: "<<endl;
             fstream archivo("files/titanic10.txt",ios::in | ios::binary| ios::ate);
             
             int fileSize = archivo.tellg();
             
+            string linea;
+            
+            vector<string> types;
+            stringstream ss(column_types); // Crea un objeto stringstream con el string
+            string token;
 
-            // find the size of the first line of the file
-            
-            
-            // Getting positions of the record in the file
-
-            int start =  (recordPositions[0] -1) * size_per_register_file + (recordPositions[0] - 1);
-            int end = recordPositions[1] * size_per_register_file + (recordPositions[1]-1);
-            
-            if(start > fileSize)
-            {
-                cout<<"No hay datos en este sector"<<endl;
-                return;
+            while (getline(ss, token, '-')) { // Utiliza getline para dividir el string en tokens separados por '-'
+                types.push_back(token); // Agrega cada token al typestor
             }
-            string result;
-            
-            
             
             // Get data in variable
 
           
             archivo.seekg(0, ios::beg);
 
-            cout<<"POSOSION: "<<recordPositions[0]<<"::"<<recordPositions[1]<<endl;
             if(recordPositions[0]-1 < 0)
             {
                 recordPositions[0]++;
             }
             for (int i = 0; i < recordPositions[0]-1; i++)
             {
-                getline(archivo, result); 
+                getline(archivo, linea); 
             }
             for (int i = recordPositions[0]; i < recordPositions[1]+1; i++)
             {
-                getline(archivo, result);
+                getline(archivo, linea);
+                string bitmap = linea.substr(0,types.size()-1);
+                string result = "";
+                
+                int pos = bitmap.size();
+                for(int i =0;i<bitmap.size();i++){
+                    if(bitmap[i] == '0'){
+                        if(types[i+1] == "int" || types[i+1] == "float"){
+                            result += linea.substr(pos,4) + "#";
+                            pos += 8;
+                        }
+                        else if( types[i+1] == "double") {
+                            result += linea.substr(pos,8) +"#";
+                            pos += 8;
+                        }
+                        else if(types[1+i] == "str"){
+                            string temp = linea.substr(pos,8);
+                            string temp2;
+                            string temp3;
+                            stringstream ss(temp);
+                            getline(ss, temp2, ',');
+                            getline(ss, temp3, ',');
+                            result += linea.substr(stoi(temp2),stoi(temp3)) + "#";
+                            pos += 8;
+                        }
+                    }
+                    
+                }
+                
+                //result = result.substr(0,result.size()-2);
+                result.erase(std::remove_if(result.begin(), result.end(), [](char c) { return c == '\r'; }), result.end());
                 cout<<result<<endl;
             }
-            
-            // char *A = new char[end - start +1 ] ;
-            // archivo.read(A, end - start);
-            // A[end - start] = '\0';
-            // cout<<A<<endl;
 
         }
 
@@ -138,7 +153,6 @@ class Sector
             string aux;
             int size_per_register_file;
 
-            cout<<"oriifenn: "<<endl;
             fstream archivo("files/titanic10.txt",ios::in | ios::binary| ios::ate);
             
             int fileSize = archivo.tellg();
@@ -179,6 +193,7 @@ class Sector
         int getCapacity(){return memory_of_sector;}
         int getSizeRecord(){return size_per_register;}
         bool getState () {return empty;}
+        
         int* getRecordPositions(){return recordPositions;}
         friend class Disk_Manager;
         friend class Disk;
@@ -486,9 +501,7 @@ class Disk
         }
 
         void loadDataDisk_LV(string table_name, string column_types,  bool &fullDisk){
-            
-            cout<<"ENTRAS LOADDATADISK_LV: "<<table_name<<endl;
-            cout<<":"<<column_types<<":"<<endl;
+
             ifstream archivo("./files/" +table_name+".txt",ios::binary);
             ofstream archivo2("./files/" +table_name+"10.txt");
             string header="";
@@ -531,7 +544,10 @@ class Disk
                     //ss2>>token2;
                     if(token2.size()>0)
                         bitmap += "0";
-                    else bitmap += "1";
+                    else {
+                        bitmap += "1";
+                        res -= 8;
+                    }
                 }
                 stringstream ss3(linea);    
                 string totalStr = "";
@@ -563,6 +579,7 @@ class Disk
                     }
                     else if(types[i+1] == "str"){
                         if(token2.size() > 0){
+                            token2.erase(std::remove_if(token2.begin(), token2.end(), [](char c) { return c == '\r'; }), token2.end());
                             string aa = token2;
                             string ww = to_string(res) + "," + to_string(token2.size());
                             for(int h=ww.size();h<8;h++) ww += " ";
@@ -629,7 +646,7 @@ class Disk
                     cout<<"\tDISCO: "<<pl<<":"<<spr<<":"<<pst<<":"<<sc<<endl;
                     nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->setSectorLV(positions_data,nameTable, true);
                     nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->SetAvailableSpace(size_perSector);
-                    nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->printRecord(true);
+                    // nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->printRecord(true, column_types);
                     sc++;
                     contadores(pl,spr,pst,sc);
                     size_perSector = memoria_por_sector;
@@ -653,7 +670,7 @@ class Disk
             cout<<"\tDISCO: "<<pl<<":"<<spr<<":"<<pst<<":"<<sc<<endl;
             nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->setSectorLV(positions_data,nameTable, true);
             nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->SetAvailableSpace(size_perSector);
-            nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->printRecord(true);
+            // nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->printRecord(true);
 
 
             
@@ -822,10 +839,7 @@ class Block
         
         void making_Block (int pPlato, int pSuperficie, int pPista, int pSector)
         {      
-            // ptrPosition[0] = pPlato;
-            // ptrPosition[1] = pSuperficie;
-            // ptrPosition[2] = pPista;
-            // ptrPosition[3] = pSector;
+
             numSectores[i]=(ptrDisk->nPlatters[pPlato]->nSurfaces[pSuperficie]->nTrack[pPista]->nSectors[pSector]); 
             if(i==0)
             {
@@ -854,7 +868,7 @@ class Block
             
         }
 
-        void print_blockContent(bool typeSaved)
+        void print_blockContent(bool typeSaved, string colum_type)
         {
             int j=0;
             int capacity=0;
@@ -867,7 +881,7 @@ class Block
                 {
                     if(typeSaved)
                     {
-                        i->printRecord(true);
+                        i->printRecord(true, colum_type);
                     }else
                     {
                         i->printRecord();
@@ -912,6 +926,7 @@ class Disk_Manager
         vector<Block *> nPages;
         int num_Block_Used;
         bool typeSaved;  //0:fijo 1: variable
+        string column_types;
     public:
         Disk_Manager(){}
         Disk_Manager(int num_secs, Disk *_disk)
@@ -922,6 +937,7 @@ class Disk_Manager
             sectores_por_bloques = num_secs;
             nPages.resize(cantidad_bloques);
             memory_disk=0;
+            column_types="";
             //generatePages();
         }
         ~Disk_Manager(){}
@@ -938,10 +954,12 @@ class Disk_Manager
 
                 
                 
-                string column_names = "", column_types = "";
-                disk->getInfoEsquema(esquemabd,column_names, column_types);
+                string column_names = "";
+                string columTipes="";
+                disk->getInfoEsquema(esquemabd,column_names, columTipes);
                 disk->inicilizar_Disco(10,disk->name_Table);
-                disk->loadDataDisk_LV(table_name,column_types, fullDisk);
+                disk->loadDataDisk_LV(table_name,columTipes, fullDisk);
+                this->column_types = columTipes;
             }
             else
             {
@@ -1209,7 +1227,7 @@ class Disk_Manager
             
             if (disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector])
             {
-                disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord(true);
+                disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord(true, column_types);
                 
                 int capacidad = disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->getCapacity();
                 int size_per_Registre = disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->getSizeRecord();
@@ -1346,7 +1364,8 @@ class Disk_Manager
             {
                 cout<<"\n\t\t\tBloque "<<n<<endl;
                 cout<<"\t***************************************"<<endl;
-                nPages[n-1]->print_blockContent(typeSaved);
+                cout<<"BOOOO:L: "<<typeSaved<<endl;
+                nPages[n-1]->print_blockContent(typeSaved, column_types);
             }
             
         }
@@ -1358,7 +1377,7 @@ class Disk_Manager
                 cout<<"\n\t\t\tBloque "<<i+1<<endl;
                 cout<<"\t***************************************"<<endl;
                 
-                nPages[i]->print_blockContent(typeSaved);
+                nPages[i]->print_blockContent(typeSaved, column_types);
                 
 
             }
