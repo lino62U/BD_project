@@ -190,7 +190,7 @@ int main()
     string esquemabd = cargar_esquema(table_name);
     string column_names = "", column_types = "";
     getInfoEsquema(esquemabd, column_names, column_types);
-    //generateFileVarible(table_name,column_types);
+    generateFileVarible(table_name,column_types);
     getSizeRecord(table_name,column_types,2);
     return 0;
 }

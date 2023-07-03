@@ -1,0 +1,892 @@
+        
+0000000000101       0       3       108,23  131,4   22      1       0       135,9   7.25    144,2   Braund, Mr. Owen HarrismaleA/5 21171S
+0000000000002       1       1       108,51  159,6   38      1       0       165,8   71.2833 173,3   176,2   Cumings, Mrs. John Bradley (Florence Briggs Thayer)femalePC 17599C85C
+0000000000103       1       3       108,22  130,6   26      0       0       136,16  7.925   152,2   Heikkinen, Miss. LainafemaleSTON/O2. 3101282S
+0000000000004       1       1       108,44  152,6   35      1       0       158,6   53.1    164,4   168,2   Futrelle, Mrs. Jacques Heath (Lily May Peel)female113803C123S
+0000000000105       0       3       108,24  132,4   35      0       0       136,6   8.05    142,2   Allen, Mr. William Henrymale373450S
+0000010000106       0       3       108,16  124,4   0       0       128,6   8.4583  134,2   Moran, Mr. Jamesmale330877Q
+0000000000007       0       1       108,23  131,4   54      0       0       135,5   51.8625 140,3   143,2   McCarthy, Mr. Timothy Jmale17463E46S
+0000000000108       0       3       108,30  138,4   2       3       1       142,6   21.075  148,2   Palsson, Master. Gosta Leonardmale349909S
+0000000000109       1       3       108,49  157,6   27      0       2       163,6   11.1333 169,2   Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)female347742S
+00000000001010      1       2       108,35  143,6   14      1       0       149,6   30.0708 155,2   Nasser, Mrs. Nicholas (Adele Achem)female237736C
+00000000000011      1       3       108,31  139,6   4       1       1       145,7   16.7    152,2   154,2   Sandstrom, Miss. Marguerite RutfemalePP 9549G6S
+00000000000012      1       1       108,24  132,6   58      0       0       138,6   26.55   144,4   148,2   Bonnell, Miss. Elizabethfemale113783C103S
+00000000001013      0       3       108,30  138,4   20      0       0       142,9   8.05    151,2   Saundercock, Mr. William HenrymaleA/5. 2151S
+00000000001014      0       3       108,27  135,4   39      1       5       139,6   31.275  145,2   Andersson, Mr. Anders Johanmale347082S
+00000000001015      0       3       108,36  144,6   14      0       0       150,6   7.8542  156,2   Vestrom, Miss. Hulda Amanda Adolfinafemale350406S
+00000000001016      1       2       108,32  140,6   55      0       0       146,6   16      152,2   Hewlett, Mrs. (Mary D Kingcome) female248706S
+00000000001017      0       3       108,20  128,4   2       4       1       132,6   29.125  138,2   Rice, Master. Eugenemale382652Q
+00000100001018      1       2       108,28  136,4   0       0       140,6   13      146,2   Williams, Mr. Charles Eugenemale244373S
+00000000001019      0       3       108,55  163,6   31      1       0       169,6   18      175,2   Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)female345763S
+00000100001020      1       3       108,23  131,6   0       0       137,4   7.225   141,2   Masselmani, Mrs. Fatimafemale2649C
+00000000001021      0       2       108,20  128,4   35      0       0       132,6   26      138,2   Fynney, Mr. Joseph Jmale239865S
+00000000000022      1       2       108,21  129,4   34      0       0       133,6   13      139,3   142,2   Beesley, Mr. Lawrencemale248698D56S
+00000000001023      1       3       108,28  136,6   15      0       0       142,6   8.0292  148,2   "McGowan, Miss. Anna "Annie"female330923Q
+00000000000024      1       1       108,28  136,4   28      0       0       140,6   35.5    146,2   148,2   Sloper, Mr. William Thompsonmale113788A6S
+00000000001025      0       3       108,29  137,6   8       3       1       143,6   21.075  149,2   Palsson, Miss. Torborg Danirafemale349909S
+00000000001026      1       3       108,57  165,6   38      1       5       171,6   31.3875 177,2   Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)female347077S
+00000100001027      0       3       108,23  131,4   0       0       135,4   7.225   139,2   Emir, Mr. Farred Chehabmale2631C
+00000000000028      0       1       108,30  138,4   19      3       2       142,5   263     147,11  158,2   Fortune, Mr. Charles Alexandermale19950C23 C25 C27S
+00000100001029      1       3       108,30  138,6   0       0       144,6   7.8792  150,2   "O'Dwyer, Miss. Ellen "Nellie"female330959Q
+00000100001030      0       3       108,19  127,4   0       0       131,6   7.8958  137,2   Todoroff, Mr. Laliomale349216S
+00000000001031      0       1       108,24  132,4   40      0       0       136,8   27.7208 144,2   Uruchurtu, Don. Manuel EmalePC 17601C
+00000100000032      1       1       108,46  154,6   1       0       160,8   146.5208168,3   171,2   Spencer, Mrs. William Augustus (Marie Eugenie)femalePC 17569B78C
+00000100001033      1       3       108,24  132,6   0       0       138,6   7.75    144,2   Glynn, Miss. Mary Agathafemale335677Q
+00000000001034      0       2       108,21  129,4   66      0       0       133,10  10.5    143,2   Wheadon, Mr. Edward HmaleC.A. 24579S
+00000000001035      0       1       108,23  131,4   28      1       0       135,8   82.1708 143,2   Meyer, Mr. Edgar JosephmalePC 17604C
+00000000001036      0       1       108,30  138,4   42      1       0       142,6   52      148,2   Holverson, Mr. Alexander Oskarmale113789S
+00000100001037      1       3       108,16  124,4   0       0       128,4   7.2292  132,2   Mamee, Mr. Hannamale2677C
+00000000001038      0       3       108,24  132,4   21      0       0       136,10  8.05    146,2   Cann, Mr. Ernest CharlesmaleA./5. 2152S
+00000000001039      0       3       108,34  142,6   18      2       0       148,6   18      154,2   Vander Planke, Miss. Augusta Mariafemale345764S
+00000000001040      1       3       108,27  135,6   14      1       0       141,4   11.2417 145,2   Nicola-Yarred, Miss. Jamilafemale2651C
+00000000001041      0       3       108,46  154,6   40      1       0       160,4   9.475   164,2   Ahlin, Mrs. Johan (Johanna Persdotter Larsson)female7546S
+00000000001042      0       2       108,56  164,6   27      1       0       170,5   21      175,2   Turpin, Mrs. William John Robert (Dorothy Ann Wonnacott)female11668S
+00000100001043      0       3       108,19  127,4   0       0       131,6   7.8958  137,2   Kraeff, Mr. Theodormale349253C
+00000000001044      1       2       108,40  148,6   3       1       2       154,13  41.5792 167,2   Laroche, Miss. Simonne Marie Anne AndreefemaleSC/Paris 2123C
+00000000001045      1       3       108,29  137,6   19      0       0       143,6   7.8792  149,2   Devaney, Miss. Margaret Deliafemale330958Q
+00000100001046      0       3       108,24  132,4   0       0       136,15  8.05    151,2   Rogers, Mr. William JohnmaleS.C./A.4. 23567S
+00000100001047      0       3       108,17  125,4   1       0       129,6   15.5    135,2   Lennon, Mr. Denismale370371Q
+00000100001048      1       3       108,25  133,6   0       0       139,5   7.75    144,2   O'Driscoll, Miss. Bridgetfemale14311Q
+00000100001049      0       3       108,19  127,4   2       0       131,4   21.6792 135,2   Samaan, Mr. Youssefmale2662C
+00000000001050      0       3       108,45  153,6   18      1       0       159,6   17.8    165,2   Arnold-Franchi, Mrs. Josef (Josefine Franchi)female349237S
+00000000001051      0       3       108,26  134,4   7       4       1       138,7   39.6875 145,2   Panula, Master. Juha Niilomale3101295S
+00000000001052      0       3       108,28  136,4   21      0       0       140,10  7.8     150,2   Nosworthy, Mr. Richard CatermaleA/4. 39886S
+00000000000053      1       1       108,40  148,6   49      1       0       154,8   76.7292 162,3   165,2   Harper, Mrs. Henry Sleeper (Myna Haxtun)femalePC 17572D33C
+00000000001054      1       2       108,50  158,6   29      1       0       164,4   26      168,2   Faunthorpe, Mrs. Lizzie (Elizabeth Anne Wilkinson)female2926S
+00000000000055      0       1       108,30  138,4   65      0       1       142,6   61.9792 148,3   151,2   Ostby, Mr. Engelhart Corneliusmale113509B30C
+00000100000056      1       1       108,17  125,4   0       0       129,5   35.5    134,3   137,2   Woolner, Mr. Hughmale19947C52S
+00000000001057      1       2       108,17  125,6   21      0       0       131,10  10.5    141,2   Rugg, Miss. EmilyfemaleC.A. 31026S
+00000000001058      0       3       108,19  127,4   28.5    0       0       131,4   7.2292  135,2   Novel, Mr. Mansouermale2697C
+00000000001059      1       2       108,28  136,6   5       1       2       142,10  27.75   152,2   West, Miss. Constance MiriumfemaleC.A. 34651S
+00000000001060      0       3       108,34  142,4   11      5       2       146,7   46.9    153,2   Goodwin, Master. William FrederickmaleCA 2144S
+00000000001061      0       3       108,21  129,4   22      0       0       133,4   7.2292  137,2   Sirayanian, Mr. Orsenmale2669C
+00000000000062      1       1       108,19  127,6   38      0       0       133,6   80      139,3   142,1   Icard, Miss. Ameliefemale113572B28
+00000000000063      0       1       108,27  135,4   45      1       0       139,5   83.475  144,3   147,2   Harris, Mr. Henry Birkhardtmale36973C83S
+00000000001064      0       3       108,21  129,4   4       3       2       133,6   27.9    139,2   Skoog, Master. Haraldmale347088S
+00000100001065      0       1       108,21  129,4   0       0       133,8   27.7208 141,2   Stewart, Mr. Albert AmalePC 17605C
+00000100001066      1       3       108,24  132,4   1       1       136,4   15.2458 140,2   Moubarek, Master. Geriosmale2661C
+00000000000067      1       2       108,28  136,6   29      0       0       142,10  10.5    152,3   155,2   Nye, Mrs. (Elizabeth Ramell)femaleC.A. 29395F33S
+00000000001068      0       3       108,24  132,4   19      0       0       136,9   8.1583  145,2   Crease, Mr. Ernest JamesmaleS.P. 3464S
+00000000001069      1       3       108,31  139,6   17      4       2       145,7   7.925   152,2   Andersson, Miss. Erna Alexandrafemale3101281S
+00000000001070      0       3       108,17  125,4   26      2       0       129,6   8.6625  135,2   Kink, Mr. Vincenzmale315151S
+00000000001071      0       2       108,26  134,4   32      0       0       138,10  10.5    148,2   Jenkin, Mr. Stephen CurnowmaleC.A. 33111S
+00000000001072      0       3       108,26  134,6   16      5       2       140,7   46.9    147,2   Goodwin, Miss. Lillian AmyfemaleCA 2144S
+00000000001073      0       2       108,20  128,4   21      0       0       132,12  73.5    144,2   Hood, Mr. Ambrose JrmaleS.O.C. 14879S
+00000000001074      0       3       108,27  135,4   26      1       0       139,4   14.4542 143,2   Chronopoulos, Mr. Apostolosmale2680C
+00000000001075      1       3       108,13  121,4   32      0       0       125,4   56.4958 129,2   Bing, Mr. Leemale1601S
+00000000000076      0       3       108,23  131,4   25      0       0       135,6   7.65    141,5   146,2   Moen, Mr. Sigurd Hansenmale348123F G73S
+00000100001077      0       3       108,17  125,4   0       0       129,6   7.8958  135,2   Staneff, Mr. Ivanmale349208S
+00000100001078      0       3       108,24  132,4   0       0       136,6   8.05    142,2   Moutal, Mr. Rahamin Haimmale374746S
+00000000001079      1       2       108,29  137,4   0.83    0       2       141,6   29      147,2   Caldwell, Master. Alden Gatesmale248738S
+00000000001080      1       3       108,24  132,6   30      0       0       138,6   12.475  144,2   Dowdell, Miss. Elizabethfemale364516S
+00000000001081      0       3       108,20  128,4   22      0       0       132,6   9       138,2   Waelens, Mr. Achillemale345767S
+00000000001082      1       3       108,27  135,4   29      0       0       139,6   9.5     145,2   Sheerlinck, Mr. Jan Baptistmale345779S
+00000100001083      1       3       108,30  138,6   0       0       144,6   7.7875  150,2   McDermott, Miss. Brigdet Deliafemale330932Q
+00000000001084      0       1       108,23  131,4   28      0       0       135,6   47.1    141,2   Carrau, Mr. Francisco Mmale113059S
+00000000001085      1       2       108,19  127,6   17      0       0       133,10  10.5    143,2   Ilett, Miss. BerthafemaleSO/C 14885S
+00000000001086      1       3       108,55  163,6   33      3       0       169,7   15.85   176,2   Backstrom, Mrs. Karl Alfred (Maria Mathilda Gustafsson)female3101278S
+00000000001087      0       3       108,22  130,4   16      1       3       134,10  34.375  144,2   Ford, Mr. William NealmaleW./C. 6608S
+00000100001088      0       3       108,29  137,4   0       0       141,15  8.05    156,2   Slocovski, Mr. Selman FrancismaleSOTON/OQ 392086S
+00000000000089      1       1       108,26  134,6   23      3       2       140,5   263     145,11  156,2   Fortune, Miss. Mabel Helenfemale19950C23 C25 C27S
+00000000001090      0       3       108,22  130,4   24      0       0       134,6   8.05    140,2   Celotti, Mr. Francescomale343275S
+00000000001091      0       3       108,20  128,4   29      0       0       132,6   8.05    138,2   Christmann, Mr. Emilmale343276S
+00000000001092      0       3       108,26  134,4   20      0       0       138,6   7.8542  144,2   Andreasson, Mr. Paul Edvinmale347466S
+00000000000093      0       1       108,27  135,4   46      1       0       139,11  61.175  150,3   153,2   Chaffee, Mr. Herbert FullermaleW.E.P. 5734E31S
+00000000001094      0       3       108,23  131,4   26      1       2       135,9   20.575  144,2   Dean, Mr. Bertram FrankmaleC.A. 2315S
+00000000001095      0       3       108,17  125,4   59      0       0       129,6   7.25    135,2   Coxon, Mr. Danielmale364500S
+00000100001096      0       3       108,27  135,4   0       0       139,6   8.05    145,2   Shorney, Mr. Charles Josephmale374910S
+00000000000097      0       1       108,25  133,4   71      0       0       137,8   34.6542 145,2   147,2   Goldschmidt, Mr. George BmalePC 17754A5C
+00000000000098      1       1       108,31  139,4   23      0       1       143,8   63.3583 151,7   158,2   Greenfield, Mr. William BertrammalePC 17759D10 D12C
+00000000001099      1       2       108,36  144,6   34      0       1       150,6   23      156,2   Doling, Mrs. John T (Ada Julia Bone)female231919S
+000000000010100     0       2       108,17  125,4   34      1       0       129,6   26      135,2   Kantor, Mr. Sinaimale244367S
+000000000010101     0       3       108,23  131,6   28      0       0       137,6   7.8958  143,2   Petranec, Miss. Matildafemale349245S
+000001000010102     0       3       108,34  142,4   0       0       146,6   7.8958  152,2   "Petroff, Mr. Pastcho ("Pentcho")"male349215S
+000000000000103     0       1       108,25  133,4   21      0       1       137,5   77.2875 142,3   145,2   White, Mr. Richard Frasarmale35281D26S
+000000000010104     0       3       108,26  134,4   33      0       0       138,4   8.6542  142,2   Johansson, Mr. Gustaf Joelmale7540S
+000000000010105     0       3       108,30  138,4   37      2       0       142,7   7.925   149,2   Gustafsson, Mr. Anders Vilhelmmale3101276S
+000000000010106     0       3       108,21  129,4   28      0       0       133,6   7.8958  139,2   Mionoff, Mr. Stoytchomale349207S
+000000000010107     1       3       108,32  140,6   21      0       0       146,6   7.65    152,2   Salkjelsvik, Miss. Anna Kristinefemale343120S
+000001000010108     1       3       108,22  130,4   0       0       134,6   7.775   140,2   Moss, Mr. Albert Johanmale312991S
+000000000010109     0       3       108,15  123,4   38      0       0       127,6   7.8958  133,2   Rekic, Mr. Tidomale349249S
+000001000010110     1       3       108,19  127,6   1       0       133,6   24.15   139,2   Moran, Miss. Berthafemale371110Q
+000000000000111     0       1       108,30  138,4   47      0       0       142,6   52      148,4   152,2   Porter, Mr. Walter Chamberlainmale110465C110S
+000000000010112     0       3       108,20  128,6   14.5    1       0       134,4   14.4542 138,2   Zabour, Miss. Hilenifemale2665C
+000000000010113     0       3       108,22  130,4   22      0       0       134,6   8.05    140,2   Barton, Mr. David Johnmale324669S
+000000000010114     0       3       108,23  131,6   20      1       0       137,4   9.825   141,2   Jussila, Miss. Katriinafemale4136S
+000000000010115     0       3       108,21  129,6   17      0       0       135,4   14.4583 139,2   Attalah, Miss. Malakefemale2627C
+000000000010116     0       3       108,21  129,4   21      0       0       133,17  7.925   150,2   Pekoniemi, Mr. EdvardmaleSTON/O 2. 3101294S
+000000000010117     0       3       108,20  128,4   70.5    0       0       132,6   7.75    138,2   Connors, Mr. Patrickmale370369Q
+000000000010118     0       2       108,31  139,4   29      1       0       143,5   21      148,2   Turpin, Mr. William John Robertmale11668S
+000000000000119     0       1       108,24  132,4   24      0       1       136,8   247.5208144,7   151,2   Baxter, Mr. Quigg EdmondmalePC 17558B58 B60C
+000000000010120     0       3       108,33  141,6   2       4       2       147,6   31.275  153,2   Andersson, Miss. Ellis Anna Mariafemale347082S
+000000000010121     0       2       108,27  135,4   21      2       0       139,12  73.5    151,2   Hickman, Mr. Stanley GeorgemaleS.O.C. 14879S
+000001000010122     0       3       108,26  134,4   0       0       138,9   8.05    147,2   Moore, Mr. Leonard CharlesmaleA4. 54510S
+000000000010123     0       2       108,20  128,4   32.5    1       0       132,6   30.0708 138,2   Nasser, Mr. Nicholasmale237736C
+000000000000124     1       2       108,19  127,6   32.5    0       0       133,5   13      138,4   142,2   Webber, Miss. Susanfemale27267E101S
+000000000000125     0       1       108,27  135,4   54      0       1       139,5   77.2875 144,3   147,2   White, Mr. Percival Waylandmale35281D26S
+000000000010126     1       3       108,28  136,4   12      1       0       140,4   11.2417 144,2   Nicola-Yarred, Master. Eliasmale2651C
+000001000010127     0       3       108,19  127,4   0       0       131,6   7.75    137,2   McMahon, Mr. Martinmale370372Q
+000000000010128     1       3       108,25  133,4   24      0       0       137,7   7.1417  144,2   Madsen, Mr. Fridtjof ArnemaleC 17369S
+000001000000129     1       3       108,17  125,6   1       1       131,4   22.3583 135,5   140,2   Peter, Miss. Annafemale2668F E69C
+000000000010130     0       3       108,18  126,4   45      0       0       130,6   6.975   136,2   Ekstrom, Mr. Johanmale347061S
+000000000010131     0       3       108,20  128,4   33      0       0       132,6   7.8958  138,2   Drazenoic, Mr. Jozefmale349241C
+000000000010132     0       3       108,30  138,4   20      0       0       142,18  7.05    160,2   Coelho, Mr. Domingos FernandeomaleSOTON/O.Q. 3101307S
+000000000010133     0       3       108,46  154,6   47      1       0       160,9   14.5    169,2   Robins, Mrs. Alexander A (Grace Charity Laury)femaleA/5. 3337S
+000000000010134     1       2       108,45  153,6   29      1       0       159,6   26      165,2   Weisz, Mrs. Leopold (Mathilde Francoise Pede)female228414S
+000000000010135     0       2       108,30  138,4   25      0       0       142,10  13      152,2   Sobey, Mr. Samuel James HaydenmaleC.A. 29178S
+000000000010136     0       2       108,18  126,4   23      0       0       130,13  15.0458 143,2   Richard, Mr. EmilemaleSC/PARIS 2133C
+000000000000137     1       1       108,28  136,6   19      0       2       142,5   26.2833 147,3   150,2   Newsom, Miss. Helen Monypenyfemale11752D47S
+000000000000138     0       1       108,27  135,4   37      1       0       139,6   53.1    145,4   149,2   Futrelle, Mr. Jacques Heathmale113803C123S
+000000000010139     0       3       108,19  127,4   16      0       0       131,4   9.2167  135,2   Osen, Mr. Olaf Elonmale7534S
+000000000000140     0       1       108,18  126,4   24      0       0       130,8   79.2    138,3   141,2   Giglio, Mr. VictormalePC 17593B86C
+000001000010141     0       3       108,29  137,6   0       2       143,4   15.2458 147,2   Boulos, Mrs. Joseph (Sultana)female2678C
+000000000010142     1       3       108,24  132,6   22      0       0       138,6   7.75    144,2   Nysten, Miss. Anna Sofiafemale347081S
+000000000010143     1       3       108,52  160,6   24      1       0       166,16  15.85   182,2   Hakkarainen, Mrs. Pekka Pietari (Elin Matilda Dolck)femaleSTON/O2. 3101279S
+000000000010144     0       3       108,19  127,4   19      0       0       131,6   6.75    137,2   Burke, Mr. Jeremiahmale365222Q
+000000000010145     0       2       108,26  134,4   18      0       0       138,6   11.5    144,2   Andrew, Mr. Edgardo Samuelmale231945S
+000000000010146     0       2       108,28  136,4   19      1       1       140,10  36.75   150,2   Nicholls, Mr. Joseph CharlesmaleC.A. 33112S
+000000000010147     1       3       108,46  154,4   27      0       0       158,6   7.7958  164,2   "Andersson, Mr. August Edvard ("Wennerstrom")"male350043S
+000000000010148     0       3       108,33  141,6   9       2       2       147,10  34.375  157,2   "Ford, Miss. Robina Maggie "Ruby"femaleW./C. 6608S
+000000000000149     0       2       108,42  150,4   36.5    0       2       154,6   26      160,2   162,2   "Navratil, Mr. Michel ("Louis M Hoffman")"male230080F2S
+000000000010150     0       2       108,33  141,4   42      0       0       145,6   13      151,2   Byles, Rev. Thomas Roussel Davidsmale244310S
+000000000010151     0       2       108,26  134,4   51      0       0       138,11  12.525  149,2   Bateman, Rev. Robert JamesmaleS.O.P. 1166S
+000000000000152     1       1       108,33  141,6   22      1       0       147,6   66.6    153,2   155,2   Pears, Mrs. Thomas (Edith Wearne)female113776C2S
+000000000010153     0       3       108,16  124,4   55.5    0       0       128,10  8.05    138,2   Meo, Mr. AlfonzomaleA.5. 11206S
+000000000010154     0       3       108,31  139,4   40.5    0       2       143,8   14.5    151,2   van Billiard, Mr. Austin BlylermaleA/5. 851S
+000001000010155     0       3       108,21  129,4   0       0       133,9   7.3125  142,2   Olsen, Mr. Ole MartinmaleFa 265302S
+000000000010156     0       1       108,27  135,4   51      0       1       139,8   61.3792 147,2   Williams, Mr. Charles DuanemalePC 17597C
+000000000010157     1       3       108,33  141,6   16      0       0       147,5   7.7333  152,2   "Gilnagh, Miss. Katherine "Katie"female35851Q
+000000000010158     0       3       108,15  123,4   30      0       0       127,15  8.05    142,2   Corn, Mr. HarrymaleSOTON/OQ 392090S
+000001000010159     0       3       108,19  127,4   0       0       131,6   8.6625  137,2   Smiljanic, Mr. Milemale315037S
+000001000010160     0       3       108,26  134,4   8       2       138,8   69.55   146,2   Sage, Master. Thomas HenrymaleCA. 2343S
+000000000010161     0       3       108,24  132,4   44      0       1       136,6   16.1    142,2   Cribb, Mr. John Hatfieldmale371362S
+000000000010162     1       2       108,52  160,6   40      0       0       166,10  15.75   176,2   "Watt, Mrs. James (Elizabeth "Bessie" Inglis Milne)"femaleC.A. 33595S
+000000000010163     0       3       108,26  134,4   26      0       0       138,6   7.775   144,2   Bengtsson, Mr. John Viktormale347068S
+000000000010164     0       3       108,15  123,4   17      0       0       127,6   8.6625  133,2   Calic, Mr. Jovomale315093S
+000000000010165     0       3       108,28  136,4   1       4       1       140,7   39.6875 147,2   Panula, Master. Eino Viljamimale3101295S
+000000000010166     1       3       108,48  156,4   9       0       2       160,6   20.525  166,2   "Goldsmith, Master. Frank John William "Frankie"male363291S
+000001000000167     1       1       108,38  146,6   0       1       152,6   55      158,3   161,2   Chibnall, Mrs. (Edith Martha Bowerman)female113505E33S
+000000000010168     0       3       108,47  155,6   45      1       4       161,6   27.9    167,2   Skoog, Mrs. William (Anna Bernhardina Karlsson)female347088S
+000001000010169     0       1       108,19  127,4   0       0       131,8   25.925  139,2   Baumann, Mr. John DmalePC 17318S
+000000000010170     0       3       108,13  121,4   28      0       0       125,4   56.4958 129,2   Ling, Mr. Leemale1601S
+000000000000171     0       1       108,25  133,4   61      0       0       137,6   33.5    143,3   146,2   Van der hoef, Mr. Wyckoffmale111240B19S
+000000000010172     0       3       108,20  128,4   4       4       1       132,6   29.125  138,2   Rice, Master. Arthurmale382652Q
+000000000010173     1       3       108,28  136,6   1       1       1       142,6   11.1333 148,2   Johnson, Miss. Eleanor Ileenfemale347742S
+000000000010174     0       3       108,25  133,4   21      0       0       137,17  7.925   154,2   Sivola, Mr. Antti WilhelmmaleSTON/O 2. 3101280S
+000000000000175     0       1       108,23  131,4   56      0       0       135,5   30.6958 140,2   142,2   Smith, Mr. James Clinchmale17764A7C
+000000000010176     0       3       108,22  130,4   18      1       1       134,6   7.8542  140,2   Klasen, Mr. Klas Albinmale350404S
+000001000010177     0       3       108,29  137,4   3       1       141,4   25.4667 145,2   Lefebre, Master. Henry Forbesmale4133S
+000000000000178     0       1       108,26  134,6   50      0       0       140,8   28.7125 148,3   151,2   Isham, Miss. Ann ElizabethfemalePC 17595C49C
+000000000010179     0       2       108,18  126,4   30      0       0       130,6   13      136,2   Hale, Mr. Reginaldmale250653S
+000000000010180     0       3       108,19  127,4   36      0       0       131,4   0       135,2   Leonard, Mr. LionelmaleLINES
+000001000010181     0       3       108,28  136,6   8       2       142,8   69.55   150,2   Sage, Miss. Constance GladysfemaleCA. 2343S
+000001000010182     0       2       108,16  124,4   0       0       128,13  15.05   141,2   Pernot, Mr. RenemaleSC/PARIS 2131C
+000000000010183     0       3       108,37  145,4   9       4       2       149,6   31.3875 155,2   Asplund, Master. Clarence Gustaf Hugomale347077S
+000000000000184     1       2       108,25  133,4   1       2       1       137,6   39      143,2   145,2   Becker, Master. Richard Fmale230136F4S
+000000000010185     1       3       108,35  143,6   4       0       2       149,6   22.025  155,2   Kink-Heilmann, Miss. Luise Gretchenfemale315153S
+000001000000186     0       1       108,21  129,4   0       0       133,6   50      139,3   142,2   Rood, Mr. Hugh Roscoemale113767A32S
+000001000010187     1       3       108,49  157,6   1       0       163,6   15.5    169,2   "O'Brien, Mrs. Thomas (Johanna "Hannah" Godfrey)"female370365Q
+000000000010188     1       1       108,47  155,4   45      0       0       159,6   26.55   165,2   "Romaine, Mr. Charles Hallace ("Mr C Rolmane")"male111428S
+000000000010189     0       3       108,16  124,4   40      1       1       128,6   15.5    134,2   Bourke, Mr. Johnmale364849Q
+000000000010190     0       3       108,19  127,4   36      0       0       131,6   7.8958  137,2   Turcin, Mr. Stjepanmale349247S
+000000000010191     1       2       108,19  127,6   32      0       0       133,6   13      139,2   Pinsky, Mrs. (Rosa)female234604S
+000000000010192     0       2       108,21  129,4   19      0       0       133,5   13      138,2   Carbines, Mr. Williammale28424S
+000000000010193     1       3       108,47  155,6   19      1       0       161,6   7.8542  167,2   Andersen-Jensen, Miss. Carla Christine Nielsinefemale350046S
+000000000000194     1       2       108,26  134,4   3       1       1       138,6   26      144,2   146,2   Navratil, Master. Michel Mmale230080F2S
+000000000000195     1       1       108,41  149,6   44      0       0       155,8   27.7208 163,2   165,2   Brown, Mrs. James Joseph (Margaret Tobin)femalePC 17610B4C
+000000000000196     1       1       108,20  128,6   58      0       0       134,8   146.5208142,3   145,2   Lurette, Miss. ElisefemalePC 17569B80C
+000001000010197     0       3       108,19  127,4   0       0       131,6   7.75    137,2   Mernagh, Mr. Robertmale368703Q
+000000000010198     0       3       108,32  140,4   42      0       1       144,4   8.4042  148,2   Olsen, Mr. Karl Siegwart Andreasmale4579S
+000001000010199     1       3       108,33  141,6   0       0       147,6   7.75    153,2   "Madigan, Miss. Margaret "Maggie"female370370Q
+000000000010200     0       2       108,40  148,6   24      0       0       154,6   13      160,2   "Yrois, Miss. Henriette ("Mrs Harbeck")"female248747S
+000000000010201     0       3       108,30  138,4   28      0       0       142,6   9.5     148,2   Vande Walle, Mr. Nestor Cyrielmale345770S
+000001000010202     0       3       108,19  127,4   8       2       131,8   69.55   139,2   Sage, Mr. FrederickmaleCA. 2343S
+000000000010203     0       3       108,26  134,4   34      0       0       138,7   6.4958  145,2   Johanson, Mr. Jakob Alfredmale3101264S
+000000000010204     0       3       108,20  128,4   45.5    0       0       132,4   7.225   136,2   Youseff, Mr. Geriousmale2628C
+000000000010205     1       3       108,25  133,4   18      0       0       137,8   8.05    145,2   "Cohen, Mr. Gurshon "Gus"maleA/5 3540S
+000000000000206     0       3       108,26  134,6   2       0       1       140,6   10.4625 146,2   148,2   Strom, Miss. Telma Matildafemale347054G6S
+000000000010207     0       3       108,26  134,4   32      1       0       138,7   15.85   145,2   Backstrom, Mr. Karl Alfredmale3101278S
+000000000010208     1       3       108,27  135,4   26      0       0       139,4   18.7875 143,2   Albimona, Mr. Nassef Cassemmale2699C
+000000000010209     1       3       108,26  134,6   16      0       0       140,6   7.75    146,2   "Carr, Miss. Helen "Ellen"female367231Q
+000000000000210     1       1       108,16  124,4   40      0       0       128,6   31      134,3   137,2   Blank, Mr. Henrymale112277A31C
+000000000010211     0       3       108,14  122,4   24      0       0       126,18  7.05    144,2   Ali, Mr. AhmedmaleSOTON/O.Q. 3101311S
+000000000010212     1       2       108,26  134,6   35      0       0       140,12  21      152,2   Cameron, Miss. Clear AnniefemaleF.C.C. 13528S
+000000000010213     0       3       108,22  130,4   22      0       0       134,9   7.25    143,2   Perkin, Mr. John HenrymaleA/5 21174S
+000000000010214     0       2       108,27  135,4   30      0       0       139,6   13      145,2   Givard, Mr. Hans Kristensenmale250646S
+000001000010215     0       3       108,19  127,4   1       0       131,6   7.75    137,2   Kiernan, Mr. Philipmale367229Q
+000000000000216     1       1       108,23  131,6   31      1       0       137,5   113.275 142,3   145,2   Newell, Miss. Madeleinefemale35273D36C
+000000000010217     1       3       108,22  130,6   27      0       0       136,16  7.925   152,2   Honkanen, Miss. EliinafemaleSTON/O2. 3101283S
+000000000010218     0       2       108,28  136,4   42      1       0       140,6   27      146,2   Jacobsohn, Mr. Sidney Samuelmale243847S
+000000000000219     1       1       108,21  129,6   32      0       0       135,5   76.2917 140,3   143,2   Bazzani, Miss. Albinafemale11813D15C
+000000000010220     0       2       108,18  126,4   30      0       0       130,9   10.5    139,2   Harris, Mr. WaltermaleW/C 14208S
+000000000010221     1       3       108,30  138,4   16      0       0       142,15  8.05    157,2   Sunderland, Mr. Victor FrancismaleSOTON/OQ 392089S
+000000000010222     0       2       108,20  128,4   27      0       0       132,6   13      138,2   Bracken, Mr. James Hmale220367S
+000000000010223     0       3       108,23  131,4   51      0       0       135,5   8.05    140,2   Green, Mr. George Henrymale21440S
+000001000010224     0       3       108,20  128,4   0       0       132,6   7.8958  138,2   Nenkoff, Mr. Christomale349234S
+000000000000225     1       1       108,28  136,4   38      1       0       140,5   90      145,3   148,2   Hoyt, Mr. Frederick Maxfieldmale19943C93S
+000000000010226     0       3       108,28  136,4   22      0       0       140,7   9.35    147,2   Berglund, Mr. Karl Ivar SvenmalePP 4348S
+000000000010227     1       2       108,25  133,4   19      0       0       137,9   10.5    146,2   Mellors, Mr. William JohnmaleSW/PP 751S
+000000000010228     0       3       108,33  141,4   20.5    0       0       145,9   7.25    154,2   "Lovell, Mr. John Hall ("Henry")"maleA/5 21173S
+000000000010229     0       2       108,25  133,4   18      0       0       137,6   13      143,2   Fahlstrom, Mr. Arne Jonasmale236171S
+000001000010230     0       3       108,23  131,6   3       1       137,4   25.4667 141,2   Lefebre, Miss. Mathildefemale4133S
+000000000000231     1       1       108,44  152,6   35      1       0       158,5   83.475  163,3   166,2   Harris, Mrs. Henry Birkhardt (Irene Wallach)female36973C83S
+000000000010232     0       3       108,24  132,4   29      0       0       136,6   7.775   142,2   Larsson, Mr. Bengt Edvinmale347067S
+000000000010233     0       2       108,25  133,4   59      0       0       137,6   13.5    143,2   Sjostedt, Mr. Ernst Adolfmale237442S
+000000000010234     1       3       108,30  138,6   5       4       2       144,6   31.3875 150,2   Asplund, Miss. Lillian Gertrudfemale347077S
+000000000010235     0       2       108,33  141,4   24      0       0       145,10  10.5    155,2   Leyson, Mr. Robert William NormanmaleC.A. 29566S
+000001000010236     0       3       108,28  136,6   0       0       142,10  7.55    152,2   Harknett, Miss. Alice PhoebefemaleW./C. 6609S
+000000000010237     0       2       108,17  125,4   44      1       0       129,5   26      134,2   Hold, Mr. Stephenmale26707S
+000000000010238     1       2       108,33  141,6   8       0       2       147,10  26.25   157,2   "Collyer, Miss. Marjorie "Lottie"femaleC.A. 31921S
+000000000010239     0       2       108,31  139,4   19      0       0       143,5   10.5    148,2   Pengelly, Mr. Frederick Williammale28665S
+000000000010240     0       2       108,22  130,4   33      0       0       134,10  12.275  144,2   Hunt, Mr. George HenrymaleSCO/W 1585S
+000001000010241     0       3       108,21  129,6   1       0       135,4   14.4542 139,2   Zabour, Miss. Thaminefemale2665C
+000001000010242     1       3       108,31  139,6   1       0       145,6   15.5    151,2   "Murphy, Miss. Katherine "Kate"female367230Q
+000000000010243     0       2       108,31  139,4   29      0       0       143,11  10.5    154,2   Coleridge, Mr. Reginald CharlesmaleW./C. 14263S
+000000000010244     0       3       108,29  137,4   22      0       0       141,17  7.125   158,2   Maenpaa, Mr. Matti AlexanterimaleSTON/O 2. 3101275S
+000000000010245     0       3       108,20  128,4   30      0       0       132,4   7.225   136,2   Attalah, Mr. Sleimanmale2694C
+000000000000246     0       1       108,27  135,4   44      2       0       139,5   90      144,3   147,2   Minahan, Dr. William Edwardmale19928C78Q
+000000000010247     0       3       108,37  145,6   25      0       0       151,6   7.775   157,2   Lindahl, Miss. Agda Thorilda Viktoriafemale347071S
+000000000010248     1       2       108,31  139,6   24      0       2       145,6   14.5    151,2   Hamalainen, Mrs. William (Anna)female250649S
+000000000000249     1       1       108,29  137,4   37      1       1       141,5   52.5542 146,3   149,2   Beckwith, Mr. Richard Leonardmale11751D35S
+000000000010250     0       2       108,29  137,4   54      1       0       141,6   26      147,2   Carter, Rev. Ernest Courtenaymale244252S
+000001000010251     0       3       108,22  130,4   0       0       134,6   7.25    140,2   Reed, Mr. James Georgemale362316S
+000000000000252     0       3       108,42  150,6   29      1       1       156,6   10.4625 162,2   164,2   Strom, Mrs. Wilhelm (Elna Matilda Persson)female347054G6S
+000000000000253     0       1       108,25  133,4   62      0       0       137,6   26.55   143,3   146,2   Stead, Mr. William Thomasmale113514C87S
+000000000010254     0       3       108,24  132,4   30      1       0       136,9   16.1    145,2   Lobb, Mr. William ArthurmaleA/5. 3336S
+000000000010255     0       3       108,40  148,6   41      0       2       154,6   20.2125 160,2   Rosblom, Mrs. Viktor (Helena Wilhelmina)female370129S
+000000000010256     1       3       108,39  147,6   29      0       2       153,4   15.2458 157,2   Touma, Mrs. Darwis (Hanne Youssef Razi)female2650C
+000001000010257     1       1       108,30  138,6   0       0       144,8   79.2    152,2   Thorne, Mrs. Gertrude MaybellefemalePC 17585C
+000000000000258     1       1       108,20  128,6   30      0       0       134,6   86.5    140,3   143,2   Cherry, Miss. Gladysfemale110152B77S
+000000000010259     1       1       108,16  124,6   35      0       0       130,8   512.3292138,2   Ward, Miss. AnnafemalePC 17755C
+000000000010260     1       2       108,27  135,6   50      0       1       141,6   26      147,2   Parrish, Mrs. (Lutie Davis)female230433S
+000001000010261     0       3       108,17  125,4   0       0       129,6   7.75    135,2   Smith, Mr. Thomasmale384461Q
+000000000010262     1       3       108,33  141,4   3       4       2       145,6   31.3875 151,2   Asplund, Master. Edvin Rojj Felixmale347077S
+000000000000263     0       1       108,17  125,4   52      1       1       129,6   79.65   135,3   138,2   Taussig, Mr. Emilmale110413E67S
+000000000000264     0       1       108,21  129,4   40      0       0       133,6   0       139,3   142,2   Harrison, Mr. Williammale112059B94S
+000001000010265     0       3       108,18  126,6   0       0       132,6   7.75    138,2   Henry, Miss. Deliafemale382649Q
+000000000010266     0       2       108,17  125,4   36      0       0       129,10  10.5    139,2   Reeves, Mr. DavidmaleC.A. 17248S
+000000000010267     0       3       108,25  133,4   16      4       1       137,7   39.6875 144,2   Panula, Mr. Ernesti Arvidmale3101295S
+000000000010268     1       3       108,24  132,4   25      1       0       136,6   7.775   142,2   Persson, Mr. Ernst Ulrikmale347083S
+000000000000269     1       1       108,45  153,6   58      0       1       159,8   153.4625167,4   171,2   Graham, Mrs. William Thompson (Edith Junkins)femalePC 17582C125S
+000000000000270     1       1       108,22  130,6   35      0       0       136,8   135.6333144,3   147,2   Bissette, Miss. AmeliafemalePC 17760C99S
+000001000010271     0       1       108,21  129,4   0       0       133,6   31      139,2   Cairns, Mr. Alexandermale113798S
+000000000010272     1       3       108,28  136,4   25      0       0       140,4   0       144,2   Tornquist, Mr. William HenrymaleLINES
+000000000010273     1       2       108,41  149,6   41      0       1       155,6   19.5    161,2   Mellinger, Mrs. (Elizabeth Anne Maidment)female250644S
+000000000000274     0       1       108,21  129,4   37      0       1       133,8   29.7    141,4   145,2   Natsch, Mr. Charles HmalePC 17596C118C
+000001000010275     1       3       108,27  135,6   0       0       141,6   7.75    147,2   "Healy, Miss. Hanora "Nora"female370375Q
+000000000000276     1       1       108,33  141,6   63      1       0       147,5   77.9583 152,2   154,2   Andrews, Miss. Kornelia Theodosiafemale13502D7S
+000000000010277     0       3       108,33  141,6   45      0       0       147,6   7.75    153,2   Lindblom, Miss. Augusta Charlottafemale347073S
+000001000010278     0       2       108,28  136,4   0       0       140,6   0       146,2   "Parkes, Mr. Francis "Frank"male239853S
+000000000010279     0       3       108,18  126,4   7       4       1       130,6   29.125  136,2   Rice, Master. Ericmale382652Q
+000000000010280     1       3       108,32  140,6   35      1       1       146,9   20.25   155,2   Abbott, Mrs. Stanton (Rosa Hunt)femaleC.A. 2673S
+000000000010281     0       3       108,16  124,4   65      0       0       128,6   7.75    134,2   Duane, Mr. Frankmale336439Q
+000000000010282     0       3       108,32  140,4   28      0       0       144,6   7.8542  150,2   Olsson, Mr. Nils Johan Goranssonmale347464S
+000000000010283     0       3       108,25  133,4   16      0       0       137,6   9.5     143,2   de Pelsmaeker, Mr. Alfonsmale345778S
+000000000010284     1       3       108,26  134,4   19      0       0       138,10  8.05    148,2   Dorking, Mr. Edward ArthurmaleA/5. 10482S
+000001000000285     0       1       108,26  134,4   0       0       138,6   26      144,3   147,2   Smith, Mr. Richard Williammale113056A19S
+000000000010286     0       3       108,19  127,4   33      0       0       131,6   8.6625  137,2   Stankovic, Mr. Ivanmale349239C
+000000000010287     1       3       108,23  131,4   30      0       0       135,6   9.5     141,2   de Mulder, Mr. Theodoremale345774S
+000000000010288     0       3       108,20  128,4   22      0       0       132,6   7.8958  138,2   Naidenoff, Mr. Penkomale349206S
+000000000010289     1       2       108,20  128,4   42      0       0       132,6   13      138,2   Hosono, Mr. Masabumimale237798S
+000000000010290     1       3       108,20  128,6   22      0       0       134,6   7.75    140,2   Connolly, Miss. Katefemale370373Q
+000000000010291     1       1       108,29  137,6   26      0       0       143,5   78.85   148,2   "Barber, Miss. Ellen "Nellie"female19877S
+000000000000292     1       1       108,39  147,6   19      1       0       153,5   91.0792 158,3   161,2   Bishop, Mrs. Dickinson H (Helen Walton)female11967B49C
+000000000000293     0       2       108,22  130,4   36      0       0       134,13  12.875  147,1   148,2   Levy, Mr. Rene JacquesmaleSC/Paris 2163DC
+000000000010294     0       3       108,19  127,6   24      0       0       133,6   8.85    139,2   Haas, Miss. Aloisiafemale349236S
+000000000010295     0       3       108,16  124,4   24      0       0       128,6   7.8958  134,2   Mineff, Mr. Ivanmale349233S
+000001000010296     0       1       108,17  125,4   0       0       129,8   27.7208 137,2   Lewy, Mr. Ervin GmalePC 17612C
+000000000010297     0       3       108,18  126,4   23.5    0       0       130,4   7.2292  134,2   Hanna, Mr. Mansourmale2693C
+000000000000298     0       1       108,28  136,6   2       1       2       142,6   151.55  148,7   155,2   Allison, Miss. Helen Lorainefemale113781C22 C26S
+000001000000299     1       1       108,21  129,4   0       0       133,5   30.5    138,4   142,2   Saalfeld, Mr. Adolphemale19988C106S
+000000000000300     1       1       108,47  155,6   50      0       1       161,8   247.5208169,7   176,2   Baxter, Mrs. James (Helene DeLaudeniere Chaput)femalePC 17558B58 B60C
+000001000010301     1       3       108,41  149,6   0       0       155,4   7.75    159,2   "Kelly, Miss. Anna Katherine "Annie Kate"female9234Q
+000001000010302     1       3       108,18  126,4   2       0       130,6   23.25   136,2   McCoy, Mr. Bernardmale367226Q
+000000000010303     0       3       108,31  139,4   19      0       0       143,4   0       147,2   Johnson, Mr. William Cahoone JrmaleLINES
+000001000000304     1       2       108,19  127,6   0       0       133,6   12.35   139,4   143,2   Keane, Miss. Nora Afemale226593E101Q
+000001000010305     0       3       108,34  142,4   0       0       146,8   8.05    154,2   "Williams, Mr. Howard Hugh "Harry"maleA/5 2466S
+000000000000306     1       1       108,30  138,4   0.92    1       2       142,6   151.55  148,7   155,2   Allison, Master. Hudson Trevormale113781C22 C26S
+000001000010307     1       1       108,23  131,6   0       0       137,5   110.8833142,2   Fleming, Miss. Margaretfemale17421C
+000000000000308     1       1       108,82  190,6   17      1       0       196,8   108.9   204,3   207,2   Penasco y Castellana, Mrs. Victor de Satode (Maria Josefa Perez de Soto y Vallejo)femalePC 17758C65C
+000000000010309     0       2       108,19  127,4   30      1       0       131,9   24      140,2   Abelson, Mr. SamuelmaleP/PP 3381C
+000000000000310     1       1       108,30  138,6   30      0       0       144,8   56.9292 152,3   155,2   Francatelli, Miss. Laura MabelfemalePC 17485E36C
+000000000000311     1       1       108,30  138,6   24      0       0       144,5   83.1583 149,3   152,2   Hays, Miss. Margaret Bechsteinfemale11767C54C
+000000000000312     1       1       108,26  134,6   18      2       2       140,8   262.375 148,15  163,2   Ryerson, Miss. Emily BoriefemalePC 17608B57 B59 B63 B66C
+000000000010313     0       2       108,37  145,6   26      1       1       151,6   26      157,2   Lahtinen, Mrs. William (Anna Sylfven)female250651S
+000000000010314     0       3       108,22  130,4   28      0       0       134,6   7.8958  140,2   Hendekovic, Mr. Ignjacmale349243S
+000000000010315     0       2       108,18  126,4   43      1       1       130,12  26.25   142,2   Hart, Mr. BenjaminmaleF.C.C. 13529S
+000000000010316     1       3       108,31  139,6   26      0       0       145,6   7.8542  151,2   Nilsson, Miss. Helmina Josefinafemale347470S
+000000000010317     1       2       108,35  143,6   24      1       0       149,6   26      155,2   Kantor, Mrs. Sinai (Miriam Sternin)female244367S
+000000000010318     0       2       108,20  128,4   54      0       0       132,5   14      137,2   Moraweck, Dr. Ernestmale29011S
+000000000000319     1       1       108,24  132,6   31      0       2       138,5   164.8667143,2   145,2   Wick, Miss. Mary Nataliefemale36928C7S
+000000000000320     1       1       108,56  164,6   40      1       1       170,5   134.5   175,3   178,2   Spedden, Mrs. Frederic Oakley (Margaretta Corning Stone)female16966E34C
+000000000010321     0       3       108,18  126,4   22      0       0       130,9   7.25    139,2   Dennis, Mr. SamuelmaleA/5 21172S
+000000000010322     0       3       108,16  124,4   27      0       0       128,6   7.8958  134,2   Danoff, Mr. Yotomale349219S
+000000000010323     1       2       108,25  133,6   30      0       0       139,6   12.35   145,2   Slayter, Miss. Hilda Maryfemale234818Q
+000000000010324     1       2       108,51  159,6   22      1       1       165,6   29      171,2   Caldwell, Mrs. Albert Francis (Sylvia Mae Harbaugh)female248738S
+000001000010325     0       3       108,24  132,4   8       2       136,8   69.55   144,2   Sage, Mr. George John JrmaleCA. 2343S
+000000000000326     1       1       108,24  132,6   36      0       0       138,8   135.6333146,3   149,2   Young, Miss. Marie GricefemalePC 17760C32C
+000000000010327     0       3       108,25  133,4   61      0       0       137,6   6.2375  143,2   Nysveen, Mr. Johan Hansenmale345364S
+000000000000328     1       2       108,23  131,6   36      0       0       137,5   13      142,1   143,2   Ball, Mrs. (Ada E Hall)female28551DS
+000000000010329     1       3       108,46  154,6   31      1       1       160,6   20.525  166,2   Goldsmith, Mrs. Frank John (Emily Alice Brown)female363291S
+000000000000330     1       1       108,28  136,6   16      0       1       142,6   57.9792 148,3   151,2   Hippach, Miss. Jean Gertrudefemale111361B18C
+000001000010331     1       3       108,18  126,6   2       0       132,6   23.25   138,2   McCoy, Miss. Agnesfemale367226Q
+000000000000332     0       1       108,19  127,4   45.5    0       0       131,6   28.5    137,4   141,2   Partner, Mr. Austenmale113043C124S
+000000000000333     0       1       108,25  133,4   38      0       1       137,8   153.4625145,3   148,2   Graham, Mr. George EdwardmalePC 17582C91S
+000000000010334     0       3       108,31  139,4   16      2       0       143,6   18      149,2   Vander Planke, Mr. Leo Edmondusmale345764S
+000001000010335     1       1       108,50  158,6   1       0       164,8   133.65  172,2   Frauenthal, Mrs. Henry William (Clara Heinsheimer)femalePC 17611S
+000001000010336     0       3       108,18  126,4   0       0       130,6   7.8958  136,2   Denkoff, Mr. Mittomale349225S
+000000000000337     0       1       108,25  133,4   29      1       0       137,6   66.6    143,2   145,2   Pears, Mr. Thomas Clintonmale113776C2S
+000000000000338     1       1       108,31  139,6   41      0       0       145,5   134.5   150,3   153,2   Burns, Miss. Elizabeth Margaretfemale16966E40C
+000000000010339     1       3       108,21  129,4   45      0       0       133,4   8.05    137,2   Dahl, Mr. Karl Edwartmale7598S
+000000000000340     0       1       108,28  136,4   45      0       0       140,6   35.5    146,1   147,2   Blackwell, Mr. Stephen Weartmale113784TS
+000000000000341     1       2       108,30  138,4   2       1       1       142,6   26      148,2   150,2   Navratil, Master. Edmond Rogermale230080F2S
+000000000000342     1       1       108,30  138,6   24      3       2       144,5   263     149,11  160,2   Fortune, Miss. Alice Elizabethfemale19950C23 C25 C27S
+000000000010343     0       2       108,26  134,4   28      0       0       138,6   13      144,2   Collander, Mr. Erik Gustafmale248740S
+000000000010344     0       2       108,42  150,4   25      0       0       154,6   13      160,2   Sedgwick, Mr. Charles Frederick Waddingtonmale244361S
+000000000010345     0       2       108,23  131,4   36      0       0       135,6   13      141,2   Fox, Mr. Stanley Hubertmale229236S
+000000000000346     1       2       108,30  138,6   24      0       0       144,6   13      150,3   153,2   "Brown, Miss. Amelia "Mildred"female248733F33S
+000000000010347     1       2       108,25  133,6   40      0       0       139,5   13      144,2   Smith, Miss. Marion Elsiefemale31418S
+000001000010348     1       3       108,41  149,6   1       0       155,6   16.1    161,2   Davison, Mrs. Thomas Henry (Mary E Finck)female386525S
+000000000010349     1       3       108,39  147,4   3       1       1       151,10  15.9    161,2   "Coutts, Master. William Loch "William"maleC.A. 37671S
+000000000010350     0       3       108,16  124,4   42      0       0       128,6   8.6625  134,2   Dimic, Mr. Jovanmale315088S
+000000000010351     0       3       108,22  130,4   23      0       0       134,4   9.225   138,2   Odahl, Mr. Nils Martinmale7267S
+000001000000352     0       1       108,38  146,4   0       0       150,6   35      156,4   160,2   Williams-Lambert, Mr. Fletcher Fellowsmale113510C128S
+000000000010353     0       3       108,18  126,4   15      1       1       130,4   7.2292  134,2   Elias, Mr. Tannousmale2695C
+000000000010354     0       3       108,25  133,4   25      1       0       137,6   17.8    143,2   Arnold-Franchi, Mr. Josefmale349237S
+000001000010355     0       3       108,17  125,4   0       0       129,4   7.225   133,2   Yousif, Mr. Wazlimale2647C
+000000000010356     0       3       108,27  135,4   28      0       0       139,6   9.5     145,2   Vanden Steen, Mr. Leo Petermale345783S
+000000000000357     1       1       108,27  135,6   22      0       1       141,6   55      147,3   150,2   Bowerman, Miss. Elsie Edithfemale113505E33S
+000000000010358     0       2       108,25  133,6   38      0       0       139,6   13      145,2   Funk, Miss. Annie Clemmerfemale237671S
+000001000010359     1       3       108,20  128,6   0       0       134,6   7.8792  140,2   McGovern, Miss. Maryfemale330931Q
+000001000010360     1       3       108,34  142,6   0       0       148,6   7.8792  154,2   "Mockler, Miss. Helen Mary "Ellie"female330980Q
+000000000010361     0       3       108,18  126,4   40      1       4       130,6   27.9    136,2   Skoog, Mr. Wilhelmmale347088S
+000000000010362     0       2       108,25  133,4   29      1       0       137,13  27.7208 150,2   del Carlo, Mr. SebastianomaleSC/PARIS 2167C
+000000000010363     0       3       108,31  139,6   45      0       1       145,4   14.4542 149,2   Barbara, Mrs. (Catherine David)female2691C
+000000000010364     0       3       108,15  123,4   35      0       0       127,18  7.05    145,2   Asim, Mr. AdolamaleSOTON/O.Q. 3101310S
+000001000010365     0       3       108,19  127,4   1       0       131,6   15.5    137,2   O'Brien, Mr. Thomasmale370365Q
+000000000010366     0       3       108,30  138,4   30      0       0       142,6   7.25    148,2   Adahl, Mr. Mauritz Nils MartinmaleC 7076S
+000000000000367     1       1       108,48  156,6   60      1       0       162,6   75.25   168,3   171,2   Warren, Mrs. Frank Manley (Anna Sophia Atkinson)female110813D37C
+000001000010368     1       3       108,30  138,6   0       0       144,4   7.2292  148,2   Moussa, Mrs. (Mantoura Boulos)female2626C
+000001000010369     1       3       108,19  127,6   0       0       133,5   7.75    138,2   Jermyn, Miss. Anniefemale14313Q
+000000000000370     1       1       108,29  137,6   24      0       0       143,8   69.3    151,3   154,2   Aubart, Mme. Leontine PaulinefemalePC 17477B35C
+000000000000371     1       1       108,27  135,4   25      1       0       139,5   55.4417 144,3   147,2   Harder, Mr. George Achillesmale11765E50C
+000000000010372     0       3       108,25  133,4   18      1       0       137,7   6.4958  144,2   Wiklund, Mr. Jakob Alfredmale3101267S
+000000000010373     0       3       108,26  134,4   19      0       0       138,6   8.05    144,2   Beavan, Mr. William Thomasmale323951S
+000000000010374     0       1       108,19  127,4   22      0       0       131,8   135.6333139,2   Ringhini, Mr. SantemalePC 17760C
+000000000010375     0       3       108,26  134,6   3       3       1       140,6   21.075  146,2   Palsson, Miss. Stina Violafemale349909S
+000001000010376     1       1       108,37  145,6   1       0       151,8   82.1708 159,2   Meyer, Mrs. Edgar Joseph (Leila Saks)femalePC 17604C
+000000000010377     1       3       108,31  139,6   22      0       0       145,6   7.25    151,2   Landergren, Miss. Aurora AdeliafemaleC 7077S
+000000000000378     0       1       108,25  133,4   27      0       2       137,6   211.5   143,3   146,2   Widener, Mr. Harry Elkinsmale113503C82C
+000000000010379     0       3       108,19  127,4   20      0       0       131,4   4.0125  135,2   Betros, Mr. Tannousmale2648C
+000000000010380     0       3       108,27  135,4   19      0       0       139,6   7.775   145,2   Gustafsson, Mr. Karl Gideonmale347069S
+000000000010381     1       1       108,21  129,6   42      0       0       135,8   227.525 143,2   Bidois, Miss. RosaliefemalePC 17757C
+000000000010382     1       3       108,29  137,6   1       0       2       143,4   15.7417 147,2   "Nakid, Miss. Maria ("Mary")"female2653C
+000000000010383     0       3       108,18  126,4   32      0       0       130,17  7.925   147,2   Tikkanen, Mr. JuhomaleSTON/O 2. 3101293S
+000000000010384     1       1       108,51  159,6   35      1       0       165,6   52      171,2   Holverson, Mrs. Alexander Oskar (Mary Aline Towner)female113789S
+000001000010385     0       3       108,22  130,4   0       0       134,6   7.8958  140,2   Plotcharsky, Mr. Vasilmale349227S
+000000000010386     0       2       108,25  133,4   18      0       0       137,12  73.5    149,2   Davies, Mr. Charles HenrymaleS.O.C. 14879S
+000000000010387     0       3       108,31  139,4   1       5       2       143,7   46.9    150,2   Goodwin, Master. Sidney LeonardmaleCA 2144S
+000000000010388     1       2       108,16  124,6   36      0       0       130,5   13      135,2   Buss, Miss. Katefemale27849S
+000001000010389     0       3       108,20  128,4   0       0       132,6   7.7292  138,2   Sadlier, Mr. Matthewmale367655Q
+000000000010390     1       2       108,21  129,6   17      0       0       135,7   12      142,2   Lehmann, Miss. BerthafemaleSC 1748C
+000000000000391     1       1       108,26  134,4   36      1       2       138,6   120     144,7   151,2   Carter, Mr. William Ernestmale113760B96 B98S
+000000000010392     1       3       108,22  130,4   21      0       0       134,6   7.7958  140,2   Jansson, Mr. Carl Olofmale350034S
+000000000010393     0       3       108,28  136,4   28      2       0       140,7   7.925   147,2   Gustafsson, Mr. Johan Birgermale3101277S
+000000000000394     1       1       108,22  130,6   23      1       0       136,5   113.275 141,3   144,2   Newell, Miss. Marjoriefemale35273D36C
+000000000000395     1       3       108,51  159,6   24      0       2       165,7   16.7    172,2   174,2   Sandstrom, Mrs. Hjalmar (Agnes Charlotta Bengtsson)femalePP 9549G6S
+000000000010396     0       3       108,19  127,4   22      0       0       131,6   7.7958  137,2   Johansson, Mr. Erikmale350052S
+000000000010397     0       3       108,19  127,6   31      0       0       133,6   7.8542  139,2   Olsson, Miss. Elinafemale350407S
+000000000010398     0       2       108,23  131,4   46      0       0       135,5   26      140,2   McKane, Mr. Peter Davidmale28403S
+000000000010399     0       2       108,16  124,4   23      0       0       128,6   10.5    134,2   Pain, Dr. Alfredmale244278S
+000000000010400     1       2       108,32  140,6   28      0       0       146,6   12.65   152,2   Trout, Mrs. William H (Jessie L)female240929S
+000000000010401     1       3       108,18  126,4   39      0       0       130,17  7.925   147,2   Niskanen, Mr. JuhamaleSTON/O 2. 3101289S
+000000000010402     0       3       108,15  123,4   26      0       0       127,6   8.05    133,2   Adams, Mr. Johnmale341826S
+000000000010403     0       3       108,24  132,6   21      1       0       138,4   9.825   142,2   Jussila, Miss. Mari Ainafemale4137S
+000000000010404     0       3       108,30  138,4   28      1       0       142,16  15.85   158,2   Hakkarainen, Mr. Pekka PietarimaleSTON/O2. 3101279S
+000000000010405     0       3       108,23  131,6   20      0       0       137,6   8.6625  143,2   Oreskovic, Miss. Marijafemale315096S
+000000000010406     0       2       108,18  126,4   34      1       0       130,5   21      135,2   Gale, Mr. Shadrachmale28664S
+000000000010407     0       3       108,32  140,4   51      0       0       144,6   7.75    150,2   Widegren, Mr. Carl/Charles Petermale347064S
+000000000010408     1       2       108,30  138,4   3       1       1       142,5   18.75   147,2   Richards, Master. William Rowemale29106S
+000000000010409     0       3       108,33  141,4   21      0       0       145,6   7.775   151,2   Birkeland, Mr. Hans Martin Monsenmale312992S
+000001000010410     0       3       108,18  126,6   3       1       132,4   25.4667 136,2   Lefebre, Miss. Idafemale4133S
+000001000010411     0       3       108,18  126,4   0       0       130,6   7.8958  136,2   Sdycoff, Mr. Todormale349222S
+000001000010412     0       3       108,15  123,4   0       0       127,6   6.8583  133,2   Hart, Mr. Henrymale394140Q
+000000000000413     1       1       108,22  130,6   33      1       0       136,5   90      141,3   144,2   Minahan, Miss. Daisy Efemale19928C78Q
+000001000010414     0       2       108,30  138,4   0       0       142,6   0       148,2   Cunningham, Mr. Alfred Flemingmale239853S
+000000000010415     1       3       108,25  133,4   44      0       0       137,17  7.925   154,2   Sundman, Mr. Johan JulianmaleSTON/O 2. 3101269S
+000001000010416     0       3       108,39  147,6   0       0       153,6   8.05    159,2   Meek, Mrs. Thomas (Annie Louise Rowley)female343095S
+000000000010417     1       2       108,47  155,6   34      1       1       161,5   32.5    166,2   Drew, Mrs. James Vivian (Lulu Thorne Christian)female28220S
+000000000010418     1       2       108,29  137,6   18      0       2       143,6   13      149,2   Silven, Miss. Lyyli Karoliinafemale250652S
+000000000010419     0       2       108,26  134,4   30      0       0       138,5   13      143,2   Matthews, Mr. William Johnmale28228S
+000000000010420     0       3       108,25  133,6   10      0       2       139,6   24.15   145,2   Van Impe, Miss. Catharinafemale345773S
+000001000010421     0       3       108,22  130,4   0       0       134,6   7.8958  140,2   Gheorgheff, Mr. Staniomale349254C
+000000000010422     0       3       108,19  127,4   21      0       0       131,10  7.7333  141,2   Charters, Mr. DavidmaleA/5. 13032Q
+000000000010423     0       3       108,18  126,4   29      0       0       130,6   7.875   136,2   Zimmerman, Mr. Leomale315082S
+000000000010424     0       3       108,54  162,6   28      1       1       168,6   14.4    174,2   Danbom, Mrs. Ernst Gilbert (Anna Sigrid Maria Brogren)female347080S
+000000000010425     0       3       108,27  135,4   18      1       1       139,6   20.2125 145,2   Rosblom, Mr. Viktor Richardmale370129S
+000001000010426     0       3       108,22  130,4   0       0       134,10  7.25    144,2   Wiseman, Mr. PhillippemaleA/4. 34244S
+000000000010427     1       2       108,43  151,6   28      1       0       157,4   26      161,2   Clarke, Mrs. Charles V (Ada Maria Winfield)female2003S
+000000000010428     1       2       108,69  177,6   19      0       0       183,6   26      189,2   "Phillips, Miss. Kate Florence ("Mrs Kate Louise Phillips Marshall")"female250655S
+000001000010429     0       3       108,16  124,4   0       0       128,6   7.75    134,2   Flynn, Mr. Jamesmale364851Q
+000000000000430     1       3       108,34  142,4   32      0       0       146,17  8.05    163,3   166,2   Pickard, Mr. Berk (Berk Trembisky)maleSOTON/O.Q. 392078E10S
+000000000000431     1       1       108,41  149,4   28      0       0       153,6   26.55   159,3   162,2   Bjornstrom-Steffansson, Mr. Mauritz Hakanmale110564C52S
+000001000010432     1       3       108,49  157,6   1       0       163,6   16.1    169,2   Thorneycroft, Mrs. Percival (Florence Kate White)female376564S
+000000000010433     1       2       108,51  159,6   42      1       0       165,10  26      175,2   Louch, Mrs. Charles Alexander (Alice Adelaide Slow)femaleSC/AH 3085S
+000000000010434     0       3       108,26  134,4   17      0       0       138,17  7.125   155,2   Kallio, Mr. Nikolai ErlandmaleSTON/O 2. 3101274S
+000000000000435     0       1       108,25  133,4   50      1       0       137,5   55.9    142,3   145,2   Silvey, Mr. William Bairdmale13507E44S
+000000000000436     1       1       108,25  133,6   14      1       2       139,6   120     145,7   152,2   Carter, Miss. Lucile Polkfemale113760B96 B98S
+000000000010437     0       3       108,37  145,6   21      2       2       151,10  34.375  161,2   "Ford, Miss. Doolina Margaret "Daisy"femaleW./C. 6608S
+000000000010438     1       2       108,37  145,6   24      2       3       151,5   18.75   156,2   Richards, Mrs. Sidney (Emily Hocking)female29106S
+000000000000439     0       1       108,17  125,4   64      1       4       129,5   263     134,11  145,2   Fortune, Mr. Markmale19950C23 C25 C27S
+000000000010440     0       2       108,38  146,4   31      0       0       150,10  10.5    160,2   Kvillner, Mr. Johan Henrik JohannessonmaleC.A. 18723S
+000000000010441     1       2       108,43  151,6   45      1       1       157,12  26.25   169,2   Hart, Mrs. Benjamin (Esther Ada Bloomfield)femaleF.C.C. 13529S
+000000000010442     0       3       108,15  123,4   20      0       0       127,6   9.5     133,2   Hampe, Mr. Leonmale345769S
+000000000010443     0       3       108,25  133,4   25      1       0       137,6   7.775   143,2   Petterson, Mr. Johan Emilmale347076S
+000000000010444     1       2       108,25  133,6   28      0       0       139,6   13      145,2   Reynaldo, Ms. Encarnacionfemale230434S
+000001000010445     1       3       108,33  141,4   0       0       145,5   8.1125  150,2   Johannesen-Bratthammer, Mr. Berntmale65306S
+000000000000446     1       1       108,25  133,4   4       0       2       137,5   81.8583 142,3   145,2   Dodge, Master. Washingtonmale33638A34S
+000000000010447     1       2       108,33  141,6   13      0       1       147,6   19.5    153,2   Mellinger, Miss. Madeleine Violetfemale250644S
+000000000010448     1       1       108,27  135,4   34      0       0       139,6   26.55   145,2   Seward, Mr. Frederic Kimbermale113794S
+000000000010449     1       3       108,30  138,6   5       2       1       144,4   19.2583 148,2   Baclini, Miss. Marie Catherinefemale2666C
+000000000000450     1       1       108,30  138,4   52      0       0       142,6   30.5    148,4   152,2   Peuchen, Major. Arthur Godfreymale113786C104S
+000000000010451     0       2       108,21  129,4   36      1       2       133,10  27.75   143,2   West, Mr. Edwy ArthurmaleC.A. 34651S
+000001000010452     0       3       108,31  139,4   1       0       143,5   19.9667 148,2   Hagland, Mr. Ingvald Olai Olsenmale65303S
+000000000000453     0       1       108,31  139,4   30      0       0       143,6   27.75   149,4   153,2   Foreman, Mr. Benjamin Laventallmale113051C111C
+000000000000454     1       1       108,24  132,4   49      1       0       136,5   89.1042 141,3   144,2   Goldenberg, Mr. Samuel Lmale17453C92C
+000001000010455     0       3       108,19  127,4   0       0       131,8   8.05    139,2   Peduzzi, Mr. JosephmaleA/5 2817S
+000000000010456     1       3       108,18  126,4   29      0       0       130,6   7.8958  136,2   Jalsevac, Mr. Ivanmale349240C
+000000000000457     0       1       108,25  133,4   65      0       0       137,5   26.55   142,3   145,2   Millet, Mr. Francis Davismale13509E38S
+000001000000458     1       1       108,33  141,6   1       0       147,5   51.8625 152,3   155,2   Kenyon, Mrs. Frederick R (Marion)female17464D21S
+000000000010459     1       2       108,19  127,6   50      0       0       133,12  10.5    145,2   Toomey, Miss. EllenfemaleF.C.C. 13531S
+000001000010460     0       3       108,21  129,4   0       0       133,6   7.75    139,2   O'Connor, Mr. Mauricemale371060Q
+000000000000461     1       1       108,19  127,4   48      0       0       131,5   26.55   136,3   139,2   Anderson, Mr. Harrymale19952E12S
+000000000010462     0       3       108,19  127,4   34      0       0       131,6   8.05    137,2   Morley, Mr. Williammale364506S
+000000000000463     0       1       108,17  125,4   47      0       0       129,6   38.5    135,3   138,2   Gee, Mr. Arthur Hmale111320E63S
+000000000010464     0       2       108,28  136,4   48      0       0       140,6   13      146,2   Milling, Mr. Jacob Christianmale234360S
+000001000010465     0       3       108,18  126,4   0       0       130,8   8.05    138,2   Maisner, Mr. SimonmaleA/S 2816S
+000000000010466     0       3       108,31  139,4   38      0       0       143,18  7.05    161,2   Goncalves, Mr. Manuel EstanslasmaleSOTON/O.Q. 3101306S
+000001000010467     0       2       108,21  129,4   0       0       133,6   0       139,2   Campbell, Mr. Williammale239853S
+000000000010468     0       1       108,26  134,4   56      0       0       138,6   26.55   144,2   Smart, Mr. John Montgomerymale113792S
+000001000010469     0       3       108,18  126,4   0       0       130,5   7.725   135,2   Scanlan, Mr. Jamesmale36209Q
+000000000010470     1       3       108,29  137,6   0.75    2       1       143,4   19.2583 147,2   Baclini, Miss. Helene Barbarafemale2666C
+000001000010471     0       3       108,17  125,4   0       0       129,6   7.25    135,2   Keefe, Mr. Arthurmale323592S
+000000000010472     0       3       108,15  123,4   38      0       0       127,6   8.6625  133,2   Cacic, Mr. Lukamale315089S
+000000000010473     1       2       108,39  147,6   33      1       2       153,10  27.75   163,2   West, Mrs. Edwy Arthur (Ada Mary Worth)femaleC.A. 34651S
+000000000000474     1       2       108,44  152,6   23      0       0       158,15  13.7917 173,1   174,2   Jerwan, Mrs. Amin S (Marie Marthe Thuillard)femaleSC/AH Basle 541DC
+000000000010475     0       3       108,27  135,6   22      0       0       141,4   9.8375  145,2   Strandberg, Miss. Ida Sofiafemale7553S
+000001000000476     0       1       108,27  135,4   0       0       139,6   52      145,3   148,2   Clifford, Mr. George Quincymale110465A14S
+000000000010477     0       2       108,23  131,4   34      1       0       135,5   21      140,2   Renouf, Mr. Peter Henrymale31027S
+000000000010478     0       3       108,25  133,4   29      1       0       137,4   7.0458  141,2   Braund, Mr. Lewis Richardmale3460S
+000000000010479     0       3       108,25  133,4   22      0       0       137,6   7.5208  143,2   Karlsson, Mr. Nils Augustmale350060S
+000000000010480     1       3       108,24  132,6   2       0       1       138,7   12.2875 145,2   Hirvonen, Miss. Hildur Efemale3101298S
+000000000010481     0       3       108,30  138,4   9       5       2       142,7   46.9    149,2   Goodwin, Master. Harold VictormaleCA 2144S
+000001000010482     0       2       108,33  141,4   0       0       145,6   0       151,2   "Frost, Mr. Anthony Wood "Archie"male239854S
+000000000010483     0       3       108,24  132,4   50      0       0       136,8   8.05    144,2   Rouse, Mr. Richard HenrymaleA/5 3594S
+000000000010484     1       3       108,22  130,6   63      0       0       136,4   9.5875  140,2   Turkula, Mrs. (Hedwig)female4134S
+000000000000485     1       1       108,23  131,4   25      1       0       135,5   91.0792 140,3   143,2   Bishop, Mr. Dickinson Hmale11967B49C
+000001000010486     0       3       108,22  130,6   3       1       136,4   25.4667 140,2   Lefebre, Miss. Jeanniefemale4133S
+000000000000487     1       1       108,47  155,6   35      1       0       161,5   90      166,3   169,2   Hoyt, Mrs. Frederick Maxfield (Jane Anne Forby)female19943C93S
+000000000000488     0       1       108,23  131,4   58      0       0       135,5   29.7    140,3   143,2   Kent, Mr. Edward Austinmale11771B37C
+000000000010489     0       3       108,29  137,4   30      0       0       141,10  8.05    151,2   Somerton, Mr. Francis WilliammaleA.5. 18509S
+000000000010490     1       3       108,38  146,4   9       1       1       150,10  15.9    160,2   "Coutts, Master. Eden Leslie "Neville"maleC.A. 37671S
+000001000010491     0       3       108,36  144,4   1       0       148,5   19.9667 153,2   Hagland, Mr. Konrad Mathias Reiersenmale65304S
+000000000010492     0       3       108,19  127,4   21      0       0       131,16  7.25    147,2   Windelov, Mr. EinarmaleSOTON/OQ 3101317S
+000000000000493     0       1       108,26  134,4   55      0       0       138,6   30.5    144,3   147,2   Molson, Mr. Harry Marklandmale113787C30S
+000000000010494     0       1       108,23  131,4   71      0       0       135,8   49.5042 143,2   Artagaveytia, Mr. RamonmalePC 17609C
+000000000010495     0       3       108,26  134,4   21      0       0       138,9   8.05    147,2   Stanley, Mr. Edward RolandmaleA/4 45380S
+000001000010496     0       3       108,21  129,4   0       0       133,4   14.4583 137,2   Yousseff, Mr. Geriousmale2627C
+000000000000497     1       1       108,30  138,6   54      1       0       144,5   78.2667 149,3   152,2   Eustis, Miss. Elizabeth Musseyfemale36947D20C
+000001000010498     0       3       108,31  139,4   0       0       143,9   15.1    152,2   Shellard, Mr. Frederick WilliammaleC.A. 6212S
+000000000000499     0       1       108,47  155,6   25      1       2       161,6   151.55  167,7   174,2   Allison, Mrs. Hudson J C (Bessie Waldo Daniels)female113781C22 C26S
+000000000010500     0       3       108,18  126,4   24      0       0       130,6   7.7958  136,2   Svensson, Mr. Olofmale350035S
+000000000010501     0       3       108,16  124,4   17      0       0       128,6   8.6625  134,2   Calic, Mr. Petarmale315086S
+000000000010502     0       3       108,19  127,6   21      0       0       133,6   7.75    139,2   Canavan, Miss. Maryfemale364846Q
+000001000010503     0       3       108,30  138,6   0       0       144,6   7.6292  150,2   O'Sullivan, Miss. Bridget Maryfemale330909Q
+000000000010504     0       3       108,30  138,6   37      0       0       144,4   9.5875  148,2   Laitinen, Miss. Kristina Sofiafemale4135S
+000000000000505     1       1       108,21  129,6   16      0       0       135,6   86.5    141,3   144,2   Maioni, Miss. Robertafemale110152B79S
+000000000000506     0       1       108,42  150,4   18      1       0       154,8   108.9   162,3   165,2   Penasco y Castellana, Mr. Victor de SatodemalePC 17758C65C
+000000000010507     1       2       108,45  153,6   33      0       2       159,5   26      164,2   Quick, Mrs. Frederick Charles (Jane Richards)female26360S
+000001000010508     1       1       108,47  155,4   0       0       159,6   26.55   165,2   "Bradley, Mr. George ("George Arthur Brayton")"male111427S
+000000000010509     0       3       108,24  132,4   28      0       0       136,6   22.525  142,2   Olsen, Mr. Henry MargidomaleC 4001S
+000000000010510     1       3       108,14  122,4   26      0       0       126,4   56.4958 130,2   Lang, Mr. Fangmale1601S
+000000000010511     1       3       108,24  132,4   29      0       0       136,6   7.75    142,2   Daly, Mr. Eugene Patrickmale382651Q
+000001000010512     0       3       108,17  125,4   0       0       129,16  8.05    145,2   Webber, Mr. JamesmaleSOTON/OQ 3101316S
+000000000000513     1       1       108,25  133,4   36      0       0       137,8   26.2875 145,3   148,2   McGough, Mr. James RobertmalePC 17473E25S
+000000000010514     1       1       108,46  154,6   54      1       0       160,8   59.4    168,2   Rothschild, Mrs. Martin (Elizabeth L. Barrett)femalePC 17603C
+000000000010515     0       3       108,17  125,4   24      0       0       129,6   7.4958  135,2   Coleff, Mr. Satiomale349209S
+000000000000516     0       1       108,28  136,4   47      0       0       140,5   34.0208 145,3   148,2   Walker, Mr. William Andersonmale36967D46S
+000000000000517     1       2       108,28  136,6   34      0       0       142,10  10.5    152,3   155,2   Lemore, Mrs. (Amelia Milley)femaleC.A. 34260F33S
+000001000010518     0       3       108,17  125,4   0       0       129,6   24.15   135,2   Ryan, Mr. Patrickmale371110Q
+000000000010519     1       2       108,54  162,6   36      1       0       168,6   26      174,2   "Angle, Mrs. William A (Florence "Mary" Agnes Hughes)"female226875S
+000000000010520     0       3       108,19  127,4   32      0       0       131,6   7.8958  137,2   Pavlovic, Mr. Stefomale349242S
+000000000000521     1       1       108,21  129,6   30      0       0       135,5   93.5    140,3   143,2   Perreault, Miss. Annefemale12749B73S
+000000000010522     0       3       108,15  123,4   22      0       0       127,6   7.8958  133,2   Vovk, Mr. Jankomale349252S
+000001000010523     0       3       108,18  126,4   0       0       130,4   7.225   134,2   Lahoud, Mr. Sarkismale2624C
+000000000000524     1       1       108,47  155,6   44      0       1       161,6   57.9792 167,3   170,2   Hippach, Mrs. Louis Albert (Ida Sophia Fischer)female111361B18C
+000001000010525     0       3       108,17  125,4   0       0       129,4   7.2292  133,2   Kassem, Mr. Faredmale2700C
+000000000010526     0       3       108,18  126,4   40.5    0       0       130,6   7.75    136,2   Farrell, Mr. Jamesmale367232Q
+000000000010527     1       2       108,20  128,6   50      0       0       134,11  10.5    145,2   Ridsdale, Miss. LucyfemaleW./C. 14258S
+000001000000528     0       1       108,18  126,4   0       0       130,8   221.7792138,3   141,2   Farthing, Mr. JohnmalePC 17483C95S
+000000000010529     0       3       108,25  133,4   39      0       0       137,7   7.925   144,2   Salonen, Mr. Johan Wernermale3101296S
+000000000010530     0       2       108,27  135,4   23      2       1       139,5   11.5    144,2   Hocking, Mr. Richard Georgemale29104S
+000000000010531     1       2       108,24  132,6   2       1       1       138,5   26      143,2   Quick, Miss. Phyllis Mayfemale26360S
+000001000010532     0       3       108,17  125,4   0       0       129,4   7.2292  133,2   Toufik, Mr. Naklimale2641C
+000000000010533     0       3       108,20  128,4   17      1       1       132,4   7.2292  136,2   Elias, Mr. Joseph Jrmale2690C
+000001000010534     1       3       108,38  146,6   0       2       152,4   22.3583 156,2   Peter, Mrs. Catherine (Catherine Rizk)female2668C
+000000000010535     0       3       108,19  127,6   30      0       0       133,6   8.6625  139,2   Cacic, Miss. Marijafemale315084S
+000000000010536     1       2       108,22  130,6   7       0       2       136,12  26.25   148,2   Hart, Miss. Eva MiriamfemaleF.C.C. 13529S
+000000000000537     0       1       108,33  141,4   45      0       0       145,6   26.55   151,3   154,2   Butt, Major. Archibald Willinghammale113050B38S
+000000000010538     1       1       108,19  127,6   30      0       0       133,8   106.425 141,2   LeRoy, Miss. BerthafemalePC 17761C
+000001000010539     0       3       108,24  132,4   0       0       136,6   14.5    142,2   Risien, Mr. Samuel Beardmale364498S
+000000000000540     1       1       108,34  142,6   22      0       2       148,5   49.5    153,3   156,2   Frolicher, Miss. Hedwig Margarithafemale13568B39C
+000000000000541     1       1       108,23  131,6   36      0       2       137,9   71      146,3   149,2   Crosby, Miss. Harriet RfemaleWE/P 5735B22S
+000000000010542     0       3       108,36  144,6   9       4       2       150,6   31.275  156,2   Andersson, Miss. Ingeborg Constanziafemale347082S
+000000000010543     0       3       108,33  141,6   11      4       2       147,6   31.275  153,2   Andersson, Miss. Sigrid Elisabethfemale347082S
+000000000010544     1       2       108,17  125,4   32      1       0       129,4   26      133,2   Beane, Mr. Edwardmale2908S
+000000000000545     0       1       108,26  134,4   50      1       0       138,8   106.425 146,3   149,2   Douglas, Mr. Walter DonaldmalePC 17761C86C
+000000000010546     0       1       108,28  136,4   64      0       0       140,3   26      143,2   Nicholson, Mr. Arthur Ernestmale693S
+000000000010547     1       2       108,33  141,6   19      1       0       147,4   26      151,2   Beane, Mrs. Edward (Ethel Clarke)female2908S
+000001000010548     1       2       108,26  134,4   0       0       138,13  13.8625 151,2   Padro y Manent, Mr. JulianmaleSC/PARIS 2146C
+000000000010549     0       3       108,25  133,4   33      1       1       137,6   20.525  143,2   Goldsmith, Mr. Frank Johnmale363291S
+000000000010550     1       2       108,30  138,4   8       1       1       142,10  36.75   152,2   Davies, Master. John Morgan JrmaleC.A. 33112S
+000000000000551     1       1       108,27  135,4   17      0       2       139,5   110.8833144,3   147,2   Thayer, Mr. John Borland Jrmale17421C70C
+000000000010552     0       2       108,27  135,4   27      0       0       139,6   26      145,2   Sharp, Mr. Percival James Rmale244358S
+000001000010553     0       3       108,20  128,4   0       0       132,6   7.8292  138,2   O'Brien, Mr. Timothymale330979Q
+000000000010554     1       3       108,35  143,4   22      0       0       147,4   7.225   151,2   "Leeni, Mr. Fahim ("Philip Zenni")"male2620C
+000000000010555     1       3       108,18  126,6   22      0       0       132,6   7.775   138,2   Ohman, Miss. Velinfemale347085S
+000000000010556     0       1       108,18  126,4   62      0       0       130,6   26.55   136,2   Wright, Mr. Georgemale113807S
+000000000000557     1       1       108,67  175,6   48      1       0       181,5   39.6    186,3   189,2   "Duff Gordon, Lady. (Lucille Christiana Sutherland) ("Mrs Morgan")"female11755A16C
+000001000010558     0       1       108,19  127,4   0       0       131,8   227.525 139,2   Robbins, Mr. VictormalePC 17757C
+000000000000559     1       1       108,38  146,6   39      1       1       152,6   79.65   158,3   161,2   Taussig, Mrs. Emil (Tillie Mandelbaum)female110413E67S
+000000000010560     1       3       108,44  152,6   36      1       0       158,6   17.4    164,2   de Messemaeker, Mrs. Guillaume Joseph (Emma)female345572S
+000001000010561     0       3       108,24  132,4   0       0       136,6   7.75    142,2   Morrow, Mr. Thomas Rowanmale372622Q
+000000000010562     0       3       108,17  125,4   40      0       0       129,6   7.8958  135,2   Sivic, Mr. Huseinmale349251S
+000000000010563     0       2       108,26  134,4   28      0       0       138,6   13.5    144,2   Norman, Mr. Robert Douglasmale218629S
+000001000010564     0       3       108,17  125,4   0       0       129,15  8.05    144,2   Simmons, Mr. JohnmaleSOTON/OQ 392082S
+000001000010565     0       3       108,30  138,6   0       0       144,17  8.05    161,2   Meanwell, Miss. (Marion Ogden)femaleSOTON/O.Q. 392087S
+000000000010566     0       3       108,20  128,4   24      2       0       132,9   24.15   141,2   Davies, Mr. Alfred JmaleA/4 48871S
+000000000010567     0       3       108,20  128,4   19      0       0       132,6   7.8958  138,2   Stoytcheff, Mr. Iliamale349205S
+000000000010568     0       3       108,43  151,6   29      0       4       157,6   21.075  163,2   Palsson, Mrs. Nils (Alma Cornelia Berglund)female349909S
+000001000010569     0       3       108,19  127,4   0       0       131,4   7.2292  135,2   Doharr, Mr. Tannousmale2686C
+000000000010570     1       3       108,17  125,4   32      0       0       129,6   7.8542  135,2   Jonsson, Mr. Carlmale350417S
+000000000010571     1       2       108,18  126,4   62      0       0       130,11  10.5    141,2   Harris, Mr. GeorgemaleS.W./PP 752S
+000000000000572     1       1       108,45  153,6   53      2       0       159,5   51.4792 164,4   168,2   Appleton, Mrs. Edward Dale (Charlotte Lamson)female11769C101S
+000000000000573     1       1       108,34  142,4   36      0       0       146,8   26.3875 154,3   157,2   "Flynn, Mr. John Irwin ("Irving")"malePC 17474E25S
+000001000010574     1       3       108,17  125,6   0       0       131,5   7.75    136,2   Kelly, Miss. Maryfemale14312Q
+000000000010575     0       3       108,28  136,4   16      0       0       140,10  8.05    150,2   Rush, Mr. Alfred George JohnmaleA/4. 20589S
+000000000010576     0       3       108,20  128,4   19      0       0       132,6   14.5    138,2   Patchett, Mr. Georgemale358585S
+000000000010577     1       2       108,20  128,6   34      0       0       134,6   13      140,2   Garside, Miss. Ethelfemale243880S
+000000000000578     1       1       108,41  149,6   39      1       0       155,5   55.9    160,3   163,2   Silvey, Mrs. William Baird (Alice Munger)female13507E44S
+000001000010579     0       3       108,32  140,6   1       0       146,4   14.4583 150,2   Caram, Mrs. Joseph (Maria Elias)female2689C
+000000000010580     1       3       108,19  127,4   32      0       0       131,17  7.925   148,2   Jussila, Mr. EiriikmaleSTON/O 2. 3101286S
+000000000010581     1       2       108,27  135,6   25      1       1       141,6   30      147,2   Christy, Miss. Julie Rachelfemale237789S
+000000000000582     1       1       108,52  160,6   39      1       1       166,5   110.8833171,3   174,2   Thayer, Mrs. John Borland (Marian Longstreth Morris)female17421C68C
+000000000010583     0       2       108,26  134,4   54      0       0       138,5   26      143,2   Downton, Mr. William Jamesmale28403S
+000000000000584     0       1       108,19  127,4   36      0       0       131,5   40.125  136,3   139,2   Ross, Mr. John Hugomale13049A10C
+000001000010585     0       3       108,19  127,4   0       0       131,4   8.7125  135,2   Paulner, Mr. Uschermale3411C
+000000000000586     1       1       108,19  127,6   18      0       2       133,6   79.65   139,3   142,2   Taussig, Miss. Ruthfemale110413E68S
+000000000010587     0       2       108,23  131,4   47      0       0       135,6   15      141,2   Jarvis, Mr. John Denzilmale237565S
+000000000000588     1       1       108,32  140,4   60      1       1       144,5   79.2    149,3   152,2   Frolicher-Stehli, Mr. Maxmillianmale13567B41C
+000000000010589     0       3       108,21  129,4   22      0       0       133,5   8.05    138,2   Gilinski, Mr. Eliezermale14973S
+000001000010590     0       3       108,19  127,4   0       0       131,10  8.05    141,2   Murdlin, Mr. JosephmaleA./5. 3235S
+000000000010591     0       3       108,20  128,4   35      0       0       132,17  7.125   149,2   Rintamaki, Mr. MattimaleSTON/O 2. 3101273S
+000000000000592     1       1       108,47  155,6   52      1       0       161,5   78.2667 166,3   169,2   Stephenson, Mrs. Walter Bertram (Martha Eustis)female36947D20C
+000000000010593     0       3       108,26  134,4   47      0       0       138,8   7.25    146,2   Elsbury, Mr. William JamesmaleA/5 3902S
+000001000010594     0       3       108,18  126,6   0       2       132,6   7.75    138,2   Bourke, Miss. Maryfemale364848Q
+000000000010595     0       2       108,23  131,4   37      1       0       135,11  26      146,2   Chapman, Mr. John HenrymaleSC/AH 29037S
+000000000010596     0       3       108,27  135,4   36      1       1       139,6   24.15   145,2   Van Impe, Mr. Jean Baptistemale345773S
+000001000010597     1       2       108,26  134,6   0       0       140,6   33      146,2   Leitch, Miss. Jessie Willsfemale248727S
+000000000010598     0       3       108,19  127,4   49      0       0       131,4   0       135,2   Johnson, Mr. AlfredmaleLINES
+000001000010599     0       3       108,17  125,4   0       0       129,4   7.225   133,2   Boulos, Mr. Hannamale2664C
+000000000000600     1       1       108,46  154,4   49      1       0       158,8   56.9292 166,3   169,2   "Duff Gordon, Sir. Cosmo Edmund ("Mr Morgan")"malePC 17485A20C
+000000000010601     1       2       108,51  159,6   24      2       1       165,6   27      171,2   Jacobsohn, Mrs. Sidney Samuel (Amy Frances Christy)female243847S
+000001000010602     0       3       108,20  128,4   0       0       132,6   7.8958  138,2   Slabenoff, Mr. Petcomale349214S
+000001000010603     0       1       108,25  133,4   0       0       137,6   42.4    143,2   Harrington, Mr. Charles Hmale113796S
+000000000010604     0       3       108,25  133,4   44      0       0       137,6   8.05    143,2   Torber, Mr. Ernst Williammale364511S
+000000000010605     1       1       108,33  141,4   35      0       0       145,6   26.55   151,2   "Homer, Mr. Harry ("Mr E Haven")"male111426C
+000000000010606     0       3       108,29  137,4   36      1       0       141,6   15.55   147,2   Lindell, Mr. Edvard Bengtssonmale349910S
+000000000010607     0       3       108,17  125,4   30      0       0       129,6   7.8958  135,2   Karaic, Mr. Milanmale349246S
+000000000010608     1       1       108,27  135,4   27      0       0       139,6   30.5    145,2   Daniel, Mr. Robert Williamsmale113804S
+000000000010609     1       2       108,53  161,6   22      1       2       167,13  41.5792 180,2   Laroche, Mrs. Joseph (Juliette Marie Louise Lafargue)femaleSC/Paris 2123C
+000000000000610     1       1       108,25  133,6   40      0       0       139,8   153.4625147,4   151,2   Shutes, Miss. Elizabeth WfemalePC 17582C125S
+000000000010611     0       3       108,57  165,6   39      1       5       171,6   31.275  177,2   Andersson, Mrs. Anders Johan (Alfrida Konstantia Brogren)female347082S
+000001000010612     0       3       108,21  129,4   0       0       133,18  7.05    151,2   Jardin, Mr. Jose NetomaleSOTON/O.Q. 3101305S
+000001000010613     1       3       108,27  135,6   1       0       141,6   15.5    147,2   Murphy, Miss. Margaret Janefemale367230Q
+000001000010614     0       3       108,16  124,4   0       0       128,6   7.75    134,2   Horgan, Mr. Johnmale370377Q
+000000000010615     0       3       108,31  139,4   35      0       0       143,6   8.05    149,2   Brocklebank, Mr. William Alfredmale364512S
+000000000010616     1       2       108,19  127,6   24      1       2       133,6   65      139,2   Herman, Miss. Alicefemale220845S
+000000000010617     0       3       108,25  133,4   34      1       1       137,6   14.4    143,2   Danbom, Mr. Ernst Gilbertmale347080S
+000000000010618     0       3       108,47  155,6   26      1       0       161,9   16.1    170,2   Lobb, Mrs. William Arthur (Cordelia K Stanlick)femaleA/5. 3336S
+000000000000619     1       2       108,27  135,6   4       2       1       141,6   39      147,2   149,2   Becker, Miss. Marion Louisefemale230136F4S
+000000000010620     0       2       108,19  127,4   26      0       0       131,5   10.5    136,2   Gavey, Mr. Lawrencemale31028S
+000000000010621     0       3       108,19  127,4   27      1       0       131,4   14.4542 135,2   Yasbeck, Mr. Antonimale2659C
+000000000000622     1       1       108,28  136,4   42      1       0       140,5   52.5542 145,3   148,2   Kimball, Mr. Edwin Nelson Jrmale11753D19S
+000000000010623     1       3       108,16  124,4   20      1       1       128,4   15.7417 132,2   Nakid, Mr. Sahidmale2653C
+000000000010624     0       3       108,27  135,4   21      0       0       139,6   7.8542  145,2   Hansen, Mr. Henry Damsgaardmale350029S
+000000000010625     0       3       108,28  136,4   21      0       0       140,5   16.1    145,2   "Bowen, Mr. David John "Dai"male54636S
+000000000000626     0       1       108,21  129,4   61      0       0       133,5   32.3208 138,3   141,2   Sutton, Mr. Frederickmale36963D50S
+000000000010627     0       2       108,30  138,4   57      0       0       142,6   12.35   148,2   Kirkland, Rev. Charles Leonardmale219533Q
+000000000000628     1       1       108,29  137,6   21      0       0       143,5   77.9583 148,2   150,2   Longley, Miss. Gretchen Fiskefemale13502D9S
+000000000010629     0       3       108,25  133,4   26      0       0       137,6   7.8958  143,2   Bostandyeff, Mr. Guentchomale349224S
+000001000010630     0       3       108,24  132,4   0       0       136,6   7.7333  142,2   O'Connell, Mr. Patrick Dmale334912Q
+000000000000631     1       1       108,36  144,4   80      0       0       148,5   30      153,3   156,2   Barkworth, Mr. Algernon Henry Wilsonmale27042A23S
+000000000010632     0       3       108,27  135,4   51      0       0       139,6   7.0542  145,2   Lundahl, Mr. Johan Svenssonmale347743S
+000000000000633     1       1       108,25  133,4   32      0       0       137,5   30.5    142,3   145,2   Stahelin-Maeglin, Dr. Maxmale13214B50C
+000001000010634     0       1       108,29  137,4   0       0       141,6   0       147,2   Parr, Mr. William Henry Marshmale112052S
+000000000010635     0       3       108,18  126,6   9       3       2       132,6   27.9    138,2   Skoog, Miss. Mabelfemale347088S
+000000000010636     1       2       108,17  125,6   28      0       0       131,6   13      137,2   Davis, Miss. Maryfemale237668S
+000000000010637     0       3       108,26  134,4   32      0       0       138,17  7.925   155,2   Leinonen, Mr. Antti GustafmaleSTON/O 2. 3101292S
+000000000010638     0       2       108,19  127,4   31      1       1       131,10  26.25   141,2   Collyer, Mr. HarveymaleC.A. 31921S
+000000000010639     0       3       108,38  146,6   41      0       5       152,7   39.6875 159,2   Panula, Mrs. Juha (Maria Emilia Ojala)female3101295S
+000001000010640     0       3       108,26  134,4   1       0       138,6   16.1    144,2   Thorneycroft, Mr. Percivalmale376564S
+000000000010641     0       3       108,22  130,4   20      0       0       134,6   7.8542  140,2   Jensen, Mr. Hans Pedermale350050S
+000000000000642     1       1       108,20  128,6   24      0       0       134,8   69.3    142,3   145,2   Sagesser, Mlle. EmmafemalePC 17477B35C
+000000000010643     0       3       108,29  137,6   2       3       2       143,6   27.9    149,2   Skoog, Miss. Margit Elizabethfemale347088S
+000001000010644     1       3       108,15  123,4   0       0       127,4   56.4958 131,2   Foo, Mr. Choongmale1601S
+000000000010645     1       3       108,22  130,6   0.75    2       1       136,4   19.2583 140,2   Baclini, Miss. Eugeniefemale2666C
+000000000000646     1       1       108,25  133,4   48      1       0       137,8   76.7292 145,3   148,2   Harper, Mr. Henry SleepermalePC 17572D33C
+000000000010647     0       3       108,17  125,4   19      0       0       129,6   7.8958  135,2   Cor, Mr. Liudevitmale349231S
+000000000000648     1       1       108,35  143,4   56      0       0       147,5   35.5    152,3   155,2   Simonius-Blumer, Col. Oberst Alfonsmale13213A26C
+000001000010649     0       3       108,18  126,4   0       0       130,13  7.55    143,2   Willey, Mr. EdwardmaleS.O./P.P. 751S
+000000000010650     1       3       108,31  139,6   23      0       0       145,8   7.55    153,2   Stanley, Miss. Amy Zillah ElsiefemaleCA. 2314S
+000001000010651     0       3       108,17  125,4   0       0       129,6   7.8958  135,2   Mitkoff, Mr. Mitomale349221S
+000000000010652     1       2       108,19  127,6   18      0       1       133,6   23      139,2   Doling, Miss. Elsiefemale231919S
+000000000010653     0       3       108,30  138,4   21      0       0       142,4   8.4333  146,2   Kalvik, Mr. Johannes Halvorsenmale8475S
+000001000010654     1       3       108,30  138,6   0       0       144,6   7.8292  150,2   "O'Leary, Miss. Hanora "Norah"female330919Q
+000000000010655     0       3       108,29  137,6   18      0       0       143,6   6.75    149,2   "Hegarty, Miss. Hanora "Nora"female365226Q
+000000000010656     0       2       108,25  133,4   24      2       0       137,12  73.5    149,2   Hickman, Mr. Leonard MarkmaleS.O.C. 14879S
+000001000010657     0       3       108,21  129,4   0       0       133,6   7.8958  139,2   Radeff, Mr. Alexandermale349223S
+000000000010658     0       3       108,29  137,6   32      1       1       143,6   15.5    149,2   Bourke, Mrs. John (Catherine)female364849Q
+000000000010659     0       2       108,28  136,4   23      0       0       140,5   13      145,2   Eitemiller, Mr. George Floydmale29751S
+000000000000660     0       1       108,26  134,4   58      0       2       138,5   113.275 143,3   146,2   Newell, Mr. Arthur Webstermale35273D48C
+000000000010661     1       1       108,29  137,4   50      2       0       141,8   133.65  149,2   Frauenthal, Dr. Henry WilliammalePC 17611S
+000000000010662     0       3       108,17  125,4   40      0       0       129,4   7.225   133,2   Badt, Mr. Mohamedmale2623C
+000000000000663     0       1       108,26  134,4   47      0       0       138,4   25.5875 142,3   145,2   Colley, Mr. Edward Pomeroymale5727E58S
+000000000010664     0       3       108,16  124,4   36      0       0       128,6   7.4958  134,2   Coleff, Mr. Pejumale349210S
+000000000010665     1       3       108,27  135,4   20      1       0       139,17  7.925   156,2   Lindqvist, Mr. Eino WilliammaleSTON/O 2. 3101285S
+000000000010666     0       2       108,18  126,4   32      2       0       130,12  73.5    142,2   Hickman, Mr. LewismaleS.O.C. 14879S
+000000000010667     0       2       108,27  135,4   25      0       0       139,6   13      145,2   Butler, Mr. Reginald Fentonmale234686S
+000001000010668     0       3       108,26  134,4   0       0       138,6   7.775   144,2   Rommetvedt, Mr. Knud Paustmale312993S
+000000000010669     0       3       108,15  123,4   43      0       0       127,8   8.05    135,2   Cook, Mr. JacobmaleA/5 3536S
+000001000000670     1       1       108,49  157,6   1       0       163,5   52      168,4   172,2   Taylor, Mrs. Elmer Zebley (Juliet Cummins Wright)female19996C126S
+000000000010671     1       2       108,61  169,6   40      1       1       175,5   39      180,2   Brown, Mrs. Thomas William Solomon (Elizabeth Catherine Ford)female29750S
+000000000000672     0       1       108,22  130,4   31      1       0       134,10  52      144,3   147,2   Davidson, Mr. ThorntonmaleF.C. 12750B71S
+000000000010673     0       2       108,27  135,4   70      0       0       139,10  10.5    149,2   Mitchell, Mr. Henry MichaelmaleC.A. 24580S
+000000000010674     1       2       108,21  129,4   31      0       0       133,6   13      139,2   Wilhelms, Mr. Charlesmale244270S
+000001000010675     0       2       108,26  134,4   0       0       138,6   0       144,2   Watson, Mr. Ennis Hastingsmale239856S
+000000000010676     0       3       108,30  138,4   18      0       0       142,6   7.775   148,2   Edvardsson, Mr. Gustaf Hjalmarmale349912S
+000000000010677     0       3       108,29  137,4   24.5    0       0       141,6   8.05    147,2   Sawyer, Mr. Frederick Charlesmale342826S
+000000000010678     1       3       108,23  131,6   18      0       0       137,4   9.8417  141,2   Turja, Miss. Anna Sofiafemale4138S
+000000000010679     0       3       108,39  147,6   43      1       6       153,7   46.9    160,2   Goodwin, Mrs. Frederick (Augusta Tyler)femaleCA 2144S
+000000000000680     1       1       108,34  142,4   36      0       1       146,8   512.3292154,11  165,2   Cardeza, Mr. Thomas Drake MartinezmalePC 17755B51 B53 B55C
+000001000010681     0       3       108,19  127,6   0       0       133,6   8.1375  139,2   Peters, Miss. Katiefemale330935Q
+000000000000682     1       1       108,18  126,4   27      0       0       130,8   76.7292 138,3   141,2   Hassab, Mr. HammadmalePC 17572D49C
+000000000010683     0       3       108,27  135,4   20      0       0       139,4   9.225   143,2   Olsvigen, Mr. Thor Andersonmale6563S
+000000000010684     0       3       108,27  135,4   14      5       2       139,7   46.9    146,2   Goodwin, Mr. Charles EdwardmaleCA 2144S
+000000000010685     0       2       108,33  141,4   60      1       1       145,5   39      150,2   Brown, Mr. Thomas William Solomonmale29750S
+000000000010686     0       2       108,38  146,4   25      1       2       150,13  41.5792 163,2   Laroche, Mr. Joseph Philippe LemerciermaleSC/Paris 2123C
+000000000010687     0       3       108,24  132,4   14      4       1       136,7   39.6875 143,2   Panula, Mr. Jaako Arnoldmale3101295S
+000000000010688     0       3       108,17  125,4   19      0       0       129,6   10.1708 135,2   Dakic, Mr. Brankomale349228S
+000000000010689     0       3       108,31  139,4   18      0       0       143,6   7.7958  149,2   Fischer, Mr. Eberhard Thelandermale350036S
+000000000000690     1       1       108,33  141,6   15      0       1       147,5   211.3375152,2   154,2   Madill, Miss. Georgette Alexandrafemale24160B5S
+000000000000691     1       1       108,23  131,4   31      1       0       135,5   57      140,3   143,2   Dick, Mr. Albert Adrianmale17474B20S
+000000000010692     1       3       108,18  126,6   4       0       1       132,6   13.4167 138,2   Karun, Miss. Mancafemale349256C
+000001000010693     1       3       108,12  120,4   0       0       124,4   56.4958 128,2   Lam, Mr. Alimale1601S
+000000000010694     0       3       108,16  124,4   25      0       0       128,4   7.225   132,2   Saad, Mr. Khalilmale2672C
+000000000010695     0       1       108,15  123,4   60      0       0       127,6   26.55   133,2   Weir, Col. Johnmale113800S
+000000000010696     0       2       108,26  134,4   52      0       0       138,6   13.5    144,2   Chapman, Mr. Charles Henrymale248731S
+000000000010697     0       3       108,16  124,4   44      0       0       128,6   8.05    134,2   Kelly, Mr. Jamesmale363592S
+000001000010698     1       3       108,33  141,6   0       0       147,5   7.7333  152,2   "Mullens, Miss. Katherine "Katie"female35852Q
+000000000000699     0       1       108,24  132,4   49      1       1       136,5   110.8833141,3   144,2   Thayer, Mr. John Borlandmale17421C68C
+000000000000700     0       3       108,40  148,4   42      0       0       152,6   7.65    158,5   163,2   Humblen, Mr. Adolf Mathias Nicolai Olsenmale348121F G63S
+000000000000701     1       1       108,49  157,6   18      1       0       163,8   227.525 171,7   178,2   Astor, Mrs. John Jacob (Madeleine Talmadge Force)femalePC 17757C62 C64C
+000000000000702     1       1       108,32  140,4   35      0       0       144,8   26.2875 152,3   155,2   Silverthorne, Mr. Spencer VictormalePC 17475E24S
+000000000010703     0       3       108,21  129,6   18      0       1       135,4   14.4542 139,2   Barbara, Miss. Saiidefemale2691C
+000000000010704     0       3       108,21  129,4   25      0       0       133,5   7.7417  138,2   Gallagher, Mr. Martinmale36864Q
+000000000010705     0       3       108,23  131,4   26      1       0       135,6   7.8542  141,2   Hansen, Mr. Henrik Juulmale350025S
+000000000010706     0       2       108,48  156,4   39      0       0       160,6   26      166,2   "Morley, Mr. Henry Samuel ("Mr Henry Marshall")"male250655S
+000000000010707     1       2       108,30  138,6   45      0       0       144,6   13.5    150,2   "Kelly, Mrs. Florence "Fannie"female223596S
+000000000000708     1       1       108,33  141,4   42      0       0       145,8   26.2875 153,3   156,2   Calderhead, Mr. Edward PenningtonmalePC 17476E24S
+000000000010709     1       1       108,20  128,6   22      0       0       134,6   151.55  140,2   Cleaver, Miss. Alicefemale113781S
+000001000010710     1       3       108,51  159,4   1       1       163,4   15.2458 167,2   "Moubarek, Master. Halim Gonios ("William George")"male2661C
+000000000000711     1       1       108,50  158,6   24      0       0       164,8   49.5042 172,3   175,2   "Mayne, Mlle. Berthe Antonine ("Mrs de Villiers")"femalePC 17482C90C
+000001000000712     0       1       108,18  126,4   0       0       130,6   26.55   136,4   140,2   Klaber, Mr. Hermanmale113028C124S
+000000000000713     1       1       108,24  132,4   48      1       0       136,5   52      141,4   145,2   Taylor, Mr. Elmer Zebleymale19996C126S
+000000000010714     0       3       108,26  134,4   29      0       0       138,4   9.4833  142,2   Larsson, Mr. August Viktormale7545S
+000000000010715     0       2       108,21  129,4   52      0       0       133,6   13      139,2   Greenberg, Mr. Samuelmale250647S
+000000000000716     0       3       108,42  150,4   19      0       0       154,6   7.65    160,5   165,2   Soholt, Mr. Peter Andreas Lauritz Andersenmale348124F G73S
+000000000000717     1       1       108,29  137,6   38      0       0       143,8   227.525 151,3   154,2   Endres, Miss. Caroline LouisefemalePC 17757C45C
+000000000000718     1       2       108,36  144,6   27      0       0       150,5   10.5    155,4   159,2   "Troutt, Miss. Edwina Celia "Winnie"female34218E101S
+000001000010719     0       3       108,19  127,4   0       0       131,5   15.5    136,2   McEvoy, Mr. Michaelmale36568Q
+000000000010720     0       3       108,28  136,4   33      0       0       140,6   7.775   146,2   Johnson, Mr. Malkolm Joackimmale347062S
+000000000010721     1       2       108,34  142,6   6       0       1       148,6   33      154,2   "Harper, Miss. Annie Jessie "Nina"female248727S
+000000000010722     0       3       108,25  133,4   17      1       0       137,6   7.0542  143,2   Jensen, Mr. Svend Lauritzmale350048S
+000000000010723     0       2       108,28  136,4   34      0       0       140,5   13      145,2   Gillespie, Mr. William Henrymale12233S
+000000000010724     0       2       108,23  131,4   50      0       0       135,6   13      141,2   Hodges, Mr. Henry Pricemale250643S
+000000000000725     1       1       108,29  137,4   27      1       0       141,6   53.1    147,2   149,2   Chambers, Mr. Norman Campbellmale113806E8S
+000000000010726     0       3       108,19  127,4   20      0       0       131,6   8.6625  137,2   Oreskovic, Mr. Lukamale315094S
+000000000010727     1       2       108,43  151,6   30      3       0       157,5   21      162,2   Renouf, Mrs. Peter Henry (Lillian Jefferys)female31027S
+000001000010728     1       3       108,24  132,6   0       0       138,5   7.7375  143,2   Mannion, Miss. Margarethfemale36866Q
+000000000010729     0       2       108,31  139,4   25      1       0       143,6   26      149,2   Bryhl, Mr. Kurt Arnold Gottfridmale236853S
+000000000010730     0       3       108,29  137,6   25      1       0       143,16  7.925   159,2   Ilmakangas, Miss. Pieta SofiafemaleSTON/O2. 3101271S
+000000000000731     1       1       108,29  137,6   29      0       0       143,5   211.3375148,2   150,2   Allen, Miss. Elisabeth Waltonfemale24160B5S
+000000000010732     0       3       108,24  132,4   11      0       0       136,4   18.7875 140,2   Hassan, Mr. Houssein G Nmale2699C
+000001000010733     0       2       108,20  128,4   0       0       132,6   0       138,2   Knight, Mr. Robert Jmale239855S
+000000000010734     0       2       108,26  134,4   23      0       0       138,5   13      143,2   Berriman, Mr. William Johnmale28425S
+000000000010735     0       2       108,28  136,4   23      0       0       140,6   13      146,2   Troupiansky, Mr. Moses Aaronmale233639S
+000000000010736     0       3       108,20  128,4   28.5    0       0       132,5   16.1    137,2   Williams, Mr. Lesliemale54636S
+000000000010737     0       3       108,39  147,6   48      1       3       153,10  34.375  163,2   Ford, Mrs. Edward (Margaret Ann Watson)femaleW./C. 6608S
+000000000000738     1       1       108,22  130,4   35      0       0       134,8   512.3292142,4   146,2   Lesurer, Mr. Gustave JmalePC 17755B101C
+000001000010739     0       3       108,18  126,4   0       0       130,6   7.8958  136,2   Ivanoff, Mr. Kaniomale349201S
+000001000010740     0       3       108,18  126,4   0       0       130,6   7.8958  136,2   Nankoff, Mr. Minkomale349218S
+000001000000741     1       1       108,27  135,4   0       0       139,5   30      144,3   147,2   Hawksford, Mr. Walter Jamesmale16988D45S
+000000000000742     0       1       108,29  137,4   36      1       0       141,5   78.85   146,3   149,2   Cavendish, Mr. Tyrell Williammale19877C46S
+000000000000743     1       1       108,38  146,6   21      2       2       152,8   262.375 160,15  175,2   "Ryerson, Miss. Susan Parker "Suzette"femalePC 17608B57 B59 B63 B66C
+000000000010744     0       3       108,17  125,4   24      1       0       129,6   16.1    135,2   McNamee, Mr. Nealmale376566S
+000000000010745     1       3       108,18  126,4   31      0       0       130,17  7.925   147,2   Stranden, Mr. JuhomaleSTON/O 2. 3101288S
+000000000000746     0       1       108,28  136,4   70      1       1       140,9   71      149,3   152,2   Crosby, Capt. Edward GiffordmaleWE/P 5735B22S
+000000000010747     0       3       108,27  135,4   16      1       1       139,9   20.25   148,2   Abbott, Mr. Rossmore EdwardmaleC.A. 2673S
+000000000010748     1       2       108,21  129,6   30      0       0       135,6   13      141,2   Sinkkonen, Miss. Annafemale250648S
+000000000000749     0       1       108,25  133,4   19      1       0       137,6   53.1    143,3   146,2   Marvin, Mr. Daniel Warnermale113773D30S
+000000000010750     0       3       108,23  131,4   31      0       0       135,6   7.75    141,2   Connaghton, Mr. Michaelmale335097Q
+000000000010751     1       2       108,17  125,6   4       1       1       131,5   23      136,2   Wells, Miss. Joanfemale29103S
+000000000000752     1       3       108,19  127,4   6       0       1       131,6   12.475  137,4   141,2   Moor, Master. Meiermale392096E121S
+000000000010753     0       3       108,32  140,4   33      0       0       144,6   9.5     150,2   Vande Velde, Mr. Johannes Josephmale345780S
+000000000010754     0       3       108,18  126,4   23      0       0       130,6   7.8958  136,2   Jonkoff, Mr. Laliomale349204S
+000000000010755     1       2       108,32  140,6   48      1       2       146,6   65      152,2   Herman, Mrs. Samuel (Jane Laver)female220845S
+000000000010756     1       2       108,25  133,4   0.67    1       1       137,6   14.5    143,2   Hamalainen, Master. Viljomale250649S
+000000000010757     0       3       108,28  136,4   28      0       0       140,6   7.7958  146,2   Carlsson, Mr. August Sigfridmale350042S
+000000000010758     0       2       108,24  132,4   18      0       0       136,5   11.5    141,2   Bailey, Mr. Percy Andrewmale29108S
+000000000010759     0       3       108,28  136,4   34      0       0       140,6   8.05    146,2   Theobald, Mr. Thomas Leonardmale363294S
+000000000000760     1       1       108,56  164,6   33      0       0       170,6   86.5    176,3   179,2   Rothes, the Countess. of (Lucy Noel Martha Dyer-Edwards)female110152B77S
+000001000010761     0       3       108,18  126,4   0       0       130,6   14.5    136,2   Garfirth, Mr. Johnmale358585S
+000000000010762     0       3       108,30  138,4   41      0       0       142,16  7.125   158,2   Nirva, Mr. Iisakki Antino AijomaleSOTON/O2 3101272S
+000000000010763     1       3       108,21  129,4   20      0       0       133,4   7.2292  137,2   Barah, Mr. Hanna Assimale2663C
+000000000000764     1       1       108,41  149,6   36      1       2       155,6   120     161,7   168,2   Carter, Mrs. William Ernest (Lucile Polk)female113760B96 B98S
+000000000010765     0       3       108,22  130,4   16      0       0       134,6   7.775   140,2   Eklund, Mr. Hans Linusmale347074S
+000000000000766     1       1       108,36  144,6   51      1       0       150,5   77.9583 155,3   158,2   Hogeboom, Mrs. John C (Anna Andrews)female13502D11S
+000001000010767     0       1       108,25  133,4   0       0       137,6   39.6    143,2   Brewe, Dr. Arthur Jacksonmale112379C
+000000000010768     0       3       108,18  126,6   30.5    0       0       132,6   7.75    138,2   Mangan, Miss. Maryfemale364850Q
+000001000010769     0       3       108,19  127,4   1       0       131,6   24.15   137,2   Moran, Mr. Daniel Jmale371110Q
+000000000010770     0       3       108,32  140,4   32      0       0       144,4   8.3625  148,2   Gronnestad, Mr. Daniel Danielsenmale8471S
+000000000010771     0       3       108,22  130,4   24      0       0       134,6   9.5     140,2   Lievens, Mr. Rene Aimemale345781S
+000000000010772     0       3       108,23  131,4   48      0       0       135,6   7.8542  141,2   Jensen, Mr. Niels Pedermale350047S
+000000000000773     0       2       108,17  125,6   57      0       0       131,11  10.5    142,3   145,2   Mack, Mrs. (Mary)femaleS.O./P.P. 3E77S
+000001000010774     0       3       108,15  123,4   0       0       127,4   7.225   131,2   Elias, Mr. Dibomale2674C
+000000000010775     1       2       108,37  145,6   54      1       3       151,5   23      156,2   Hocking, Mrs. Elizabeth (Eliza Needs)female29105S
+000000000010776     0       3       108,39  147,4   18      0       0       151,6   7.75    157,2   Myhrman, Mr. Pehr Fabian Oliver Malkolmmale347078S
+000001000000777     0       3       108,16  124,4   0       0       128,6   7.75    134,3   137,2   Tobin, Mr. Rogermale383121F38Q
+000000000010778     1       3       108,29  137,6   5       0       0       143,6   12.475  149,2   Emanuel, Miss. Virginia Ethelfemale364516S
+000001000010779     0       3       108,23  131,4   0       0       135,5   7.7375  140,2   Kilgannon, Mr. Thomas Jmale36865Q
+000000000000780     1       1       108,53  161,6   43      0       1       167,5   211.3375172,2   174,2   Robert, Mrs. Edward Scott (Elisabeth Walton McMillan)female24160B3S
+000000000010781     1       3       108,20  128,6   13      0       0       134,4   7.2292  138,2   Ayoub, Miss. Banourafemale2687C
+000000000000782     1       1       108,41  149,6   17      1       0       155,5   57      160,3   163,2   Dick, Mrs. Albert Adrian (Vera Gillespie)female17474B20S
+000000000000783     0       1       108,22  130,4   29      0       0       134,6   30      140,2   142,2   Long, Mr. Milton Clydemale113501D6S
+000001000010784     0       3       108,22  130,4   1       2       134,10  23.45   144,2   Johnston, Mr. Andrew GmaleW./C. 6607S
+000000000010785     0       3       108,16  124,4   25      0       0       128,18  7.05    146,2   Ali, Mr. WilliammaleSOTON/O.Q. 3101312S
+000000000010786     0       3       108,34  142,4   25      0       0       146,6   7.25    152,2   Harmer, Mr. Abraham (David Lishin)male374887S
+000000000010787     1       3       108,25  133,6   18      0       0       139,7   7.4958  146,2   Sjoblom, Miss. Anna Sofiafemale3101265S
+000000000010788     0       3       108,25  133,4   8       4       1       137,6   29.125  143,2   Rice, Master. George Hughmale382652Q
+000000000010789     1       3       108,26  134,4   1       1       2       138,9   20.575  147,2   Dean, Master. Bertram VeremaleC.A. 2315S
+000000000000790     0       1       108,24  132,4   46      0       0       136,8   79.2    144,7   151,2   Guggenheim, Mr. BenjaminmalePC 17593B82 B84C
+000001000010791     0       3       108,25  133,4   0       0       137,5   7.75    142,2   "Keane, Mr. Andrew "Andy"male12460Q
+000000000010792     0       2       108,19  127,4   16      0       0       131,6   26      137,2   Gaskell, Mr. Alfredmale239865S
+000001000010793     0       3       108,23  131,6   8       2       137,8   69.55   145,2   Sage, Miss. Stella AnnafemaleCA. 2343S
+000001000010794     0       1       108,24  132,4   0       0       136,8   30.6958 144,2   Hoyt, Mr. William FishermalePC 17600C
+000000000010795     0       3       108,21  129,4   25      0       0       133,6   7.8958  139,2   Dantcheff, Mr. Ristiumale349203S
+000000000010796     0       2       108,18  126,4   39      0       0       130,5   13      135,2   Otter, Mr. Richardmale28213S
+000000000000797     1       1       108,27  135,6   49      0       0       141,5   25.9292 146,3   149,2   Leader, Dr. Alice (Farnham)female17465D17S
+000000000010798     1       3       108,16  124,6   31      0       0       130,6   8.6833  136,2   Osman, Mrs. Marafemale349244S
+000000000010799     0       3       108,28  136,4   30      0       0       140,4   7.2292  144,2   Ibrahim Shawah, Mr. Yousseffmale2685C
+000000000010800     0       3       108,52  160,6   30      1       1       166,6   24.15   172,2   Van Impe, Mrs. Jean Baptiste (Rosalie Paula Govaert)female345773S
+000000000010801     0       2       108,20  128,4   34      0       0       132,6   13      138,2   Ponesell, Mr. Martinmale250647S
+000000000010802     1       2       108,43  151,6   31      1       1       157,10  26.25   167,2   Collyer, Mrs. Harvey (Charlotte Annie Tate)femaleC.A. 31921S
+000000000000803     1       1       108,35  143,4   11      1       2       147,6   120     153,7   160,2   Carter, Master. William Thornton IImale113760B96 B98S
+000000000010804     1       3       108,31  139,4   0.42    0       1       143,4   8.5167  147,2   Thomas, Master. Assad Alexandermale2625C
+000000000010805     1       3       108,23  131,4   27      0       0       135,6   6.975   141,2   Hedman, Mr. Oskar Arvidmale347089S
+000000000010806     0       3       108,25  133,4   31      0       0       137,6   7.775   143,2   Johansson, Mr. Karl Johanmale347063S
+000000000000807     0       1       108,22  130,4   39      0       0       134,6   0       140,3   143,2   Andrews, Mr. Thomas Jrmale112050A36S
+000000000010808     0       3       108,31  139,6   18      0       0       145,6   7.775   151,2   Pettersson, Miss. Ellen Nataliafemale347087S
+000000000010809     0       2       108,17  125,4   39      0       0       129,6   13      135,2   Meyer, Mr. Augustmale248723S
+000000000000810     1       1       108,46  154,6   33      1       0       160,6   53.1    166,2   168,2   Chambers, Mrs. Norman Campbell (Bertha Griggs)female113806E8S
+000000000010811     0       3       108,22  130,4   26      0       0       134,4   7.8875  138,2   Alexander, Mr. Williammale3474S
+000000000010812     0       3       108,17  125,4   39      0       0       129,9   24.15   138,2   Lester, Mr. JamesmaleA/4 48871S
+000000000010813     0       2       108,25  133,4   35      0       0       137,5   10.5    142,2   Slemen, Mr. Richard Jamesmale28206S
+000000000010814     0       3       108,34  142,6   6       4       2       148,6   31.275  154,2   Andersson, Miss. Ebba Iris Alfridafemale347082S
+000000000010815     0       3       108,26  134,4   30.5    0       0       138,6   8.05    144,2   Tomlin, Mr. Ernest Portagemale364499S
+000001000000816     0       1       108,16  124,4   0       0       128,6   0       134,4   138,2   Fry, Mr. Richardmale112058B102S
+000000000010817     0       3       108,28  136,6   23      0       0       142,16  7.925   158,2   Heininen, Miss. Wendla MariafemaleSTON/O2. 3101290S
+000000000010818     0       2       108,18  126,4   31      1       1       130,15  37.0042 145,2   Mallet, Mr. AlbertmaleS.C./PARIS 2079C
+000000000010819     0       3       108,32  140,4   43      0       0       144,6   6.45    150,2   Holm, Mr. John Fredrik AlexandermaleC 7075S
+000000000010820     0       3       108,28  136,4   10      3       2       140,6   27.9    146,2   Skoog, Master. Karl Thorstenmale347088S
+000000000000821     1       1       108,50  158,6   52      1       1       164,5   93.5    169,3   172,2   Hays, Mrs. Charles Melville (Clara Jennings Gregg)female12749B69S
+000000000010822     1       3       108,17  125,4   27      0       0       129,6   8.6625  135,2   Lulic, Mr. Nikolamale315098S
+000000000010823     0       1       108,31  139,4   38      0       0       143,5   0       148,2   Reuchlin, Jonkheer. John Georgemale19972S
+000000000000824     1       3       108,18  126,6   27      0       1       132,6   12.475  138,4   142,2   Moor, Mrs. (Beila)female392096E121S
+000000000010825     0       3       108,28  136,4   2       4       1       140,7   39.6875 147,2   Panula, Master. Urho Abrahammale3101295S
+000001000010826     0       3       108,15  123,4   0       0       127,6   6.95    133,2   Flynn, Mr. Johnmale368323Q
+000001000010827     0       3       108,12  120,4   0       0       124,4   56.4958 128,2   Lam, Mr. Lenmale1601S
+000000000010828     1       2       108,21  129,4   1       0       2       133,15  37.0042 148,2   Mallet, Master. AndremaleS.C./PARIS 2079C
+000001000010829     1       3       108,28  136,4   0       0       140,6   7.75    146,2   McCormack, Mr. Thomas Josephmale367228Q
+000000000000830     1       1       108,41  149,6   62      0       0       155,6   80      161,3   164,1   Stone, Mrs. George Nelson (Martha Evelyn)female113572B28
+000000000010831     1       3       108,39  147,6   15      1       0       153,4   14.4542 157,2   Yasbeck, Mrs. Antoni (Selini Alexander)female2659C
+000000000010832     1       2       108,31  139,4   0.83    1       1       143,5   18.75   148,2   Richards, Master. George Sibleymale29106S
+000001000010833     0       3       108,14  122,4   0       0       126,4   7.2292  130,2   Saad, Mr. Aminmale2671C
+000000000010834     0       3       108,22  130,4   23      0       0       134,6   7.8542  140,2   Augustsson, Mr. Albertmale347468S
+000000000010835     0       3       108,22  130,4   18      0       0       134,4   8.3     138,2   Allum, Mr. Owen Georgemale2223S
+000000000000836     1       1       108,27  135,6   39      1       1       141,8   83.1583 149,3   152,2   Compton, Miss. Sara RebeccafemalePC 17756E49C
+000000000010837     0       3       108,16  124,4   21      0       0       128,6   8.6625  134,2   Pasic, Mr. Jakobmale315097S
+000001000010838     0       3       108,19  127,4   0       0       131,6   8.05    137,2   Sirota, Mr. Mauricemale392092S
+000000000010839     1       3       108,15  123,4   32      0       0       127,4   56.4958 131,2   Chip, Mr. Changmale1601S
+000001000000840     1       1       108,20  128,4   0       0       132,5   29.7    137,3   140,2   Marechal, Mr. Pierremale11774C47C
+000000000010841     0       3       108,27  135,4   20      0       0       139,16  7.925   155,2   Alhomaki, Mr. Ilmari RudolfmaleSOTON/O2 3101287S
+000000000010842     0       2       108,24  132,4   16      0       0       136,11  10.5    147,2   Mudd, Mr. Thomas CharlesmaleS.O./P.P. 3S
+000000000010843     1       1       108,23  131,6   30      0       0       137,6   31      143,2   Serepeca, Miss. Augustafemale113798C
+000000000010844     0       3       108,26  134,4   34.5    0       0       138,4   6.4375  142,2   Lemberopolous, Mr. Peter Lmale2683C
+000000000010845     0       3       108,19  127,4   17      0       0       131,6   8.6625  137,2   Culumovic, Mr. Jesomale315090S
+000000000010846     0       3       108,19  127,4   42      0       0       131,9   7.55    140,2   Abbing, Mr. AnthonymaleC.A. 5547S
+000001000010847     0       3       108,24  132,4   8       2       136,8   69.55   144,2   Sage, Mr. Douglas BullenmaleCA. 2343S
+000000000010848     0       3       108,18  126,4   35      0       0       130,6   7.8958  136,2   Markoff, Mr. Marinmale349213C
+000000000010849     0       2       108,17  125,4   28      0       1       129,6   33      135,2   Harper, Rev. Johnmale248727S
+000001000000850     1       1       108,44  152,6   1       0       158,5   89.1042 163,3   166,2   Goldenberg, Mrs. Samuel L (Edwiga Grabowska)female17453C92C
+000000000010851     0       3       108,39  147,4   4       4       2       151,6   31.275  157,2   Andersson, Master. Sigvard Harald Eliasmale347082S
+000000000010852     0       3       108,19  127,4   74      0       0       131,6   7.775   137,2   Svensson, Mr. Johanmale347060S
+000000000010853     0       3       108,23  131,6   9       1       1       137,4   15.2458 141,2   Boulos, Miss. Nourelainfemale2678C
+000000000000854     1       1       108,25  133,6   16      0       1       139,8   39.4    147,3   150,2   Lines, Miss. Mary ConoverfemalePC 17592D28S
+000000000010855     0       2       108,45  153,6   44      1       0       159,6   26      165,2   Carter, Mrs. Ernest Courtenay (Lilian Hughes)female244252S
+000000000010856     1       3       108,26  134,6   18      0       1       140,6   9.35    146,2   Aks, Mrs. Sam (Leah Rosen)female392091S
+000000000010857     1       1       108,42  150,6   45      1       1       156,5   164.8667161,2   Wick, Mrs. George Dennick (Mary Hitchcock)female36928S
+000000000000858     1       1       108,22  130,4   51      0       0       134,6   26.55   140,3   143,2   Daly, Mr. Peter Denis male113055E17S
+000000000010859     1       3       108,37  145,6   24      0       3       151,4   19.2583 155,2   Baclini, Mrs. Solomon (Latifa Qurban)female2666C
+000001000010860     0       3       108,16  124,4   0       0       128,4   7.2292  132,2   Razi, Mr. Raihedmale2629C
+000000000010861     0       3       108,23  131,4   41      2       0       135,6   14.1083 141,2   Hansen, Mr. Claus Petermale350026S
+000000000010862     0       2       108,27  135,4   21      1       0       139,5   11.5    144,2   Giles, Mr. Frederick Edwardmale28134S
+000000000000863     1       1       108,51  159,6   48      0       0       165,5   25.9292 170,3   173,2   Swift, Mrs. Frederick Joel (Margaret Welles Barron)female17466D17S
+000001000010864     0       3       108,34  142,6   8       2       148,8   69.55   156,2   "Sage, Miss. Dorothy Edith "Dolly"femaleCA. 2343S
+000000000010865     0       2       108,22  130,4   24      0       0       134,6   13      140,2   Gill, Mr. John Williammale233866S
+000000000010866     1       2       108,24  132,6   42      0       0       138,6   13      144,2   Bystrom, Mrs. (Karolina)female236852S
+000000000010867     1       2       108,28  136,6   27      1       0       142,13  13.8583 155,2   Duran y More, Miss. AsuncionfemaleSC/PARIS 2149C
+000000000000868     0       1       108,36  144,4   31      0       0       148,8   50.4958 156,3   159,2   Roebling, Mr. Washington Augustus IImalePC 17590A24S
+000001000010869     0       3       108,27  135,4   0       0       139,6   9.5     145,2   van Melkebeke, Mr. Philemonmale345777S
+000000000010870     1       3       108,31  139,4   4       1       1       143,6   11.1333 149,2   Johnson, Master. Harold Theodormale347742S
+000000000010871     0       3       108,17  125,4   26      0       0       129,6   7.8958  135,2   Balkic, Mr. Cerinmale349248S
+000000000000872     1       1       108,48  156,6   47      1       1       162,5   52.5542 167,3   170,2   Beckwith, Mrs. Richard Leonard (Sallie Monypeny)female11751D35S
+000000000000873     0       1       108,24  132,4   33      0       0       136,3   5       139,11  150,2   Carlsson, Mr. Frans Olofmale695B51 B53 B55S
+000000000010874     0       3       108,27  135,4   47      0       0       139,6   9       145,2   Vander Cruyssen, Mr. Victormale345765S
+000000000010875     1       2       108,37  145,6   28      1       0       151,9   24      160,2   Abelson, Mrs. Samuel (Hannah Wizosky)femaleP/PP 3381C
+000000000010876     1       3       108,33  141,6   15      0       0       147,4   7.225   151,2   "Najib, Miss. Adele Kiamie "Jane"female2667C
+000000000010877     0       3       108,29  137,4   20      0       0       141,4   9.8458  145,2   Gustafsson, Mr. Alfred Ossianmale7534S
+000000000010878     0       3       108,20  128,4   19      0       0       132,6   7.8958  138,2   Petroff, Mr. Nedeliomale349212S
+000001000010879     0       3       108,18  126,4   0       0       130,6   7.8958  136,2   Laleff, Mr. Kristomale349217S
+000000000000880     1       1       108,45  153,6   56      0       1       159,5   83.1583 164,3   167,2   Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)female11767C50C
+000000000010881     1       2       108,44  152,6   25      0       1       158,6   26      164,2   Shelley, Mrs. William (Imanita Parrish Hall)female230433S
+000000000010882     0       3       108,18  126,4   33      0       0       130,6   7.8958  136,2   Markun, Mr. Johannmale349257S
+000000000010883     0       3       108,28  136,6   22      0       0       142,4   10.5167 146,2   Dahlberg, Miss. Gerda Ulrikafemale7552S
+000000000010884     0       2       108,29  137,4   28      0       0       141,16  10.5    157,2   Banfield, Mr. Frederick JamesmaleC.A./SOTON 34068S
+000000000010885     0       3       108,22  130,4   25      0       0       134,15  7.05    149,2   Sutehall, Mr. Henry JrmaleSOTON/OQ 392076S
+000000000010886     0       3       108,36  144,6   39      0       5       150,6   29.125  156,2   Rice, Mrs. William (Margaret Norton)female382652Q
+000000000010887     0       2       108,21  129,4   27      0       0       133,6   13      139,2   Montvila, Rev. Juozasmale211536S
+000000000000888     1       1       108,28  136,6   19      0       0       142,6   30      148,3   151,2   Graham, Miss. Margaret Edithfemale112053B42S
+000001000010889     0       3       108,41  149,6   1       2       155,10  23.45   165,2   "Johnston, Miss. Catherine Helen "Carrie"femaleW./C. 6607S
+000000000000890     1       1       108,21  129,4   26      0       0       133,6   30      139,4   143,2   Behr, Mr. Karl Howellmale111369C148C
+000000000010891     0       3       108,19  127,4   32      0       0       131,6   7.75    137,2   Dooley, Mr. Patrickmale370376Q

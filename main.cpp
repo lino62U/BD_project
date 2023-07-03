@@ -8,7 +8,10 @@
 #include <list>
 #include <chrono>
 #include <algorithm>
+#include <string>
+#include <sstream>
 using namespace std;
+
 
 class Sector
 {
@@ -20,6 +23,7 @@ class Sector
         int size_per_register;
         int number_record;
         bool empty;
+        bool typeSaved;                     // 0: fijo  1: LV
     public:
         Sector(int _memory, int _register_size)
         {
@@ -31,6 +35,27 @@ class Sector
             empty=true;
         }
         ~Sector(){delete [] recordPositions;}
+       
+        void setSectorLV(int *positions, string _origin, bool satate)
+        {
+             origin = _origin;
+            
+            //Setting positions of record in file
+            recordPositions[0] = positions[0];
+            recordPositions[1] = positions[1];
+            
+            // Set number of record
+            number_record = (recordPositions[1]-recordPositions[0])+1;
+ 
+            // setting space available 
+           
+            empty=satate;
+            if(empty)
+            {
+                //space_available = space_available - number_record*size_per_register;
+            }
+
+        }
         void setSector(int *positions, string _origin, bool satate)
         {
             origin = _origin;
@@ -53,11 +78,68 @@ class Sector
             
         }
 
+        void printRecord(bool band)
+        {
+            string aux;
+            int size_per_register_file;
+
+            cout<<"oriifenn: "<<endl;
+            fstream archivo("files/titanic10.txt",ios::in | ios::binary| ios::ate);
+            
+            int fileSize = archivo.tellg();
+            
+
+            // find the size of the first line of the file
+            
+            
+            // Getting positions of the record in the file
+
+            int start =  (recordPositions[0] -1) * size_per_register_file + (recordPositions[0] - 1);
+            int end = recordPositions[1] * size_per_register_file + (recordPositions[1]-1);
+            
+            if(start > fileSize)
+            {
+                cout<<"No hay datos en este sector"<<endl;
+                return;
+            }
+            string result;
+            
+            
+            
+            // Get data in variable
+
+          
+            archivo.seekg(0, ios::beg);
+
+            cout<<"POSOSION: "<<recordPositions[0]<<"::"<<recordPositions[1]<<endl;
+            if(recordPositions[0]-1 < 0)
+            {
+                recordPositions[0]++;
+            }
+            for (int i = 0; i < recordPositions[0]-1; i++)
+            {
+                getline(archivo, result); 
+            }
+            for (int i = recordPositions[0]; i < recordPositions[1]+1; i++)
+            {
+                getline(archivo, result);
+                cout<<result<<endl;
+            }
+            
+            // char *A = new char[end - start +1 ] ;
+            // archivo.read(A, end - start);
+            // A[end - start] = '\0';
+            // cout<<A<<endl;
+
+        }
+
         void printRecord()
         {
             string aux;
             int size_per_register_file;
-            fstream archivo("files/"+ origin +".txt",ios::in | ios::binary| ios::ate);
+
+            cout<<"oriifenn: "<<endl;
+            fstream archivo("files/titanic10.txt",ios::in | ios::binary| ios::ate);
             
             int fileSize = archivo.tellg();
             
@@ -92,7 +174,7 @@ class Sector
 
             delete [] A;
         }
-        
+        void SetAvailableSpace(int n){space_available = n;}
         int getAvailableSpace(){return space_available;}
         int getCapacity(){return memory_of_sector;}
         int getSizeRecord(){return size_per_register;}
@@ -309,7 +391,277 @@ class Disk
                
                pl++;
             }
+        }        
+        
+        string cargar_esquema(string table_name)
+        {
+            ifstream archivo("./files/scheme.txt");
+            string aux = "";
+            while (getline(archivo, aux))
+            {
+                string aux2 = "";
+                for (auto i : aux)
+                {
+                    if (i == '#')
+                    {
+                        if (aux2 == table_name){
+                            archivo.close();
+                            return aux;
+                        }
+                        aux2 = "";
+                    }
+                    else
+                        aux2 += i;
+                }
+            }
+            return "";
         }
+
+        void getInfoEsquema(string esquemabd, string &column_names, string &column_types)
+        {
+            int temp = 0;
+            string aux = "";
+            for (auto i : esquemabd)
+            {
+                if (i == '#')
+                {
+                    if (temp)
+                    {
+                        column_names += aux + "-";
+                        aux = "";
+                        temp = 0;
+                    }
+                    else
+                    {
+                        column_types += aux + "-";
+                        aux = "";
+                        temp = 1;
+                    }
+                }
+                else
+                    aux += i;
+            }
+        }
+
+
+        int getSizeRecord(string table_name, string column_types,int record){
+            ifstream archivo("./files/"+table_name+"10.txt",ios::in);
+            string linea;
+            for(int i=0;i<record;i++){
+                getline(archivo,linea);
+            }
+            vector<string> types;
+            stringstream ss(column_types); // Crea un objeto stringstream con el string
+            string token;
+
+            while (getline(ss, token, '-')) { // Utiliza getline para dividir el string en tokens separados por '-'
+                types.push_back(token); // Agrega cada token al typestor
+            }
+            string bitmap = linea.substr(0,types.size()-1);
+            int size = 0;
+            int pos = bitmap.size();
+            for(int i=0;i<bitmap.size();i++){
+                if(bitmap[i] == '0'){
+                    if(types[i+1] == "int" || types[i+1] == "float"){
+                        size+=4;
+                        pos +=8;
+                    }
+                    else if(types[1+i] == "double"){
+                        size += 8;
+                        pos += 8;
+                    }
+                    else if(types[1+i] == "str"){
+                        string temp = linea.substr(pos,8);
+                        string temp2;
+                        stringstream ss(temp);
+                        getline(ss, temp2, ',');
+                        getline(ss, temp2, ',');
+                        size += stoi(temp2);
+                        pos += 8;
+                    }
+                }
+            }
+            
+            return size;
+        }
+
+        void loadDataDisk_LV(string table_name, string column_types,  bool &fullDisk){
+            
+            cout<<"ENTRAS LOADDATADISK_LV: "<<table_name<<endl;
+            cout<<":"<<column_types<<":"<<endl;
+            ifstream archivo("./files/" +table_name+".txt",ios::binary);
+            ofstream archivo2("./files/" +table_name+"10.txt");
+            string header="";
+            for (auto i = 0; i < 8; i++)
+            {
+                header+=" ";
+            }
+            archivo2<<header<<endl;
+
+            vector<string> types;
+            stringstream ss(column_types); // Crea un objeto stringstream con el string
+            string token;
+
+            while (getline(ss, token, '-')) { // Utiliza getline para dividir el string en tokens separados por '-'
+                types.push_back(token); // Agrega cada token al typestor
+            }
+            int resI = 0;
+            for(int i=0;i< types.size()-1;i++){
+                if(types[i+1] == "int"){
+                    resI+= 8;
+                }
+                if(types[i+1] == "float"){
+                    resI+= 8;
+                }
+                if(types[i+1] == "double"){
+                    resI+= 8;
+                }
+                if(types[i+1] == "str"){
+                    resI+= 8;
+                }
+            }
+
+            string linea;
+            while(getline(archivo,linea)){
+                int res = resI;
+                stringstream ss2(linea);    
+                string bitmap ="",token2;
+                for(int i=0;i<types.size()-1;i++){
+                    getline(ss2,token2,'#');
+                    //ss2>>token2;
+                    if(token2.size()>0)
+                        bitmap += "0";
+                    else bitmap += "1";
+                }
+                stringstream ss3(linea);    
+                string totalStr = "";
+                archivo2<<bitmap;
+                res += bitmap.size();
+                for(int i=0;i<types.size()-1;i++){
+                    getline(ss3,token2,'#');
+                    if(types[i+1] == "int"){
+                        if(token2.size()  > 0){
+                            string aa = token2;
+                            for(int h=aa.size();h<8;h++) aa+= " ";
+                            archivo2<<aa;
+                        }
+
+                    }
+                    else if(types[i+1] == "float"){
+                        if(token2.size() > 0){
+                            string aa = token2;
+                            for(int h=aa.size();h<8;h++) aa+= " ";
+                            archivo2<<aa;
+                        }
+                    }
+                    else if(types[i+1] == "double"){
+                        if(token2.size() > 0){
+                            string aa = token2;
+                            for(int h=aa.size();h<8;h++) aa+= " ";
+                            archivo2<<aa;
+                        }
+                    }
+                    else if(types[i+1] == "str"){
+                        if(token2.size() > 0){
+                            string aa = token2;
+                            string ww = to_string(res) + "," + to_string(token2.size());
+                            for(int h=ww.size();h<8;h++) ww += " ";
+                            totalStr += token2;
+                            archivo2<<ww;
+                            res += token2.size();
+                        }
+                    }
+                }
+
+                
+                archivo2<<totalStr<<endl;
+                bitmap.clear();
+            }
+
+            loadRecordToSector_LV(table_name, column_types,fullDisk);
+        }
+        
+        void loadRecordToSector_LV(string nameTable, string columtype, bool &fullDisk)
+        {
+            ifstream archivo("./files/"+nameTable +"10.txt");
+            string linea;
+            int linesCount = 1;
+            int *positions_data = new int[2];
+             // variables to navigate into disk
+            // p -> plato
+            // s -> superficie
+            // pst -> pistas
+            // sc -> sectores
+            int pl,spr,pst,sc;
+            pl = spr = pst = sc=0;
+            
+            int *position_ofcontinuation= new int[4];    // freepositions to next safe
+            int size_perSector = memoria_por_sector;
+            
+            
+            int start = 0;   
+            int tempppp=1;
+            cout<<":::"<<columtype<<endl;
+            while (getline(archivo, linea))
+            {
+                positions_data[0]= start;
+                positions_data[1] = linesCount;
+                
+                int n = getSizeRecord(nameTable,columtype, linesCount);
+                
+                if(pl> numero_plato)
+                {
+                    cout<<"\nMEMORIA DE DISCO LLENA!!!!!!!!!!!!!!!"<<endl;
+                    fullDisk = true;
+                    return;
+                }
+
+                if( size_perSector - n >= 0 )
+                {
+
+                }else
+                {
+                    positions_data[1]--;
+                    cout<<"size_persector:  "<<size_perSector<<endl;
+                    cout<<"registro actual:  "<<n<<endl;
+                    cout<<"SECTOR: "<<tempppp<<endl;
+                    cout<<"\tPosiones: "<<positions_data[0]<<":"<<positions_data[1]<<endl;
+                    cout<<"\tDISCO: "<<pl<<":"<<spr<<":"<<pst<<":"<<sc<<endl;
+                    nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->setSectorLV(positions_data,nameTable, true);
+                    nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->SetAvailableSpace(size_perSector);
+                    nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->printRecord(true);
+                    sc++;
+                    contadores(pl,spr,pst,sc);
+                    size_perSector = memoria_por_sector;
+                    start = linesCount;
+                    cout<<endl;
+                    cout<<endl;
+                    cout<<endl;
+                    tempppp++;
+                }
+                
+                size_perSector-=n;
+                // count number of register in the file
+                linesCount++;
+            }
+
+            cout<<"size_persector:  "<<size_perSector<<endl;
+            cout<<"Registro final:  "<<linesCount<<endl;
+            cout<<"SECTOR: "<<tempppp<<endl;
+            positions_data[1]=linesCount-1;
+            cout<<"\tPosiones: "<<positions_data[0]<<":"<<positions_data[1]<<endl;
+            cout<<"\tDISCO: "<<pl<<":"<<spr<<":"<<pst<<":"<<sc<<endl;
+            nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->setSectorLV(positions_data,nameTable, true);
+            nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->SetAvailableSpace(size_perSector);
+            nPlatters[pl]->nSurfaces[spr]->nTrack[pst]->nSectors[sc]->printRecord(true);
+
+
+            
+
+        }
+
+
+
         void loadDataDisk(string nameArchivo, int register_size, bool &fullDisk)
         {
             // variables to navigate into disk
@@ -502,7 +854,7 @@ class Block
             
         }
 
-        void print_blockContent()
+        void print_blockContent(bool typeSaved)
         {
             int j=0;
             int capacity=0;
@@ -513,7 +865,15 @@ class Block
               
                 if(i)
                 {
-                    i->printRecord();
+                    if(typeSaved)
+                    {
+                        i->printRecord(true);
+                    }else
+                    {
+                        i->printRecord();
+
+                    }
+
                     cout<<endl;
                     cout<<endl;
                     int aux = i->getCapacity() - i->getAvailableSpace();
@@ -551,6 +911,7 @@ class Disk_Manager
         Disk *disk;
         vector<Block *> nPages;
         int num_Block_Used;
+        bool typeSaved;  //0:fijo 1: variable
     public:
         Disk_Manager(){}
         Disk_Manager(int num_secs, Disk *_disk)
@@ -564,6 +925,32 @@ class Disk_Manager
             //generatePages();
         }
         ~Disk_Manager(){}
+
+        void typeOfSave_Files(string type, string tableName,string nameScheme, bool &fullDisk)
+        {
+            
+            if(type=="LV")
+            {
+                typeSaved=true;
+                cout<<"Ingresa LV"<<endl;
+                string table_name = tableName;
+                string esquemabd = disk->cargar_esquema(table_name);
+
+                
+                
+                string column_names = "", column_types = "";
+                disk->getInfoEsquema(esquemabd,column_names, column_types);
+                disk->inicilizar_Disco(10,disk->name_Table);
+                disk->loadDataDisk_LV(table_name,column_types, fullDisk);
+            }
+            else
+            {
+                typeSaved=false;
+                loadDataScheme(nameScheme, tableName,fullDisk);
+            }
+        }
+
+
         void values_KeyWords( int &register_bytes, string type, string amount)
         {
             if(type=="int")
@@ -822,7 +1209,7 @@ class Disk_Manager
             
             if (disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector])
             {
-                disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord();
+                disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord(true);
                 
                 int capacidad = disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->getCapacity();
                 int size_per_Registre = disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->getSizeRecord();
@@ -959,7 +1346,7 @@ class Disk_Manager
             {
                 cout<<"\n\t\t\tBloque "<<n<<endl;
                 cout<<"\t***************************************"<<endl;
-                nPages[n-1]->print_blockContent();
+                nPages[n-1]->print_blockContent(typeSaved);
             }
             
         }
@@ -970,7 +1357,10 @@ class Disk_Manager
             {
                 cout<<"\n\t\t\tBloque "<<i+1<<endl;
                 cout<<"\t***************************************"<<endl;
-                nPages[i]->print_blockContent();
+                
+                nPages[i]->print_blockContent(typeSaved);
+                
+
             }
             
         }
@@ -2192,142 +2582,148 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
 
 
 
-int main()
-{
-    
-//     //692 -> 4r  173 registro
-//     // se almacena 20 registros por sector
-//     // 45 sectores necesarios pa todo
-//     // pistas : 2 5 5 -> 3460
-//     // 5 sectores por bloque (9)
-
-    
-    string nameTable = "titanic";
-
-    Disk disco(1, 5, 5, 3460);  //5 register per sector
-    Disk_Manager directorios(5, &disco);
-    BufferManager buffer(4);
-    //cout<<nameTable<<endl;
-    bool fifi = false;
-    directorios.loadDataScheme("scheme",nameTable.c_str(), fifi);
-    directorios.generatePages();
-    cout<<"\tDatos subidos con exito al disco"<<endl;
-
-
-    // make a request: queiro registro 20
-    DATABASE db(&directorios,&buffer);
-    db.sql_Request(23);
-    db.sql_Request_Delete(203);
-    db.sql_Request_Delete(213);
-    db.sql_Request_Delete(713);
-    db.sql_Request(561);
-    db.sql_Request(13);
-    db.sql_Request(20);
-    db.sql_Request(432);
-    db.sql_Request(700);
-    db.sql_Request(215);
-    db.sql_Request_Delete(310);
-    db.sql_Request(561);
-    db.sql_Request(13);
-    db.sql_Request(20);
-    db.sql_Request(432);
-    db.sql_Request(700);
-    db.sql_Request(215);
-    db.sql_Request(520);
-    db.sql_Request(320);
-    string rrr = "666->                                                                                                                                                                                                   ";
-    string rrr2 = "667->                                                                                                                                                                                                   ";
-    string rrr3 = "668->                                                                                                                                                                                                   ";
-    string rrr4 = "669->                                                                                                                                                                                                   ";
-    string rrr5 = "661->                                                                                                                                                                                                   ";
-
-    // db.sql_Request_Insert(rrr);
-    // db.sql_Request_Insert(rrr2);
-    // db.sql_Request_Insert(rrr3);
-    // db.sql_Request_Insert(rrr4);
-    // db.sql_Request_Insert(rrr5);
-
-
-   
-    db.sql_getFrrelist();
-
-    // db.sql_Request(561);
-    // db.sql_Request(13);
-    // db.sql_Request(720);
-    // db.sql_Request(32);
-    // db.sql_Request(132);
-    // db.sql_Request(332);
-    // db.sql_Request(632);
-    // db.sql_Request(152);
-    // db.sql_Request(432);
-    // db.sql_Request(313);
-    // db.sql_Request(413);
-    // db.sql_Request(713);
-    // db.sql_Request(113);
-}
-
 // int main()
 // {
-//     int plato;
-//     int pista;
-//     int sector;
-//     int memoria;
-//     string nameTable;
-//     //692 -> 4r  173 registro
-//     // se almacena 20 registros por sector
-//     // 45 sectores necesarios pa todo
-//     // pistas : 1 5 5 -> 3460
-//     // 5 sectores por bloque (9)
-
-
-//     menu();
     
-//     //string nameTable = "titanic";
-//     // Disco disco(4, 10, 200, 692);
-//     // disco.loadDataScheme("scheme",nameTable.c_str());
-//     // disco.getOneRegister(891,"titanic2");
-//     // disco.getDisk_info();
-//     // disco.getSector(0,0,0,1);
-//     // opcion_4(&disco);
-//     int num_blocks;
-//     int num_sec_per_blocks;
-//     int num_frames;
-//     bool fullDisk= false;
+// //     //692 -> 4r  173 registro
+// //     // se almacena 20 registros por sector
+// //     // 45 sectores necesarios pa todo
+// //     // pistas : 2 5 5 -> 3460
+// //     // 5 sectores por bloque (9)
+
+    
+//     string nameTable = "titanic";
+
+//     Disk disco(1, 5, 5, 400);  //5 register per sector
+//     Disk_Manager directorios(4, &disco);
+//     BufferManager buffer(3);
+//     //cout<<nameTable<<endl;
+//     bool fifi = false;
+//     directorios.typeOfSave_Files("LV",nameTable.c_str(),"scheme",fifi);
+
+//     //directorios.loadDataScheme("scheme",nameTable.c_str(), fifi);
+//     //directorios.generatePages();
+//     cout<<"\tDatos subidos con exito al disco"<<endl;
+
+
+//     // make a request: queiro registro 20
+//     // DATABASE db(&directorios,&buffer);
+//     // db.sql_Request(23);
+//     // db.sql_Request_Delete(203);
+//     // db.sql_Request_Delete(213);
+//     // db.sql_Request_Delete(713);
+//     // db.sql_Request(561);
+//     // db.sql_Request(13);
+//     // db.sql_Request(20);
+//     // db.sql_Request(432);
+//     // db.sql_Request(700);
+//     // db.sql_Request(215);
+//     // db.sql_Request_Delete(310);
+//     // db.sql_Request(561);
+//     // db.sql_Request(13);
+//     // db.sql_Request(20);
+//     // db.sql_Request(432);
+//     // db.sql_Request(700);
+//     // db.sql_Request(215);
+//     // db.sql_Request(520);
+//     // db.sql_Request(320);
+//     // string rrr = "666->                                                                                                                                                                                                   ";
+//     // string rrr2 = "667->                                                                                                                                                                                                   ";
+//     // string rrr3 = "668->                                                                                                                                                                                                   ";
+//     // string rrr4 = "669->                                                                                                                                                                                                   ";
+//     // string rrr5 = "661->                                                                                                                                                                                                   ";
+
+//     // db.sql_Request_Insert(rrr);
+//     // db.sql_Request_Insert(rrr2);
+//     // db.sql_Request_Insert(rrr3);
+//     // db.sql_Request_Insert(rrr4);
+//     // db.sql_Request_Insert(rrr5);
+
+
+   
+//     //db.sql_getFrrelist();
+
+//     // db.sql_Request(561);
+//     // db.sql_Request(13);
+//     // db.sql_Request(720);
+//     // db.sql_Request(32);
+//     // db.sql_Request(132);
+//     // db.sql_Request(332);
+//     // db.sql_Request(632);
+//     // db.sql_Request(152);
+//     // db.sql_Request(432);
+//     // db.sql_Request(313);
+//     // db.sql_Request(413);
+//     // db.sql_Request(713);
+//     // db.sql_Request(113);
+// }
+
+
+
+
+int main()
+{
+    int plato;
+    int pista;
+    int sector;
+    int memoria;
+    string nameTable;
+    //692 -> 4r  173 registro
+    // se almacena 20 registros por sector
+    // 45 sectores necesarios pa todo
+    // pistas : 1 5 5 -> 3460
+    // 5 sectores por bloque (9)
+
+
+    menu();
+    
+    //string nameTable = "titanic";
+    // Disco disco(4, 10, 200, 692);
+    // disco.loadDataScheme("scheme",nameTable.c_str());
+    // disco.getOneRegister(891,"titanic2");
+    // disco.getDisk_info();
+    // disco.getSector(0,0,0,1);
+    // opcion_4(&disco);
+    int num_blocks;
+    int num_sec_per_blocks;
+    int num_frames;
+    bool fullDisk= false;
 
    
    
-//         cout<<"\tDisk setting"<<endl;
-//         cout<<"\tPlato: ";cin>>plato;
-//         cout<<"\tPista: ";cin>>pista;
-//         cout<<"\tSector: ";cin>>sector;
-//         cout<<"\tMemoria: ";cin>>memoria;
-//         cout<<"Making a directory..."<<endl;
-//         //cout<<"\tNumero de bloques: ";cin>>num_blocks;
-//         cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
-//         cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
-//         cout<<"\nInserta nombre del archivo: ";
-//         cin.ignore();
-//         getline(cin,nameTable);
-//         cout<<"Making new file with format"<<endl;
-//         cout<<"Wait... "<<endl;
+        cout<<"\tDisk setting"<<endl;
+        cout<<"\tPlato: ";cin>>plato;
+        cout<<"\tPista: ";cin>>pista;
+        cout<<"\tSector: ";cin>>sector;
+        cout<<"\tMemoria: ";cin>>memoria;
+        cout<<"Making a directory..."<<endl;
+        //cout<<"\tNumero de bloques: ";cin>>num_blocks;
+        cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
+        cout<<"\tNumero de frames en Buffer: ";cin>>num_frames;
+        cout<<"\nInserta nombre del archivo: ";
+        cin.ignore();
+        getline(cin,nameTable);
+        cout<<"Making new file with format"<<endl;
+        cout<<"Wait... "<<endl;
 
-//         Disk disco(plato, pista, sector, memoria);  //5 register per sector
-//         Disk_Manager directorios(num_sec_per_blocks, &disco);
-//         //cout<<nameTable<<endl;
-//         directorios.loadDataScheme("scheme",nameTable.c_str(), fullDisk); 
+        Disk disco(plato, pista, sector, memoria);  //5 register per sector
+        Disk_Manager directorios(num_sec_per_blocks, &disco);
+        //cout<<nameTable<<endl;
+        //directorios.loadDataScheme("scheme",nameTable.c_str(), fullDisk); 
+        directorios.typeOfSave_Files("LV",nameTable.c_str(),"scheme",fullDisk);
 
-//         if(fullDisk==1)
-//         {
-//             cout<<"Vueleve a insertar los datos"<<endl;
-//             system("./main.exe");
-//             return 0;
-//         }
-//         directorios.generatePages();
-//         cout<<"\t\n\nDatos subidos con exito al disco"<<endl;
-//         menu();
-//         BufferManager buffer(num_frames);
-//         DATABASE db(&directorios,&buffer);
-//         menu_opciones(&disco,&directorios,&db);
+        if(fullDisk==1)
+        {
+            cout<<"Vueleve a insertar los datos"<<endl;
+            system("./main.exe");
+            return 0;
+        }
+        directorios.generatePages();
+        cout<<"\t\n\nDatos subidos con exito al disco"<<endl;
+        menu();
+        BufferManager buffer(num_frames);
+        DATABASE db(&directorios,&buffer);
+        menu_opciones(&disco,&directorios,&db);
         
     
 
@@ -2335,5 +2731,5 @@ int main()
    
 
     
-//     return 0;
-// }
+    return 0;
+}
