@@ -153,7 +153,7 @@ class Sector
             string aux;
             int size_per_register_file;
 
-            fstream archivo("files/titanic10.txt",ios::in | ios::binary| ios::ate);
+            fstream archivo("files/titanic2.txt",ios::in | ios::binary| ios::ate);
             
             int fileSize = archivo.tellg();
             
@@ -961,11 +961,17 @@ class Disk_Manager
                 disk->loadDataDisk_LV(table_name,columTipes, fullDisk);
                 this->column_types = columTipes;
             }
-            else
+            else if(type=="LF")
             {
                 typeSaved=false;
                 loadDataScheme(nameScheme, tableName,fullDisk);
+            }else
+            {
+                fullDisk=true;
+                cout<<"Vuela a ingresar datos de nuevo (LV) o (LF)"<<endl;
+                return;
             }
+
         }
 
 
@@ -1056,13 +1062,14 @@ class Disk_Manager
             }
             archivo.close();
             archivo2.close();
-            cout<<"\n\t!Archivo "<<file_end<< ".txt creado con exito..."<<endl;
+            cout<<"\n\tArchivo "<<file_end<< "2.txt creado con exito...!"<<endl;
             
         }
         void loadDataScheme(string nameScheme, string nameTable, bool &fullDisk)
         {
-            ifstream scheme("files/"+nameScheme+".txt" ,fstream::in);
+            ifstream scheme("./files/"+nameScheme+"LF.txt" ,fstream::in);
             
+            cout<<"llega aca"<<endl;
             string token;
             string aux;
             int register_size=0;
@@ -1114,7 +1121,7 @@ class Disk_Manager
                 }
                 aux.clear();     
             }
-            
+            cout<<"llega acasasa"<<endl;
             // save conditions of scheme
             int file_register_size=0;
             scheme_conditions = new int[count];
@@ -1135,7 +1142,7 @@ class Disk_Manager
             
             delete[]arreglo;
             scheme.close();
-
+            
             // load data to disk
             disk->inicilizar_Disco(register_size,disk->name_Table);
             disk->loadDataDisk(disk->name_Table, register_size, fullDisk);
@@ -1227,7 +1234,12 @@ class Disk_Manager
             
             if (disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector])
             {
-                disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord(true, column_types);
+                if(typeSaved)
+
+                    disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord(true, column_types);
+                else
+                    disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->printRecord();
+
                 
                 int capacidad = disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->getCapacity();
                 int size_per_Registre = disk->nPlatters[plato]->nSurfaces[superficie]->nTrack[pista]->nSectors[sector]->getSizeRecord();
@@ -1364,7 +1376,7 @@ class Disk_Manager
             {
                 cout<<"\n\t\t\tBloque "<<n<<endl;
                 cout<<"\t***************************************"<<endl;
-                cout<<"BOOOO:L: "<<typeSaved<<endl;
+               
                 nPages[n-1]->print_blockContent(typeSaved, column_types);
             }
             
@@ -2687,6 +2699,7 @@ int main()
     int sector;
     int memoria;
     string nameTable;
+    string typeData;
     //692 -> 4r  173 registro
     // se almacena 20 registros por sector
     // 45 sectores necesarios pa todo
@@ -2714,7 +2727,7 @@ int main()
         cout<<"\tPlato: ";cin>>plato;
         cout<<"\tPista: ";cin>>pista;
         cout<<"\tSector: ";cin>>sector;
-        cout<<"\tMemoria: ";cin>>memoria;
+        cout<<"\tCapacidad de bytes por sector: ";cin>>memoria;
         cout<<"Making a directory..."<<endl;
         //cout<<"\tNumero de bloques: ";cin>>num_blocks;
         cout<<"\tNumero de sectores por bloque: ";cin>>num_sec_per_blocks;
@@ -2722,6 +2735,7 @@ int main()
         cout<<"\nInserta nombre del archivo: ";
         cin.ignore();
         getline(cin,nameTable);
+        cout<<"\nRegistros (LV)/(LF): ";getline(cin,typeData);
         cout<<"Making new file with format"<<endl;
         cout<<"Wait... "<<endl;
 
@@ -2729,7 +2743,7 @@ int main()
         Disk_Manager directorios(num_sec_per_blocks, &disco);
         //cout<<nameTable<<endl;
         //directorios.loadDataScheme("scheme",nameTable.c_str(), fullDisk); 
-        directorios.typeOfSave_Files("LV",nameTable.c_str(),"scheme",fullDisk);
+        directorios.typeOfSave_Files(typeData,nameTable.c_str(),"scheme",fullDisk);
 
         if(fullDisk==1)
         {

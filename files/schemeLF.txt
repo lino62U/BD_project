@@ -1,0 +1,1 @@
+titanic#passenger#int5#survived#int5#pclass#int5#name#str90#sex#str10#age#float10#sibsp#int5#parch#int5#ticket#str20#fare#float20#cabin#str20#embarked#str5
