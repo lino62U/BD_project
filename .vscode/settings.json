@@ -1,0 +1,9 @@
+{
+    "C_Cpp.default.compilerPath": "",
+    "C_Cpp_Runner.cppStandard": "c++20",
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "new": "cpp"
+    }
+}
