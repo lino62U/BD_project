@@ -1,6 +1,7 @@
 estudiante#id#int#nombre#str#apellido#str#edad#int#facultad#str#
 profesor#id#int#nombre#str#apellido#str#salario#int#facultad#str#
 escuela#id#int#nombre#str#facultad#str#
+ratings#name#str#Patrick C#int#Heather#int#Bryan#int#Patrick T#int#Thomas#int#aaron#int#vanessa#int#greg#int#brian#int#ben#int#Katherine#int#Jonathan#int#Zwe#int#Erin#int#Chris#int#Zak#int#Matt#int#Chris#int#Josh#int#Amy#int#Valerie#int#Gary#int#Stephen#int#Jessica#int#Jeff#int
 celular#id#int#marca#str#modelo#str#tamanio#float#
 titanic#Passengerld#int#Survived#int#Pclass#int#Name#str#Sex#str#Age#float#SibSp#int#Parch#int#Ticket#str#Fare#float#Cabin#str#Embarked#str#
 animal#id#int#nombre#str#raza#str#color#str#

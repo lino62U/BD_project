@@ -2425,7 +2425,6 @@ class DATABASE
             {
                 if(DM->nPages[i])
                 {
-                    cout<<"noMBRE: "<<DM->disk->getNameTable()<<endl;
                     if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
                     {                        
                         band=false;
