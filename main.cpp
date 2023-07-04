@@ -1878,7 +1878,7 @@ class Frame
                     getline(archivo2, aux);
                 }
                 //getline(archivo2, aux);
-                cout<<"LIST: "<<inicio<<endl;
+                //cout<<"LIST: "<<inicio<<endl;
                 aux.erase(remove(aux.begin(), aux.end(), ' '), aux.end());
                 if (aux.size() > 0)
                 {
