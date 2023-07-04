@@ -993,6 +993,8 @@ class Disk_Manager
         void generate_txt(int number, int *pesos,string file_original, string file_end)
         {
             
+            cout<<"or: "<<file_original<<endl;
+            cout<<"end: "<<file_end<<endl;
             ifstream archivo("files/"+file_original+".csv");
             
             fstream archivo2("files/"+file_end + ".txt",fstream::app);
@@ -1006,7 +1008,7 @@ class Disk_Manager
                 }
                 
             }
-            //archivo2<<header<<endl;
+            archivo2<<header<<endl;
             char c;
             int capacidad = 2;
             int j = 0;
@@ -1029,7 +1031,7 @@ class Disk_Manager
                                 strcat(palabra," ");
                             }
                         
-                            //archivo2<<std::string(palabra);
+                            archivo2<<std::string(palabra);
                             aux++;
                             word="";
                             delete [] palabra;
@@ -1045,7 +1047,7 @@ class Disk_Manager
                         }
                         h++;
                     }
-                    //archivo2<<endl;
+                    archivo2<<endl;
                     capacidad = 2;
                     j = 0;
                     delete[] arreglo;
@@ -1062,7 +1064,7 @@ class Disk_Manager
             }
             archivo.close();
             archivo2.close();
-            cout<<"\n\tArchivo "<<file_end<< "2.txt creado con exito...!"<<endl;
+            cout<<"\n\tArchivo "<<file_end<< ".txt creado con exito...!"<<endl;
             
         }
         void loadDataScheme(string nameScheme, string nameTable, bool &fullDisk)
@@ -1568,9 +1570,7 @@ class Frame
 
 
         bool findRecord(int frameId, int recordID)
-        {
-            //cout<<"HOMUOO: "<<recordID<<":->"<<position[0]<<":"<<position[1]<<endl;
-            
+        { 
             string value_to_find = to_string(recordID);
             int size_of_valueFind = 5;
             int start_of_valueFind = 0;
@@ -1586,7 +1586,7 @@ class Frame
             char *value = new char[size_of_valueFind+1];
             while (true)
             {
-                if(archivo.eof()) break;
+                if(archivo.eof()) return false;
                 lines_counter++;
                 archivo.seekg(start_of_valueFind,ios::beg);
                 archivo.read(value,size_of_valueFind);
@@ -1598,25 +1598,25 @@ class Frame
                 string temp2(value);
                 string temp3= temp2;
                 temp2.erase(std::remove_if(temp2.begin(), temp2.end(), [](char c) { return std::isspace(c); }), temp2.end());
+                
                 if(temp2==value_to_find)
                 {
-                    //cout<<temp2<<" eCONR: "<<endl;
-                    //delete_RecordBuffer(frameId, recordID, lines_counter);
+                    cout<<"Frame"<<frameId<<":"<<endl;
                     cout<< "Linea encontrada: " << lines_counter<<endl;
                     string lineaPrint;
                     getline(archivo,lineaPrint);
 
                     cout<<temp3+lineaPrint<<endl;
-                    //cout<<temp2<<endl;
+                    
                     return true;
                 }
             }
+            cout<<"FInalll::"<<endl;
             return false;
         }
 
         bool findRecord_toDelete(int frameId, int recordID)
         {
-            //cout<<"HOMUOO: "<<recordID<<":->"<<position[0]<<":"<<position[1]<<endl;
             
             string value_to_find = to_string(recordID);
             int size_of_valueFind = 5;
@@ -1646,10 +1646,10 @@ class Frame
                 temp2.erase(std::remove_if(temp2.begin(), temp2.end(), [](char c) { return std::isspace(c); }), temp2.end());
                 if(temp2==value_to_find)
                 {
-                    //cout<<temp2<<" eCONR: "<<endl;
+                    cout<<"Frame"<<frameId<<":"<<endl;
+                    cout<< "Linea encontrada: " << lines_counter<<endl;
                     delete_RecordBuffer(frameId, recordID, lines_counter);
-                    //cout<< "Linea Eliminada: " << lines_counter<<endl;
-                    cout<<temp2<<endl;
+                    
                     return true;
                 }
             }
@@ -1902,6 +1902,7 @@ class Frame
             cout<<"\tInico Antes del reemplazar: "<<inicio<<endl;
             cout<<"\tHEADER ANTES DEL: "<<header<<endl;
             //archivo2.write(header.c_str(),header.length());
+            cout<<"NOMBRE FILE: "<<nameFile<<endl;
             reemplazar_DiksFile(nameFile,inicio,header);
             
             
@@ -2048,26 +2049,28 @@ public:
         frameIter->setDirty(0);
         //frameIter->updateLastUsed(timestamp);
 
-        frameIter->setFrame_with_Page(data,nameTable);
-        //frameIter->updateLastUsed(timestamp);
-        //buffer[temp] = ta;
-
-        //cout<<"RECORD: "<<id<<"-"<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-        // cout<<endl;
-        //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
+        frameIter->setFrame_with_Page(data, nameTable);
+ 
         int start = frameIter->position[0];
         int end = frameIter->position[1];
-        if(frameIter->findRecord(temp, record))
+        if(frameIter)
         {
-            // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-            int position_Frame = (record-start + 1);
-            //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-            //frameIter->dirtyBit=true;
-            frameIter->updateLastUsed(timestamp);
-            timestamp++;
-            //printPageStates();
+            if(frameIter->findRecord(temp, record))
+            {
+                // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+                int position_Frame = (record-start + 1);
+                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+                //frameIter->dirtyBit=true;
+                frameIter->updateLastUsed(timestamp);
+                timestamp++;
+                //printPageStates();
 
-            return true;
+                return true;
+            }
+            return false;
+        }else
+        {
+            cout<<"Registro no encontrado en la base de datos!"<<endl;
         }
         //delete paa;
         return 0;
@@ -2078,24 +2081,17 @@ public:
         Frame *pageToEvict = nullptr;
         Frame *frameIter = findPage(id);
         if(frameIter != nullptr){
-            //cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            //cout<<endl;
-            //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
             int start = frameIter->position[0];
             int end = frameIter->position[1];
             if(frameIter->findRecord(frameIter->frameId, record))
             {
                 frameIter->updateLastUsed(timestamp);
                 timestamp++;
-                //cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-                int position_Frame = (record-start + 1);
-                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
-                //frameIter->dirtyBit=true;
-                //printPageStates();
+        
                 return true;
             }
 
-            return 0;
+            return false;
         }
         if(it+1 > bufferSize){
             return evictPage(id,record,data,nameTable,DM);
@@ -2134,8 +2130,7 @@ public:
 
         // Validate if exist the page in the buffer
         if(frameIter != nullptr){
-            //cout<<"RECORD: "<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-            // cout<<endl;
+            
             //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
             int start = frameIter->position[0];
             int end = frameIter->position[1];
@@ -2143,9 +2138,7 @@ public:
             {
                 frameIter->updateLastUsed(timestamp);
                 timestamp++;
-                // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
-                int position_Frame = (record-start + 1);
-                //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+                
                 frameIter->dirtyBit=true;
                 //printPageStates();
                 return true;
@@ -2160,15 +2153,13 @@ public:
         }
 
         // Case buffer is empty
-        // cout<<it<<endl;
-        //     cout<<data[0]<<"***"<<data[1]<<endl;
+        
         timestamp++;
         Frame *aux = new Frame(id,it,0,0,timestamp);
         aux->setFrame_with_Page(data,nameTable);
         buffer.push_back(aux);
         it++;
-        //cout<<"RECORD: "<<record<<"->"<<aux->position[0]<<":"<<aux->position[1]<<endl;
-        // cout<<endl;
+        
         //std::cout << "Writing Page " << aux->getFrameId() << " to buffer." << std::endl;
         int start = aux->position[0];
         int end = aux->position[1];
@@ -2177,9 +2168,9 @@ public:
         {
             aux->updateLastUsed(timestamp);
             timestamp++;
-            // cout<<"REGISTRO ENCONTRADO: "<<(record-start + 1)<<endl;
+        
             int position_Frame = (record-start + 1);
-            //frameIter->delete_RecordBuffer(frameIter->frameId, position_Frame, record);
+        
             aux->dirtyBit=true;
             return true;
         }
@@ -2193,7 +2184,7 @@ public:
 
         if(frameIter->dirtyBit)
         {
-            // cout<<"SAVE IN DISK"<<endl;
+            cout<<"SAVE IN DISK"<<endl;
 
             int *positions_of_frameFiles = frameIter->position;
             frameIter->save_Disk(DM->disk->getNameTable(), frameIter->frameId);
@@ -2207,11 +2198,7 @@ public:
         //frameIter->updateLastUsed(timestamp);
 
         frameIter->setFrame_with_Page(data,nameTable);
-        //frameIter->updateLastUsed(timestamp);
-        //buffer[temp] = ta;
-
-        //cout<<"RECORD: "<<id<<"-"<<record<<"->"<<frameIter->position[0]<<":"<<frameIter->position[1]<<endl;
-        cout<<endl;
+    
         //std::cout << "Writing Page " << frameIter->getFrameId() << " to buffer." << std::endl;
         int start = frameIter->position[0];
         int end = frameIter->position[1];
@@ -2375,7 +2362,7 @@ public:
         }
         else
         {
-            return "Llista vacia";
+            return "Freelist: Llista vacia";
 
         }
 
@@ -2433,17 +2420,32 @@ class DATABASE
         {
             string record;
            
-            
-            for (int i = 0; i < DM->cantidad_bloques; i++)
+            bool band = false;
+            for (int i = 0; i < DM->cantidad_bloques -1 ; i++)
             {
-                if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
-                {                        
+                if(DM->nPages[i])
+                {
+                    cout<<"noMBRE: "<<DM->disk->getNameTable()<<endl;
+                    if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
+                    {                        
+                        band=false;
+                        break;
+                    }else
+                    {
+                        band =true;
+                    }
+                }else 
+                {
+                    band = true;
                     break;
                 }
                 //BM->unpinPage(i);
                 
             }           
-           
+            if(band)
+            {
+                cout<<"Registro no encontrado en el DISCO"<<endl;
+            }
         }
 
         void sql_Request_Delete(int recordNum)
@@ -2451,18 +2453,28 @@ class DATABASE
             string record;
             
             
-            for (int i = 0; i < DM->cantidad_bloques; i++)
+            for (int i = 0; i < DM->cantidad_bloques -1; i++)
             {
-                if(BM->addPage_toDelete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
-                {                        
-                    break;
+                
+                if(DM->nPages[i])
+                {
+                    cout<<"noMBRE: "<<DM->disk->getNameTable()<<endl;
+                    if(BM->addPage_toDelete(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
+                    {                        
+                        break;
+                    }
+                }else 
+                {
+                    cout<<"Registro no encontrado en el DISCO"<<endl;
+                    return;
                 }
                 //BM->unpinPage(i);
                 
-            }
+            }           
+
            
            cout<<"Registro eliminado!"<<endl;
-            
+
       
         }
 
@@ -2625,21 +2637,20 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
     
 //     string nameTable = "titanic";
 
-//     Disk disco(1, 5, 5, 400);  //5 register per sector
+//     Disk disco(3, 5, 5, 3460);  //5 register per sector
 //     Disk_Manager directorios(4, &disco);
 //     BufferManager buffer(3);
 //     //cout<<nameTable<<endl;
 //     bool fifi = false;
-//     directorios.typeOfSave_Files("LV",nameTable.c_str(),"scheme",fifi);
+//     directorios.typeOfSave_Files("LF",nameTable.c_str(),"scheme",fifi);
 
-//     //directorios.loadDataScheme("scheme",nameTable.c_str(), fifi);
 //     //directorios.generatePages();
 //     cout<<"\tDatos subidos con exito al disco"<<endl;
 
 
 //     // make a request: queiro registro 20
-//     // DATABASE db(&directorios,&buffer);
-//     // db.sql_Request(23);
+//     DATABASE db(&directorios,&buffer);
+//     db.sql_Request(23);
 //     // db.sql_Request_Delete(203);
 //     // db.sql_Request_Delete(213);
 //     // db.sql_Request_Delete(713);
@@ -2672,21 +2683,8 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
 
 
    
-//     //db.sql_getFrrelist();
+//    // db.sql_getFrrelist();
 
-//     // db.sql_Request(561);
-//     // db.sql_Request(13);
-//     // db.sql_Request(720);
-//     // db.sql_Request(32);
-//     // db.sql_Request(132);
-//     // db.sql_Request(332);
-//     // db.sql_Request(632);
-//     // db.sql_Request(152);
-//     // db.sql_Request(432);
-//     // db.sql_Request(313);
-//     // db.sql_Request(413);
-//     // db.sql_Request(713);
-//     // db.sql_Request(113);
 // }
 
 
