@@ -1,121 +1,93 @@
-                                                                                                                                                                                                         
                                                                                                                                                                                                         
-<<<<<<< HEAD
-420  0    3    "Van Impe, Miss. Catharina"                                                               female    10        0    2    345773              24.15                                   S    
-421  0    3    "Gheorgheff, Mr. Stanio"                                                                  male                0    0    349254              7.8958                                  C    
-422  0    3    "Charters, Mr. David"                                                                     male      21        0    0    A/5. 13032          7.7333                                  Q    
-423  0    3    "Zimmerman, Mr. Leo"                                                                      male      29        0    0    315082              7.875                                   S    
-424  0    3    "Danbom, Mrs. Ernst Gilbert (Anna Sigrid Maria Brogren)"                                  female    28        1    1    347080              14.4                                    S    
-425  0    3    "Rosblom, Mr. Viktor Richard"                                                             male      18        1    1    370129              20.2125                                 S    
-426  0    3    "Wiseman, Mr. Phillippe"                                                                  male                0    0    A/4. 34244          7.25                                    S    
-427  1    2    "Clarke, Mrs. Charles V (Ada Maria Winfield)"                                             female    28        1    0    2003                26                                      S    
-428  1    2    "Phillips, Miss. Kate Florence (""Mrs Kate Louise Phillips Marshall"")"                   female    19        0    0    250655              26                                      S    
-429  0    3    "Flynn, Mr. James"                                                                        male                0    0    364851              7.75                                    Q    
-430  1    3    "Pickard, Mr. Berk (Berk Trembisky)"                                                      male      32        0    0    SOTON/O.Q. 392078   8.05                E10                 S    
-431  1    1    "Bjornstrom-Steffansson, Mr. Mauritz Hakan"                                               male      28        0    0    110564              26.55               C52                 S    
-432  1    3    "Thorneycroft, Mrs. Percival (Florence Kate White)"                                       female              1    0    376564              16.1                                    S    
-433  1    2    "Louch, Mrs. Charles Alexander (Alice Adelaide Slow)"                                     female    42        1    0    SC/AH 3085          26                                      S    
-434  0    3    "Kallio, Mr. Nikolai Erland"                                                              male      17        0    0    STON/O 2. 3101274   7.125                                   S    
-435  0    1    "Silvey, Mr. William Baird"                                                               male      50        1    0    13507               55.9                E44                 S    
-436  1    1    "Carter, Miss. Lucile Polk"                                                               female    14        1    2    113760              120                 B96 B98             S    
-437  0    3    "Ford, Miss. Doolina Margaret ""Daisy"""                                                  female    21        2    2    W./C. 6608          34.375                                  S    
-438  1    2    "Richards, Mrs. Sidney (Emily Hocking)"                                                   female    24        2    3    29106               18.75                                   S    
-439  0    1    "Fortune, Mr. Mark"                                                                       male      64        1    4    19950               263                 C23 C25 C27         S    
-440  0    2    "Kvillner, Mr. Johan Henrik Johannesson"                                                  male      31        0    0    C.A. 18723          10.5                                    S    
-441  1    2    "Hart, Mrs. Benjamin (Esther Ada Bloomfield)"                                             female    45        1    1    F.C.C. 13529        26.25                                   S    
-442  0    3    "Hampe, Mr. Leon"                                                                         male      20        0    0    345769              9.5                                     S    
-443  0    3    "Petterson, Mr. Johan Emil"                                                               male      25        1    0    347076              7.775                                   S    
-444  1    2    "Reynaldo, Ms. Encarnacion"                                                               female    28        0    0    230434              13                                      S    
-445  1    3    "Johannesen-Bratthammer, Mr. Bernt"                                                       male                0    0    65306               8.1125                                  S    
-446  1    1    "Dodge, Master. Washington"                                                               male      4         0    2    33638               81.8583             A34                 S    
-447  1    2    "Mellinger, Miss. Madeleine Violet"                                                       female    13        0    1    250644              19.5                                    S    
-448  1    1    "Seward, Mr. Frederic Kimber"                                                             male      34        0    0    113794              26.55                                   S    
-449  1    3    "Baclini, Miss. Marie Catherine"                                                          female    5         2    1    2666                19.2583                                 C    
-450  1    1    "Peuchen, Major. Arthur Godfrey"                                                          male      52        0    0    113786              30.5                C104                S    
-451  0    2    "West, Mr. Edwy Arthur"                                                                   male      36        1    2    C.A. 34651          27.75                                   S    
-452  0    3    "Hagland, Mr. Ingvald Olai Olsen"                                                         male                1    0    65303               19.9667                                 S    
-453  0    1    "Foreman, Mr. Benjamin Laventall"                                                         male      30        0    0    113051              27.75               C111                C    
-454  1    1    "Goldenberg, Mr. Samuel L"                                                                male      49        1    0    17453               89.1042             C92                 C    
-455  0    3    "Peduzzi, Mr. Joseph"                                                                     male                0    0    A/5 2817            8.05                                    S    
-456  1    3    "Jalsevac, Mr. Ivan"                                                                      male      29        0    0    349240              7.8958                                  C    
-457  0    1    "Millet, Mr. Francis Davis"                                                               male      65        0    0    13509               26.55               E38                 S    
-458  1    1    "Kenyon, Mrs. Frederick R (Marion)"                                                       female              1    0    17464               51.8625             D21                 S    
-459  1    2    "Toomey, Miss. Ellen"                                                                     female    50        0    0    F.C.C. 13531        10.5                                    S    
-460  0    3    "O'Connor, Mr. Maurice"                                                                   male                0    0    371060              7.75                                    Q    
-461  1    1    "Anderson, Mr. Harry"                                                                     male      48        0    0    19952               26.55               E12                 S    
-462  0    3    "Morley, Mr. William"                                                                     male      34        0    0    364506              8.05                                    S    
-463  0    1    "Gee, Mr. Arthur H"                                                                       male      47        0    0    111320              38.5                E63                 S    
-464  0    2    "Milling, Mr. Jacob Christian"                                                            male      48        0    0    234360              13                                      S    
-465  0    3    "Maisner, Mr. Simon"                                                                      male                0    0    A/S 2816            8.05                                    S    
-466  0    3    "Goncalves, Mr. Manuel Estanslas"                                                         male      38        0    0    SOTON/O.Q. 3101306  7.05                                    S    
-467  0    2    "Campbell, Mr. William"                                                                   male                0    0    239853              0                                       S    
-468  0    1    "Smart, Mr. John Montgomery"                                                              male      56        0    0    113792              26.55                                   S    
-469  0    3    "Scanlan, Mr. James"                                                                      male                0    0    36209               7.725                                   Q    
-470  1    3    "Baclini, Miss. Helene Barbara"                                                           female    0.75      2    1    2666                19.2583                                 C    
-471  0    3    "Keefe, Mr. Arthur"                                                                       male                0    0    323592              7.25                                    S    
-472  0    3    "Cacic, Mr. Luka"                                                                         male      38        0    0    315089              8.6625                                  S    
-473  1    2    "West, Mrs. Edwy Arthur (Ada Mary Worth)"                                                 female    33        1    2    C.A. 34651          27.75                                   S    
-474  1    2    "Jerwan, Mrs. Amin S (Marie Marthe Thuillard)"                                            female    23        0    0    SC/AH Basle 541     13.7917             D                   C    
-475  0    3    "Strandberg, Miss. Ida Sofia"                                                             female    22        0    0    7553                9.8375                                  S    
-476  0    1    "Clifford, Mr. George Quincy"                                                             male                0    0    110465              52                  A14                 S    
-477  0    2    "Renouf, Mr. Peter Henry"                                                                 male      34        1    0    31027               21                                      S    
-478  0    3    "Braund, Mr. Lewis Richard"                                                               male      29        1    0    3460                7.0458                                  S    
-479  0    3    "Karlsson, Mr. Nils August"                                                               male      22        0    0    350060              7.5208                                  S    
-=======
-1    0    3    "Braund, Mr. Owen Harris"                                                                 male      22        1    0    A/5 21171           7.25                                    S    
-2    1    1    "Cumings, Mrs. John Bradley (Florence Briggs Thayer)"                                     female    38        1    0    PC 17599            71.2833             C85                 C    
-3    1    3    "Heikkinen, Miss. Laina"                                                                  female    26        0    0    STON/O2. 3101282    7.925                                   S    
-4    1    1    "Futrelle, Mrs. Jacques Heath (Lily May Peel)"                                            female    35        1    0    113803              53.1                C123                S    
-5    0    3    "Allen, Mr. William Henry"                                                                male      35        0    0    373450              8.05                                    S    
-6    0    3    "Moran, Mr. James"                                                                        male                0    0    330877              8.4583                                  Q    
-7    0    1    "McCarthy, Mr. Timothy J"                                                                 male      54        0    0    17463               51.8625             E46                 S    
-8    0    3    "Palsson, Master. Gosta Leonard"                                                          male      2         3    1    349909              21.075                                  S    
-9    1    3    "Johnson, Mrs. Oscar W (Elisabeth Vilhelmina Berg)"                                       female    27        0    2    347742              11.1333                                 S    
-10   1    2    "Nasser, Mrs. Nicholas (Adele Achem)"                                                     female    14        1    0    237736              30.0708                                 C    
-14                                                                                                                                                                                                      
-12   1    1    "Bonnell, Miss. Elizabeth"                                                                female    58        0    0    113783              26.55               C103                S    
-                                                                                                                                                                                                        
-14   0    3    "Andersson, Mr. Anders Johan"                                                             male      39        1    5    347082              31.275                                  S    
-15   0    3    "Vestrom, Miss. Hulda Amanda Adolfina"                                                    female    14        0    0    350406              7.8542                                  S    
-16   1    2    "Hewlett, Mrs. (Mary D Kingcome) "                                                        female    55        0    0    248706              16                                      S    
-17   0    3    "Rice, Master. Eugene"                                                                    male      2         4    1    382652              29.125                                  Q    
-18   1    2    "Williams, Mr. Charles Eugene"                                                            male                0    0    244373              13                                      S    
-19   0    3    "Vander Planke, Mrs. Julius (Emelia Maria Vandemoortele)"                                 female    31        1    0    345763              18                                      S    
-20   1    3    "Masselmani, Mrs. Fatima"                                                                 female              0    0    2649                7.225                                   C    
-21   0    2    "Fynney, Mr. Joseph J"                                                                    male      35        0    0    239865              26                                      S    
-22   1    2    "Beesley, Mr. Lawrence"                                                                   male      34        0    0    248698              13                  D56                 S    
-23   1    3    "McGowan, Miss. Anna ""Annie"""                                                           female    15        0    0    330923              8.0292                                  Q    
-24   1    1    "Sloper, Mr. William Thompson"                                                            male      28        0    0    113788              35.5                A6                  S    
-25   0    3    "Palsson, Miss. Torborg Danira"                                                           female    8         3    1    349909              21.075                                  S    
-26   1    3    "Asplund, Mrs. Carl Oscar (Selma Augusta Emilia Johansson)"                               female    38        1    5    347077              31.3875                                 S    
-27   0    3    "Emir, Mr. Farred Chehab"                                                                 male                0    0    2631                7.225                                   C    
-28   0    1    "Fortune, Mr. Charles Alexander"                                                          male      19        3    2    19950               263                 C23 C25 C27         S    
-29   1    3    "O'Dwyer, Miss. Ellen ""Nellie"""                                                         female              0    0    330959              7.8792                                  Q    
-30   0    3    "Todoroff, Mr. Lalio"                                                                     male                0    0    349216              7.8958                                  S    
-31   0    1    "Uruchurtu, Don. Manuel E"                                                                male      40        0    0    PC 17601            27.7208                                 C    
-32   1    1    "Spencer, Mrs. William Augustus (Marie Eugenie)"                                          female              1    0    PC 17569            146.5208            B78                 C    
-33   1    3    "Glynn, Miss. Mary Agatha"                                                                female              0    0    335677              7.75                                    Q    
-34   0    2    "Wheadon, Mr. Edward H"                                                                   male      66        0    0    C.A. 24579          10.5                                    S    
-35   0    1    "Meyer, Mr. Edgar Joseph"                                                                 male      28        1    0    PC 17604            82.1708                                 C    
-36   0    1    "Holverson, Mr. Alexander Oskar"                                                          male      42        1    0    113789              52                                      S    
-37   1    3    "Mamee, Mr. Hanna"                                                                        male                0    0    2677                7.2292                                  C    
-38   0    3    "Cann, Mr. Ernest Charles"                                                                male      21        0    0    A./5. 2152          8.05                                    S    
-39   0    3    "Vander Planke, Miss. Augusta Maria"                                                      female    18        2    0    345764              18                                      S    
-40   1    3    "Nicola-Yarred, Miss. Jamila"                                                             female    14        1    0    2651                11.2417                                 C    
-41   0    3    "Ahlin, Mrs. Johan (Johanna Persdotter Larsson)"                                          female    40        1    0    7546                9.475                                   S    
-42   0    2    "Turpin, Mrs. William John Robert (Dorothy Ann Wonnacott)"                                female    27        1    0    11668               21                                      S    
-43   0    3    "Kraeff, Mr. Theodor"                                                                     male                0    0    349253              7.8958                                  C    
-44   1    2    "Laroche, Miss. Simonne Marie Anne Andree"                                                female    3         1    2    SC/Paris 2123       41.5792                                 C    
-45   1    3    "Devaney, Miss. Margaret Delia"                                                           female    19        0    0    330958              7.8792                                  Q    
-46   0    3    "Rogers, Mr. William John"                                                                male                0    0    S.C./A.4. 23567     8.05                                    S    
-47   0    3    "Lennon, Mr. Denis"                                                                       male                1    0    370371              15.5                                    Q    
-48   1    3    "O'Driscoll, Miss. Bridget"                                                               female              0    0    14311               7.75                                    Q    
-49   0    3    "Samaan, Mr. Youssef"                                                                     male                2    0    2662                21.6792                                 C    
-50   0    3    "Arnold-Franchi, Mrs. Josef (Josefine Franchi)"                                           female    18        1    0    349237              17.8                                    S    
-51   0    3    "Panula, Master. Juha Niilo"                                                              male      7         4    1    3101295             39.6875                                 S    
-52   0    3    "Nosworthy, Mr. Richard Cater"                                                            male      21        0    0    A/4. 39886          7.8                                     S    
-53   1    1    "Harper, Mrs. Henry Sleeper (Myna Haxtun)"                                                female    49        1    0    PC 17572            76.7292             D33                 C    
-54   1    2    "Faunthorpe, Mrs. Lizzie (Elizabeth Anne Wilkinson)"                                      female    29        1    0    2926                26                                      S    
-55   0    1    "Ostby, Mr. Engelhart Cornelius"                                                          male      65        0    1    113509              61.9792             B30                 C    
-56   1    1    "Woolner, Mr. Hugh"                                                                       male                0    0    19947               35.5                C52                 S    
->>>>>>> d3fb8cf39a39dd76069a952ff9796a8c3d159fd8
+800  0    3    "Van Impe, Mrs. Jean Baptiste (Rosalie Paula Govaert)"                                    female    30        1    1    345773              24.15                                   S    
+801  0    2    "Ponesell, Mr. Martin"                                                                    male      34        0    0    250647              13                                      S    
+802  1    2    "Collyer, Mrs. Harvey (Charlotte Annie Tate)"                                             female    31        1    1    C.A. 31921          26.25                                   S    
+803  1    1    "Carter, Master. William Thornton II"                                                     male      11        1    2    113760              120                 B96 B98             S    
+804  1    3    "Thomas, Master. Assad Alexander"                                                         male      0.42      0    1    2625                8.5167                                  C    
+805  1    3    "Hedman, Mr. Oskar Arvid"                                                                 male      27        0    0    347089              6.975                                   S    
+806  0    3    "Johansson, Mr. Karl Johan"                                                               male      31        0    0    347063              7.775                                   S    
+807  0    1    "Andrews, Mr. Thomas Jr"                                                                  male      39        0    0    112050              0                   A36                 S    
+808  0    3    "Pettersson, Miss. Ellen Natalia"                                                         female    18        0    0    347087              7.775                                   S    
+809  0    2    "Meyer, Mr. August"                                                                       male      39        0    0    248723              13                                      S    
+810  1    1    "Chambers, Mrs. Norman Campbell (Bertha Griggs)"                                          female    33        1    0    113806              53.1                E8                  S    
+811  0    3    "Alexander, Mr. William"                                                                  male      26        0    0    3474                7.8875                                  S    
+812  0    3    "Lester, Mr. James"                                                                       male      39        0    0    A/4 48871           24.15                                   S    
+813  0    2    "Slemen, Mr. Richard James"                                                               male      35        0    0    28206               10.5                                    S    
+814  0    3    "Andersson, Miss. Ebba Iris Alfrida"                                                      female    6         4    2    347082              31.275                                  S    
+815  0    3    "Tomlin, Mr. Ernest Portage"                                                              male      30.5      0    0    364499              8.05                                    S    
+816  0    1    "Fry, Mr. Richard"                                                                        male                0    0    112058              0                   B102                S    
+817  0    3    "Heininen, Miss. Wendla Maria"                                                            female    23        0    0    STON/O2. 3101290    7.925                                   S    
+818  0    2    "Mallet, Mr. Albert"                                                                      male      31        1    1    S.C./PARIS 2079     37.0042                                 C    
+819  0    3    "Holm, Mr. John Fredrik Alexander"                                                        male      43        0    0    C 7075              6.45                                    S    
+820  0    3    "Skoog, Master. Karl Thorsten"                                                            male      10        3    2    347088              27.9                                    S    
+821  1    1    "Hays, Mrs. Charles Melville (Clara Jennings Gregg)"                                      female    52        1    1    12749               93.5                B69                 S    
+822  1    3    "Lulic, Mr. Nikola"                                                                       male      27        0    0    315098              8.6625                                  S    
+823  0    1    "Reuchlin, Jonkheer. John George"                                                         male      38        0    0    19972               0                                       S    
+824  1    3    "Moor, Mrs. (Beila)"                                                                      female    27        0    1    392096              12.475              E121                S    
+825  0    3    "Panula, Master. Urho Abraham"                                                            male      2         4    1    3101295             39.6875                                 S    
+826  0    3    "Flynn, Mr. John"                                                                         male                0    0    368323              6.95                                    Q    
+827  0    3    "Lam, Mr. Len"                                                                            male                0    0    1601                56.4958                                 S    
+828  1    2    "Mallet, Master. Andre"                                                                   male      1         0    2    S.C./PARIS 2079     37.0042                                 C    
+829  1    3    "McCormack, Mr. Thomas Joseph"                                                            male                0    0    367228              7.75                                    Q    
+830  1    1    "Stone, Mrs. George Nelson (Martha Evelyn)"                                               female    62        0    0    113572              80                  B28                      
+831  1    3    "Yasbeck, Mrs. Antoni (Selini Alexander)"                                                 female    15        1    0    2659                14.4542                                 C    
+832  1    2    "Richards, Master. George Sibley"                                                         male      0.83      1    1    29106               18.75                                   S    
+833  0    3    "Saad, Mr. Amin"                                                                          male                0    0    2671                7.2292                                  C    
+834  0    3    "Augustsson, Mr. Albert"                                                                  male      23        0    0    347468              7.8542                                  S    
+835  0    3    "Allum, Mr. Owen George"                                                                  male      18        0    0    2223                8.3                                     S    
+836  1    1    "Compton, Miss. Sara Rebecca"                                                             female    39        1    1    PC 17756            83.1583             E49                 C    
+837  0    3    "Pasic, Mr. Jakob"                                                                        male      21        0    0    315097              8.6625                                  S    
+838  0    3    "Sirota, Mr. Maurice"                                                                     male                0    0    392092              8.05                                    S    
+839  1    3    "Chip, Mr. Chang"                                                                         male      32        0    0    1601                56.4958                                 S    
+840  1    1    "Marechal, Mr. Pierre"                                                                    male                0    0    11774               29.7                C47                 C    
+841  0    3    "Alhomaki, Mr. Ilmari Rudolf"                                                             male      20        0    0    SOTON/O2 3101287    7.925                                   S    
+842  0    2    "Mudd, Mr. Thomas Charles"                                                                male      16        0    0    S.O./P.P. 3         10.5                                    S    
+843  1    1    "Serepeca, Miss. Augusta"                                                                 female    30        0    0    113798              31                                      C    
+844  0    3    "Lemberopolous, Mr. Peter L"                                                              male      34.5      0    0    2683                6.4375                                  C    
+845  0    3    "Culumovic, Mr. Jeso"                                                                     male      17        0    0    315090              8.6625                                  S    
+846  0    3    "Abbing, Mr. Anthony"                                                                     male      42        0    0    C.A. 5547           7.55                                    S    
+847  0    3    "Sage, Mr. Douglas Bullen"                                                                male                8    2    CA. 2343            69.55                                   S    
+848  0    3    "Markoff, Mr. Marin"                                                                      male      35        0    0    349213              7.8958                                  C    
+849  0    2    "Harper, Rev. John"                                                                       male      28        0    1    248727              33                                      S    
+850  1    1    "Goldenberg, Mrs. Samuel L (Edwiga Grabowska)"                                            female              1    0    17453               89.1042             C92                 C    
+851  0    3    "Andersson, Master. Sigvard Harald Elias"                                                 male      4         4    2    347082              31.275                                  S    
+852  0    3    "Svensson, Mr. Johan"                                                                     male      74        0    0    347060              7.775                                   S    
+853  0    3    "Boulos, Miss. Nourelain"                                                                 female    9         1    1    2678                15.2458                                 C    
+854  1    1    "Lines, Miss. Mary Conover"                                                               female    16        0    1    PC 17592            39.4                D28                 S    
+855  0    2    "Carter, Mrs. Ernest Courtenay (Lilian Hughes)"                                           female    44        1    0    244252              26                                      S    
+856  1    3    "Aks, Mrs. Sam (Leah Rosen)"                                                              female    18        0    1    392091              9.35                                    S    
+857  1    1    "Wick, Mrs. George Dennick (Mary Hitchcock)"                                              female    45        1    1    36928               164.8667                                S    
+858  1    1    "Daly, Mr. Peter Denis "                                                                  male      51        0    0    113055              26.55               E17                 S    
+859  1    3    "Baclini, Mrs. Solomon (Latifa Qurban)"                                                   female    24        0    3    2666                19.2583                                 C    
+860  0    3    "Razi, Mr. Raihed"                                                                        male                0    0    2629                7.2292                                  C    
+861  0    3    "Hansen, Mr. Claus Peter"                                                                 male      41        2    0    350026              14.1083                                 S    
+862  0    2    "Giles, Mr. Frederick Edward"                                                             male      21        1    0    28134               11.5                                    S    
+863  1    1    "Swift, Mrs. Frederick Joel (Margaret Welles Barron)"                                     female    48        0    0    17466               25.9292             D17                 S    
+864  0    3    "Sage, Miss. Dorothy Edith ""Dolly"""                                                     female              8    2    CA. 2343            69.55                                   S    
+865  0    2    "Gill, Mr. John William"                                                                  male      24        0    0    233866              13                                      S    
+866  1    2    "Bystrom, Mrs. (Karolina)"                                                                female    42        0    0    236852              13                                      S    
+867  1    2    "Duran y More, Miss. Asuncion"                                                            female    27        1    0    SC/PARIS 2149       13.8583                                 C    
+868  0    1    "Roebling, Mr. Washington Augustus II"                                                    male      31        0    0    PC 17590            50.4958             A24                 S    
+869  0    3    "van Melkebeke, Mr. Philemon"                                                             male                0    0    345777              9.5                                     S    
+870  1    3    "Johnson, Master. Harold Theodor"                                                         male      4         1    1    347742              11.1333                                 S    
+871  0    3    "Balkic, Mr. Cerin"                                                                       male      26        0    0    349248              7.8958                                  S    
+872  1    1    "Beckwith, Mrs. Richard Leonard (Sallie Monypeny)"                                        female    47        1    1    11751               52.5542             D35                 S    
+873  0    1    "Carlsson, Mr. Frans Olof"                                                                male      33        0    0    695                 5                   B51 B53 B55         S    
+874  0    3    "Vander Cruyssen, Mr. Victor"                                                             male      47        0    0    345765              9                                       S    
+875  1    2    "Abelson, Mrs. Samuel (Hannah Wizosky)"                                                   female    28        1    0    P/PP 3381           24                                      C    
+876  1    3    "Najib, Miss. Adele Kiamie ""Jane"""                                                      female    15        0    0    2667                7.225                                   C    
+877  0    3    "Gustafsson, Mr. Alfred Ossian"                                                           male      20        0    0    7534                9.8458                                  S    
+878  0    3    "Petroff, Mr. Nedelio"                                                                    male      19        0    0    349212              7.8958                                  S    
+879  0    3    "Laleff, Mr. Kristo"                                                                      male                0    0    349217              7.8958                                  S    
+880  1    1    "Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)"                                           female    56        0    1    11767               83.1583             C50                 C    
+881  1    2    "Shelley, Mrs. William (Imanita Parrish Hall)"                                            female    25        0    1    230433              26                                      S    
+882  0    3    "Markun, Mr. Johann"                                                                      male      33        0    0    349257              7.8958                                  S    
+883  0    3    "Dahlberg, Miss. Gerda Ulrika"                                                            female    22        0    0    7552                10.5167                                 S    
+884  0    2    "Banfield, Mr. Frederick James"                                                           male      28        0    0    C.A./SOTON 34068    10.5                                    S    
+885  0    3    "Sutehall, Mr. Henry Jr"                                                                  male      25        0    0    SOTON/OQ 392076     7.05                                    S    
+886  0    3    "Rice, Mrs. William (Margaret Norton)"                                                    female    39        0    5    382652              29.125                                  Q    
+887  0    2    "Montvila, Rev. Juozas"                                                                   male      27        0    0    211536              13                                      S    
+888  1    1    "Graham, Miss. Margaret Edith"                                                            female    19        0    0    112053              30                  B42                 S    
+889  0    3    "Johnston, Miss. Catherine Helen ""Carrie"""                                              female              1    2    W./C. 6607          23.45                                   S    
+890  1    1    "Behr, Mr. Karl Howell"                                                                   male      26        0    0    111369              30                  C148                C    
+891  0    3    "Dooley, Mr. Patrick"                                                                     male      32        0    0    370376              7.75                                    Q    
