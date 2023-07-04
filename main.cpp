@@ -1008,7 +1008,7 @@ class Disk_Manager
                 }
                 
             }
-            archivo2<<header<<endl;
+            //archivo2<<header<<endl;
             char c;
             int capacidad = 2;
             int j = 0;
@@ -1031,7 +1031,7 @@ class Disk_Manager
                                 strcat(palabra," ");
                             }
                         
-                            archivo2<<std::string(palabra);
+                            //archivo2<<std::string(palabra);
                             aux++;
                             word="";
                             delete [] palabra;
@@ -1047,7 +1047,7 @@ class Disk_Manager
                         }
                         h++;
                     }
-                    archivo2<<endl;
+                    //archivo2<<endl;
                     capacidad = 2;
                     j = 0;
                     delete[] arreglo;
@@ -1867,7 +1867,7 @@ class Frame
             }
             size_t pos_inicio;
 
-            cout<<"Iniiisss: "<<inicio<<endl;
+            // cout<<"Iniiisss: "<<inicio<<endl;
             while (temp)
             {
                 string aux;
@@ -1899,10 +1899,9 @@ class Frame
                 }
             }
             header+='\n';
-            cout<<"\tInico Antes del reemplazar: "<<inicio<<endl;
-            cout<<"\tHEADER ANTES DEL: "<<header<<endl;
-            //archivo2.write(header.c_str(),header.length());
-            cout<<"NOMBRE FILE: "<<nameFile<<endl;
+
+            // //archivo2.write(header.c_str(),header.length());
+            // cout<<"NOMBRE FILE: "<<nameFile<<endl;
             reemplazar_DiksFile(nameFile,inicio,header);
             
             
@@ -1975,8 +1974,7 @@ class Frame
             string linea;
             fstream archivo("files/"+nameFile+".txt");
             getline(archivo, linea);
-            
-            cout<<"\n\n\n\n\n: LINEAADDADADAF"<<linea<<endl;
+
             linea.erase(remove(linea.begin(), linea.end(), ' '), linea.end());
             int inicio =0;
             if(linea.size() > 0)
@@ -2425,7 +2423,6 @@ class DATABASE
             {
                 if(DM->nPages[i])
                 {
-                    cout<<"noMBRE: "<<DM->disk->getNameTable()<<endl;
                     if(BM->addPage(i, recordNum, DM->nPages[i]->ptrPosition, DM->disk->getNameTable(), DM))
                     {                        
                         band=false;
@@ -2644,22 +2641,23 @@ void menu_opciones(Disk *ptrDisco, Disk_Manager *directorios, DATABASE * ptrDB)
 //     bool fifi = false;
 //     directorios.typeOfSave_Files("LF",nameTable.c_str(),"scheme",fifi);
 
-//     //directorios.generatePages();
+//     directorios.generatePages();
+
 //     cout<<"\tDatos subidos con exito al disco"<<endl;
 
 
 //     // make a request: queiro registro 20
 //     DATABASE db(&directorios,&buffer);
 //     db.sql_Request(23);
-//     // db.sql_Request_Delete(203);
-//     // db.sql_Request_Delete(213);
-//     // db.sql_Request_Delete(713);
-//     // db.sql_Request(561);
-//     // db.sql_Request(13);
-//     // db.sql_Request(20);
-//     // db.sql_Request(432);
-//     // db.sql_Request(700);
-//     // db.sql_Request(215);
+//     db.sql_Request_Delete(203);
+//     db.sql_Request_Delete(213);
+//     db.sql_Request_Delete(713);
+//     db.sql_Request(561);
+//     db.sql_Request(13);
+//     db.sql_Request(20);
+//     db.sql_Request(432);
+//     db.sql_Request(700);
+//     db.sql_Request(215);
 //     // db.sql_Request_Delete(310);
 //     // db.sql_Request(561);
 //     // db.sql_Request(13);
@@ -2755,11 +2753,6 @@ int main()
         BufferManager buffer(num_frames);
         DATABASE db(&directorios,&buffer);
         menu_opciones(&disco,&directorios,&db);
-        
-    
-
-    
-   
 
     
     return 0;
