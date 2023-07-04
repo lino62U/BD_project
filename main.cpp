@@ -290,6 +290,7 @@ class Disk
         }
         ~Disk(){}
         Disk(){}
+        int getCapacidadSector(){return memoria_por_sector;}
         void inicilizar_Disco(int register_size, string nameTable)
         {
             
@@ -1311,10 +1312,18 @@ class Disk_Manager
         //     cout<<"\n************************************************************************************\n"<<endl;
         // }
 
+        void getInfoRegistro(int n,string nameTable)
+        {
+            
+            int numSector= disk->getCapacidadSector()/size_register;
+            int num_Sector = n/numSector;
+            print_OneSector(num_Sector);
+        }
         void print_OneRegister(int n, string nameTable)
         {
             
             
+
             fstream archivo("files/"+ nameTable +".txt");
             
             // archivo.seekg(201,ios::beg);
@@ -1350,9 +1359,9 @@ class Disk_Manager
             cout<<A<<endl;
             cout<<"\n\n\t*************************************"<<endl;
             cout<<"\n\tInformation: "<<endl;
-            cout<<"\t1. Size register file \t"<<size_per_register_file<<" bytes"<<endl;
             cout<<"\t2. Size register \t"<<size_register<<" bytes"<<endl;
             cout<<"\t2. Size file \t\t"<<length<<" bytes"<<endl;
+            getInfoRegistro(n,nameTable);
 
             cout<<"\n\n\t*************************************"<<endl;
             cout<<"\n************************************************************************************"<<endl;
